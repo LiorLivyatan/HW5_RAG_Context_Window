@@ -13,18 +13,14 @@ __email__ = "lior@example.com"
 # Expose key components for easier imports
 from context_windows_lab.experiments import (
     BaseExperiment,
+    ExperimentConfig,
     NeedleInHaystackExperiment,
-    ContextSizeExperiment,
-    RAGImpactExperiment,
-    EngineeringStrategiesExperiment,
 )
 
 __all__ = [
     "__version__",
     "__author__",
     "BaseExperiment",
+    "ExperimentConfig",
     "NeedleInHaystackExperiment",
-    "ContextSizeExperiment",
-    "RAGImpactExperiment",
-    "EngineeringStrategiesExperiment",
 ]
