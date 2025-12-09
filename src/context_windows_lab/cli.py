@@ -149,6 +149,54 @@ def run_experiment_1(output_dir: Path, iterations: int) -> bool:
         return False
 
 
+def run_experiment_2(output_dir: Path, iterations: int = 1) -> bool:
+    """
+    Run Experiment 2: Context Size Impact.
+
+    Args:
+        output_dir: Output directory for results
+        iterations: Number of iterations (default: 1 for quick test)
+
+    Returns:
+        True if successful, False otherwise
+    """
+    from context_windows_lab.experiments import ContextSizeExperiment, ExperimentConfig
+
+    logger.info("=" * 60)
+    logger.info("EXPERIMENT 2: Context Size Impact")
+    logger.info("=" * 60)
+
+    exp_output = output_dir / "experiment_2"
+    exp_output.mkdir(parents=True, exist_ok=True)
+
+    config = ExperimentConfig(
+        name="Context Size Impact",
+        iterations=iterations,
+        output_dir=exp_output,
+        save_results=True,
+        generate_visualizations=True,
+    )
+
+    # Create experiment with document counts: 5, 10, 20
+    # (reduced from 5,10,20,50 for faster testing)
+    experiment = ContextSizeExperiment(
+        config=config,
+        document_counts=[5, 10, 20],  # Test different context sizes
+        words_per_document=200,
+    )
+
+    results = experiment.run()
+
+    if results.success:
+        logger.info("✓ Experiment 2 completed successfully")
+        logger.info(f"  Results saved to: {exp_output}")
+        logger.info(f"  Visualizations: {len(results.visualization_paths)}")
+        return True
+    else:
+        logger.error(f"✗ Experiment 2 failed: {results.error}")
+        return False
+
+
 def main():
     """Main CLI entry point."""
     parser = setup_parser()
@@ -176,7 +224,7 @@ def main():
         success = run_experiment_1(args.output_dir, args.iterations) and success
 
     if args.experiment == 2 or args.run_all:
-        logger.warning("Experiment 2 not yet implemented")
+        success = run_experiment_2(args.output_dir, args.iterations) and success
 
     if args.experiment == 3 or args.run_all:
         logger.warning("Experiment 3 not yet implemented")
