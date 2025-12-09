@@ -13,9 +13,9 @@ from context_windows_lab.experiments.exp1_needle_haystack import (
     NeedleInHaystackExperiment,
 )
 from context_windows_lab.experiments.exp2_context_size import ContextSizeExperiment
+from context_windows_lab.experiments.exp3_rag_impact import RAGImpactExperiment
 
-# TODO: Implement remaining experiments
-# from context_windows_lab.experiments.exp3_rag_impact import RAGImpactExperiment
+# TODO: Implement remaining experiment
 # from context_windows_lab.experiments.exp4_engineering_strategies import (
 #     EngineeringStrategiesExperiment,
 # )
@@ -26,4 +26,5 @@ __all__ = [
     "ExperimentResults",
     "NeedleInHaystackExperiment",
     "ContextSizeExperiment",
+    "RAGImpactExperiment",
 ]

@@ -13,6 +13,7 @@ from context_windows_lab.experiments.base_experiment import ExperimentConfig
 from context_windows_lab.experiments.exp1_needle_haystack import (
     NeedleInHaystackExperiment,
 )
+from context_windows_lab.experiments.exp3_rag_impact import RAGImpactExperiment
 from context_windows_lab.llm.ollama_interface import OllamaInterface
 
 # Configure logging
@@ -218,6 +219,56 @@ def run_experiment_2(output_dir: Path, iterations: int = 1, use_multiprocessing:
         return False
 
 
+def run_experiment_3(output_dir: Path, iterations: int = 1, use_multiprocessing: bool = False, max_workers: int = None) -> bool:
+    """
+    Run Experiment 3: RAG Impact.
+
+    Args:
+        output_dir: Output directory for results
+        iterations: Number of iterations (default: 1)
+        use_multiprocessing: Enable multiprocessing for parallel iterations
+        max_workers: Number of worker processes (default: CPU count)
+
+    Returns:
+        True if successful, False otherwise
+    """
+    logger.info("=" * 60)
+    logger.info("EXPERIMENT 3: RAG Impact - Full Context vs RAG")
+    logger.info("=" * 60)
+
+    exp_output = output_dir / "experiment_3"
+    exp_output.mkdir(parents=True, exist_ok=True)
+
+    config = ExperimentConfig(
+        name="RAG Impact",
+        iterations=iterations,
+        output_dir=exp_output,
+        save_results=True,
+        generate_visualizations=True,
+        use_multiprocessing=use_multiprocessing,
+        max_workers=max_workers,
+    )
+
+    # Create experiment with 20 documents, top-3 retrieval
+    experiment = RAGImpactExperiment(
+        config=config,
+        num_documents=20,
+        words_per_document=200,
+        top_k=3,
+    )
+
+    results = experiment.run()
+
+    if results.success:
+        logger.info("✓ Experiment 3 completed successfully")
+        logger.info(f"  Results saved to: {exp_output}")
+        logger.info(f"  Visualizations: {len(results.visualization_paths)}")
+        return True
+    else:
+        logger.error(f"✗ Experiment 3 failed: {results.error}")
+        return False
+
+
 def main():
     """Main CLI entry point."""
     parser = setup_parser()
@@ -248,7 +299,7 @@ def main():
         success = run_experiment_2(args.output_dir, args.iterations, args.multiprocessing, args.workers) and success
 
     if args.experiment == 3 or args.run_all:
-        logger.warning("Experiment 3 not yet implemented")
+        success = run_experiment_3(args.output_dir, args.iterations, args.multiprocessing, args.workers) and success
 
     if args.experiment == 4 or args.run_all:
         logger.warning("Experiment 4 not yet implemented")
