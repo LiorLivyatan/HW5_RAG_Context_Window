@@ -11,6 +11,8 @@ from pathlib import Path
 from typing import Any, Dict, List, Optional
 import logging
 import json
+import multiprocessing
+import os
 
 logger = logging.getLogger(__name__)
 
@@ -24,6 +26,8 @@ class ExperimentConfig:
     iterations: int = 3
     save_results: bool = True
     generate_visualizations: bool = True
+    use_multiprocessing: bool = False
+    max_workers: Optional[int] = None  # None = use CPU count
 
 
 @dataclass
@@ -78,10 +82,17 @@ class BaseExperiment(ABC):
         This method defines the overall experiment flow. Subclasses should
         implement the specific steps (_generate_data, _execute_queries, etc.)
 
+        If config.iterations > 1 and use_multiprocessing=True, runs multiple
+        iterations in parallel using multiprocessing.Pool.
+
         Returns:
             ExperimentResults with all data and visualizations
         """
         logger.info(f"Starting experiment: {self.config.name}")
+
+        # Check if we should run multiple iterations with multiprocessing
+        if self.config.iterations > 1 and self.config.use_multiprocessing:
+            return self._run_parallel_iterations()
 
         try:
             # Step 1: Generate test data
@@ -216,6 +227,103 @@ class BaseExperiment(ABC):
             json.dump(data, f, indent=2, default=str)
 
         logger.info(f"Results saved to {output_file}")
+
+    def _run_parallel_iterations(self) -> ExperimentResults:
+        """
+        Run multiple experiment iterations in parallel using multiprocessing.
+
+        This method uses multiprocessing.Pool to run iterations concurrently,
+        significantly improving performance for CPU-bound experiment operations.
+
+        Returns:
+            ExperimentResults with aggregated data from all iterations
+        """
+        logger.info(
+            f"Running {self.config.iterations} iterations in parallel "
+            f"(max_workers={self.config.max_workers or 'CPU count'})"
+        )
+
+        # Determine number of workers
+        max_workers = self.config.max_workers or multiprocessing.cpu_count()
+
+        # Create a pool of workers
+        with multiprocessing.Pool(processes=max_workers) as pool:
+            # Run iterations in parallel
+            # Note: We pass iteration number to allow different seeds
+            iteration_results = pool.map(
+                self._run_single_iteration,
+                range(self.config.iterations)
+            )
+
+        # Aggregate results from all iterations
+        logger.info("Aggregating results from parallel iterations...")
+
+        all_results = []
+        for iter_result in iteration_results:
+            if iter_result:
+                all_results.extend(iter_result)
+
+        self.results = all_results
+
+        # Analyze aggregated results
+        statistics = self.analyze()
+
+        # Visualize
+        visualization_paths = []
+        if self.config.generate_visualizations:
+            logger.info("Generating visualizations from aggregated results...")
+            visualization_paths = self.visualize()
+
+        # Save
+        if self.config.save_results:
+            logger.info("Saving aggregated results...")
+            self._save_results(statistics)
+
+        logger.info(
+            f"Parallel experiment '{self.config.name}' completed successfully "
+            f"({self.config.iterations} iterations)"
+        )
+
+        return ExperimentResults(
+            experiment_name=self.config.name,
+            config=self.config,
+            raw_results=self.results,
+            statistics=statistics,
+            visualization_paths=visualization_paths,
+            success=True,
+        )
+
+    def _run_single_iteration(self, iteration: int) -> List[Dict[str, Any]]:
+        """
+        Run a single experiment iteration.
+
+        This method is called by multiprocessing workers. It runs one complete
+        experiment iteration and returns the raw results.
+
+        Args:
+            iteration: Iteration number (used for logging and seeding)
+
+        Returns:
+            List of result dictionaries from this iteration
+        """
+        try:
+            logger.info(f"Starting iteration {iteration + 1}/{self.config.iterations}")
+
+            # Generate data
+            data = self._generate_data()
+
+            # Execute queries
+            responses = self._execute_queries(data)
+
+            # Evaluate responses
+            results = self._evaluate_responses(responses)
+
+            logger.info(f"Iteration {iteration + 1} completed successfully")
+            return results
+
+        except Exception as e:
+            logger.error(f"Iteration {iteration + 1} failed: {e}", exc_info=True)
+            return []
 
     def __repr__(self) -> str:
         """String representation of experiment."""

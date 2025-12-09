@@ -74,6 +74,21 @@ def setup_parser() -> argparse.ArgumentParser:
     )
 
     parser.add_argument(
+        "--multiprocessing",
+        "-mp",
+        action="store_true",
+        help="Enable multiprocessing for parallel iterations (faster)",
+    )
+
+    parser.add_argument(
+        "--workers",
+        "-w",
+        type=int,
+        default=None,
+        help="Number of worker processes (default: CPU count)",
+    )
+
+    parser.add_argument(
         "--verbose",
         "-v",
         action="store_true",
@@ -110,13 +125,15 @@ def check_ollama_availability() -> bool:
         return False
 
 
-def run_experiment_1(output_dir: Path, iterations: int) -> bool:
+def run_experiment_1(output_dir: Path, iterations: int, use_multiprocessing: bool = False, max_workers: int = None) -> bool:
     """
     Run Experiment 1: Needle in Haystack.
 
     Args:
         output_dir: Output directory
         iterations: Number of iterations
+        use_multiprocessing: Enable multiprocessing for parallel iterations
+        max_workers: Number of worker processes (default: CPU count)
 
     Returns:
         True if successful, False otherwise
@@ -133,6 +150,8 @@ def run_experiment_1(output_dir: Path, iterations: int) -> bool:
         iterations=iterations,
         save_results=True,
         generate_visualizations=True,
+        use_multiprocessing=use_multiprocessing,
+        max_workers=max_workers,
     )
 
     experiment = NeedleInHaystackExperiment(config=config)
@@ -149,7 +168,7 @@ def run_experiment_1(output_dir: Path, iterations: int) -> bool:
         return False
 
 
-def run_experiment_2(output_dir: Path, iterations: int = 1) -> bool:
+def run_experiment_2(output_dir: Path, iterations: int = 1, use_multiprocessing: bool = False, max_workers: int = None) -> bool:
     """
     Run Experiment 2: Context Size Impact.
 
@@ -175,6 +194,8 @@ def run_experiment_2(output_dir: Path, iterations: int = 1) -> bool:
         output_dir=exp_output,
         save_results=True,
         generate_visualizations=True,
+        use_multiprocessing=use_multiprocessing,
+        max_workers=max_workers,
     )
 
     # Create experiment with document counts: 5, 10, 20
@@ -221,10 +242,10 @@ def main():
     success = True
 
     if args.experiment == 1 or args.run_all:
-        success = run_experiment_1(args.output_dir, args.iterations) and success
+        success = run_experiment_1(args.output_dir, args.iterations, args.multiprocessing, args.workers) and success
 
     if args.experiment == 2 or args.run_all:
-        success = run_experiment_2(args.output_dir, args.iterations) and success
+        success = run_experiment_2(args.output_dir, args.iterations, args.multiprocessing, args.workers) and success
 
     if args.experiment == 3 or args.run_all:
         logger.warning("Experiment 3 not yet implemented")
