@@ -1,0 +1,240 @@
+# Experiment Configurations for Context Windows Lab
+# This file defines parameters for all 4 experiments
+
+# ============================================================================
+# Global Settings (apply to all experiments)
+# ============================================================================
+global:
+  # Number of iterations per experiment for statistical significance
+  iterations: 3
+
+  # Random seed for reproducibility
+  seed: 42
+
+  # Save results after each experiment
+  save_results: true
+
+  # Output directory for results
+  output_dir: "./results"
+
+  # Generate visualizations
+  generate_visualizations: true
+
+  # Visualization DPI (dots per inch)
+  visualization_dpi: 300
+
+# ============================================================================
+# Experiment 1: Needle in Haystack (Lost in the Middle)
+# ============================================================================
+experiment_1:
+  name: "Needle in Haystack"
+  description: "Demonstrate Lost in the Middle phenomenon"
+
+  # Document generation settings
+  num_documents: 5
+  words_per_document: 200
+
+  # Fact positions to test
+  positions:
+    - "start"
+    - "middle"
+    - "end"
+
+  # Critical fact to embed
+  fact: "The CEO of the company is David Cohen."
+
+  # Question to ask
+  question: "Who is the CEO of the company?"
+
+  # Expected answer for evaluation
+  expected_answer: "David Cohen"
+
+  # Number of iterations (override global)
+  iterations: 3
+
+  # Output settings
+  output_subdir: "experiment_1"
+  visualization_filename: "accuracy_by_position.png"
+
+# ============================================================================
+# Experiment 2: Context Window Size Impact
+# ============================================================================
+experiment_2:
+  name: "Context Window Size Impact"
+  description: "Measure performance degradation with increasing context size"
+
+  # Document counts to test
+  document_counts:
+    - 2
+    - 5
+    - 10
+    - 20
+    - 50
+
+  # Document generation settings
+  words_per_document: 200
+
+  # Critical fact to embed
+  fact: "The project deadline is December 15th, 2025."
+
+  # Question to ask
+  question: "When is the project deadline?"
+
+  # Expected answer
+  expected_answer: "December 15th, 2025"
+
+  # Fact position (fixed for this experiment)
+  fact_position: "middle"
+
+  # Metrics to measure
+  metrics:
+    - "accuracy"
+    - "latency"
+    - "tokens_used"
+
+  # Number of iterations per document count
+  iterations: 3
+
+  # Output settings
+  output_subdir: "experiment_2"
+  visualization_files:
+    - "accuracy_vs_size.png"
+    - "latency_vs_size.png"
+    - "tokens_vs_size.png"
+
+# ============================================================================
+# Experiment 3: RAG vs Full Context Comparison
+# ============================================================================
+experiment_3:
+  name: "RAG Impact"
+  description: "Compare retrieval-augmented generation with full context"
+
+  # Document generation settings
+  num_documents: 20
+
+  # Topics for diverse documents
+  topics:
+    - "technology"
+    - "law"
+    - "medicine"
+
+  # Documents per topic
+  documents_per_topic: 7  # 7*3 = 21, will use 20
+
+  # Language for documents
+  language: "hebrew"
+
+  # RAG configuration
+  rag:
+    # Chunk size for document splitting
+    chunk_size: 500
+
+    # Chunk overlap
+    chunk_overlap: 50
+
+    # Number of chunks to retrieve (top-k)
+    top_k: 3
+
+    # Similarity search method
+    search_type: "similarity"  # Options: similarity, mmr
+
+  # Question to ask
+  question: "מהן תופעות הלוואי של התרופה X?"  # "What are the side effects of drug X?"
+
+  # Expected answer pattern (partial match)
+  expected_answer_pattern: "תופעות לוואי"  # "side effects"
+
+  # Comparison modes
+  modes:
+    - "full_context"  # All documents in context
+    - "rag"          # Only retrieved chunks
+
+  # Metrics to compare
+  metrics:
+    - "accuracy"
+    - "latency"
+    - "tokens_used"
+
+  # Number of iterations
+  iterations: 3
+
+  # Output settings
+  output_subdir: "experiment_3"
+  visualization_files:
+    - "rag_comparison.png"
+    - "performance_table.csv"
+
+# ============================================================================
+# Experiment 4: Context Engineering Strategies
+# ============================================================================
+experiment_4:
+  name: "Context Engineering Strategies"
+  description: "Compare different context management strategies"
+
+  # Multi-step agent simulation
+  num_actions: 10
+
+  # Actions per step (generates outputs that accumulate in context)
+  action_types:
+    - "research"
+    - "analysis"
+    - "planning"
+    - "execution"
+
+  # Output size per action (words)
+  output_size_per_action: 100
+
+  # Context management strategies to test
+  strategies:
+    - name: "select"
+      description: "RAG-based retrieval (select relevant history)"
+      config:
+        top_k: 5
+        search_type: "similarity"
+
+    - name: "compress"
+      description: "Automatic summarization of history"
+      config:
+        max_history_tokens: 2000
+        summarization_prompt: "Summarize the key points from the above conversation in 3-4 sentences."
+
+    - name: "write"
+      description: "External memory (scratchpad for key facts)"
+      config:
+        max_scratchpad_items: 10
+        extraction_prompt: "Extract the key facts from the above text as bullet points."
+
+  # Query at each step
+  query_template: "Based on the conversation history, what should we do next?"
+
+  # Metrics to track over steps
+  metrics:
+    - "accuracy"
+    - "latency"
+    - "context_size_tokens"
+
+  # Number of iterations per strategy
+  iterations: 3
+
+  # Output settings
+  output_subdir: "experiment_4"
+  visualization_files:
+    - "strategy_comparison.png"
+    - "accuracy_over_steps.png"
+    - "strategy_performance_table.csv"
+
+# ============================================================================
+# Validation Settings
+# ============================================================================
+validation:
+  # Check Ollama availability before experiments
+  check_ollama: true
+
+  # Minimum free disk space required (MB)
+  min_disk_space_mb: 500
+
+  # Maximum experiment runtime (seconds, 0 = unlimited)
+  max_runtime_per_experiment: 3600  # 1 hour
+
+  # Fail fast on first error or continue
+  fail_fast: false

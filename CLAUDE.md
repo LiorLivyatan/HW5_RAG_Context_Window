@@ -165,4 +165,157 @@ Let's start by you reviewing both files, and initiate the CLAUDE.md file and any
 
 ---
 
+### Session 2: Project Setup & Configuration - 2025-12-09
+
+#### Phase 0 Completion: Documentation
+- ✅ Created comprehensive PRD (REQUIREMENTS.md v1.0)
+- ✅ Created Implementation Plan (IMPLEMENTATION_PLAN.md)
+- ✅ Created C4 Architecture Diagrams (docs/architecture/c4_diagrams.md)
+- ✅ Created UML Diagrams (docs/architecture/uml_diagrams.md)
+- ✅ Created 4 Architecture Decision Records (ADRs):
+  - ADR-001: Use Ollama for Local LLM
+  - ADR-002: Building Blocks Pattern
+  - ADR-003: ChromaDB for Vector Storage
+  - ADR-004: Multiprocessing Strategy
+- ✅ Committed and pushed all documentation to GitHub
+
+#### Phase 1 Completion: Project Setup
+- ✅ Created `pyproject.toml` with all dependencies
+  - Core: ollama, langchain, chromadb
+  - Visualization: matplotlib, seaborn
+  - Testing: pytest, pytest-cov (70%+ coverage target)
+  - Dev tools: black, isort, mypy, pylint
+  - CLI entry point: `context-windows-lab`
+- ✅ Created configuration files:
+  - `.env.example` - Environment variables template
+  - `config/llm_config.yaml` - LLM and embedding settings
+  - `config/experiments.yaml` - All 4 experiments configured
+- ✅ Created `.gitignore` - Excludes .env, .chroma, results, cache
+- ✅ Created complete package structure:
+  ```
+  src/context_windows_lab/
+    ├── __init__.py
+    ├── data_generation/
+    ├── context_management/
+    ├── llm/
+    ├── rag/
+    ├── evaluation/
+    ├── visualization/
+    └── experiments/
+  tests/
+    ├── test_data_generation/
+    ├── test_context_management/
+    ├── test_llm/
+    ├── test_rag/
+    ├── test_evaluation/
+    └── test_experiments/
+  ```
+
+#### AI Tools Used
+- **Claude Code (Sonnet 4.5)** - Continued from Session 1
+- Used planning mode to design implementation strategy
+- Created 15+ architectural diagrams
+- Generated 3,500+ lines of documentation
+- Set up complete Python package structure
+
+#### Key Technical Decisions Made
+1. **Dependency Management**: Using modern `pyproject.toml` (PEP 621)
+2. **Configuration Strategy**: YAML files + .env for flexibility
+3. **Package Structure**: src/ layout (best practice)
+4. **Testing Framework**: pytest with 70%+ coverage requirement
+5. **Code Quality**: Black, isort, mypy, pylint configured
+
+#### Files Created (Session 2)
+**Configuration Files:**
+- `pyproject.toml` (241 lines) - Package definition
+- `.env.example` (73 lines) - Environment template
+- `config/llm_config.yaml` (122 lines) - LLM config
+- `config/experiments.yaml` (302 lines) - Experiment configs
+- `.gitignore` (267 lines) - Git exclusions
+
+**Package Structure:**
+- 8 `__init__.py` files for package modules
+- `.gitkeep` files for empty directories
+- Complete src/ and tests/ structure
+
+#### Session Statistics
+- **Files Created**: 13 configuration and structure files
+- **Lines of Code**: ~1,005 lines (config + init files)
+- **Package Modules**: 7 building blocks + experiments
+- **Dependencies Specified**: 15+ core, 10+ dev, 3+ jupyter
+
+#### Next Steps (Session 3)
+1. Implement core building blocks:
+   - DocumentGenerator
+   - OllamaInterface
+   - AccuracyEvaluator
+   - Visualizer
+2. Implement Experiment 1 (Needle in Haystack)
+3. Write unit tests
+4. Test end-to-end flow
+
+---
+
+## Prompt Engineering Log
+
+### Prompt 2 - Phase 0: Complete Documentation
+**Objective:** Create comprehensive PRD, architecture docs, and ADRs before coding
+
+**Prompt to Claude:**
+```
+Amazing plan! 1. Write it to a .md file so we can track. 2. Before diving into the code,
+set up all PRDs and everything listed under
+'/Users/liorlivyatan/Desktop/Livyatan/MSc CS/LLM Course/HW5/software_submission_guidelines.pdf'
+```
+
+**AI Response:**
+- Created IMPLEMENTATION_PLAN.md (507 lines)
+- Updated REQUIREMENTS.md to v1.0 (428 lines)
+- Created docs/architecture/:
+  - c4_diagrams.md (502 lines) - System Context, Container, Component, Code diagrams
+  - uml_diagrams.md (552 lines) - Class, Sequence, Activity, State diagrams
+  - adrs/001-004 (1,114 lines total) - 4 complete ADRs
+- Added context-windows-lab.pdf to repo
+
+**Outcome:** ✅ Complete documentation suite ready for implementation
+
+---
+
+### Prompt 3 - Phase 1: Project Setup
+**Objective:** Set up Python package structure, dependencies, and configuration
+
+**Prompt to Claude:**
+```
+Amazing! Commit and push to git, and then we can proceed for the next steps.
+[After commit]
+Yes, continue
+```
+
+**AI Response:**
+- Committed documentation with detailed message
+- Pushed to GitHub (commit 9553d27)
+- Created pyproject.toml with all dependencies
+- Created .env.example and YAML configs
+- Created .gitignore
+- Set up complete src/ package structure
+- Created all __init__.py files
+
+**Outcome:** ✅ Complete project setup ready for implementation
+
+---
+
+## Cost Tracking
+
+### Session 2 Token Usage
+- Phase 0 Documentation: ~60,000 tokens
+- Phase 1 Project Setup: ~20,000 tokens
+- **Session Total**: ~80,000 tokens
+
+### Total Project Cost
+- Session 1: ~20,000 tokens
+- Session 2: ~80,000 tokens
+- **Running Total**: ~100,000 tokens
+
+---
+
 *This document will be continuously updated throughout the development process to maintain full transparency of AI assistance.*

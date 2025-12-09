@@ -1,0 +1,110 @@
+# LLM Configuration for Context Windows Lab
+# This file defines LLM and embedding settings for all experiments
+
+# ============================================================================
+# Ollama Configuration
+# ============================================================================
+ollama:
+  # Base URL for Ollama API (local installation)
+  base_url: "http://localhost:11434"
+
+  # Model to use for experiments
+  # Options: llama2, llama3, mistral, etc.
+  model: "llama2"
+
+  # Temperature for generation (0.0 = deterministic, 1.0 = creative)
+  # Use 0.0 for reproducible experiments
+  temperature: 0.0
+
+  # Maximum tokens to generate per response
+  max_tokens: 500
+
+  # Timeout for API requests (seconds)
+  timeout: 60
+
+  # Number of retries on failure
+  max_retries: 3
+
+  # Exponential backoff multiplier
+  retry_backoff: 2.0
+
+# ============================================================================
+# Embedding Configuration
+# ============================================================================
+embeddings:
+  # Embedding model for RAG experiments
+  # Nomic provides high-quality embeddings for semantic search
+  model: "nomic-embed-text"
+
+  # Embedding dimension (768 for nomic-embed-text)
+  dimension: 768
+
+  # Batch size for embedding generation
+  batch_size: 32
+
+  # Normalize embeddings (recommended for cosine similarity)
+  normalize: true
+
+# ============================================================================
+# Token Counting Configuration
+# ============================================================================
+tokenizer:
+  # Tokenizer to use for counting tokens
+  # Options: "tiktoken", "approximation"
+  method: "tiktoken"
+
+  # Model for tiktoken (use closest match to llama2)
+  tiktoken_model: "gpt-3.5-turbo"
+
+  # Approximation: ~4 characters per token
+  chars_per_token: 4
+
+# ============================================================================
+# Context Management
+# ============================================================================
+context:
+  # Maximum context window size (tokens)
+  # llama2 supports ~4096 tokens
+  max_context_tokens: 4000
+
+  # Reserve tokens for response generation
+  reserve_tokens: 500
+
+  # Truncation strategy if context exceeds max
+  # Options: "head", "tail", "middle"
+  truncation: "tail"
+
+# ============================================================================
+# Caching Configuration
+# ============================================================================
+cache:
+  # Enable caching of LLM responses
+  enabled: true
+
+  # Cache directory
+  directory: ".cache/llm_responses"
+
+  # Cache TTL (time to live) in seconds
+  # null = cache never expires
+  ttl: null
+
+  # Maximum cache size (MB)
+  max_size_mb: 100
+
+# ============================================================================
+# Performance Monitoring
+# ============================================================================
+monitoring:
+  # Track latency for all LLM calls
+  track_latency: true
+
+  # Track token usage for all LLM calls
+  track_tokens: true
+
+  # Log slow queries (threshold in seconds)
+  log_slow_queries: true
+  slow_query_threshold: 5.0
+
+  # Export metrics to file
+  export_metrics: true
+  metrics_file: "results/metrics.json"
