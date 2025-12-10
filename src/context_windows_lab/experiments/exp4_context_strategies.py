@@ -74,7 +74,7 @@ class ContextStrategiesExperiment(BaseExperiment):
         self.top_k = top_k
         self.max_summary_words = max_summary_words
 
-        # Default facts, questions, and answers for multi-step scenario
+        # Default facts, questions, and answers for multi-step scenario (10 steps)
         if facts is None:
             self.facts = [
                 "The project budget is $2.5 million for Q1 2025.",
@@ -82,6 +82,11 @@ class ContextStrategiesExperiment(BaseExperiment):
                 "The launch date is scheduled for March 15th, 2025.",
                 "The customer satisfaction rate is currently 94%.",
                 "The monthly active users increased to 150,000.",
+                "The technical stack uses React, Node.js, and PostgreSQL.",
+                "The average response time is 120 milliseconds.",
+                "The market share increased to 23% this quarter.",
+                "The code coverage is maintained at 85%.",
+                "The next major feature release is Q2 2025.",
             ]
         else:
             self.facts = facts
@@ -93,6 +98,11 @@ class ContextStrategiesExperiment(BaseExperiment):
                 "When is the launch date?",
                 "What is the customer satisfaction rate?",
                 "How many monthly active users are there?",
+                "What is the technical stack?",
+                "What is the average response time?",
+                "What is the current market share?",
+                "What is the code coverage percentage?",
+                "When is the next major feature release?",
             ]
         else:
             self.questions = questions
@@ -104,6 +114,11 @@ class ContextStrategiesExperiment(BaseExperiment):
                 "March 15th, 2025",
                 "94%",
                 "150,000",
+                "React, Node.js, and PostgreSQL",
+                "120 milliseconds",
+                "23%",
+                "85%",
+                "Q2 2025",
             ]
         else:
             self.expected_answers = expected_answers

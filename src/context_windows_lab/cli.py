@@ -199,11 +199,11 @@ def run_experiment_2(output_dir: Path, iterations: int = 1, use_multiprocessing:
         max_workers=max_workers,
     )
 
-    # Create experiment with document counts: 5, 10, 20
-    # (reduced from 5,10,20,50 for faster testing)
+    # Create experiment with document counts: 2, 5, 10, 20, 50
+    # Tests how accuracy degrades as context window size increases
     experiment = ContextSizeExperiment(
         config=config,
-        document_counts=[5, 10, 20],  # Test different context sizes
+        document_counts=[2, 5, 10, 20, 50],  # Test different context sizes
         words_per_document=200,
     )
 
@@ -304,13 +304,13 @@ def run_experiment_4(output_dir: Path, iterations: int = 1, use_multiprocessing:
         max_workers=max_workers,
     )
 
-    # Create experiment with 20 documents, 5 steps
+    # Create experiment with 20 documents, 10 steps
     # Tests SELECT (RAG), COMPRESS (summarization), WRITE (scratchpad)
     experiment = ContextStrategiesExperiment(
         config=config,
         num_documents=20,
         words_per_document=200,
-        num_steps=5,
+        num_steps=10,  # Multi-step agent simulation
         top_k=3,
         max_summary_words=200,
     )
