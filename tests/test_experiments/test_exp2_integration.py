@@ -42,11 +42,13 @@ class MockOllamaInterface:
 
         # Always return correct answer (fact is embedded)
         return LLMResponse(
-            text="42",  # The magic number
-            success=True,
-            error=None,
+            text="December 15th, 2025",  # Expected answer
             latency_ms=simulated_latency,
             tokens_used=10,
+            model="llama2",
+            timestamp=datetime.now(),
+            success=True,
+            error=None,
         )
 
     def check_connection(self) -> bool:
@@ -67,7 +69,7 @@ class TestContextSizeExperiment:
 
             exp = ContextSizeExperiment(config)
 
-            assert exp.num_documents_list == [5, 10, 20]
+            assert exp.document_counts == [5, 10, 20, 50]
             assert exp.words_per_document == 200
             assert exp.fact_position == "middle"
 
@@ -82,7 +84,7 @@ class TestContextSizeExperiment:
 
             exp = ContextSizeExperiment(
                 config,
-                num_documents_list=[3, 6, 9],
+                document_counts=[3, 6, 9],
                 words_per_document=100,
                 fact="Custom fact",
                 question="Custom question?",
@@ -90,7 +92,7 @@ class TestContextSizeExperiment:
                 fact_position="start",
             )
 
-            assert exp.num_documents_list == [3, 6, 9]
+            assert exp.document_counts == [3, 6, 9]
             assert exp.words_per_document == 100
             assert exp.fact == "Custom fact"
             assert exp.question == "Custom question?"
@@ -109,19 +111,19 @@ class TestContextSizeExperiment:
             mock_llm = MockOllamaInterface()
             exp = ContextSizeExperiment(
                 config,
-                num_documents_list=[5, 10],
+                document_counts=[5, 10],
                 llm_interface=mock_llm,
             )
 
             data = exp._generate_data()
 
             # Should generate documents for all sizes
-            assert "5" in data
-            assert "10" in data
+            assert 5 in data
+            assert 10 in data
 
             # Each size should have correct number of documents
-            assert len(data["5"]) == 5
-            assert len(data["10"]) == 10
+            assert len(data[5]) == 5
+            assert len(data[10]) == 10
 
     def test_execute_queries(self):
         """Test query execution for all document sizes."""
@@ -135,7 +137,7 @@ class TestContextSizeExperiment:
             mock_llm = MockOllamaInterface()
             exp = ContextSizeExperiment(
                 config,
-                num_documents_list=[3, 5],
+                document_counts=[3, 5],
                 llm_interface=mock_llm,
             )
 
@@ -143,11 +145,11 @@ class TestContextSizeExperiment:
             responses = exp._execute_queries(data)
 
             # Should have responses for each document size
-            assert "3" in responses
-            assert "5" in responses
+            assert 3 in responses
+            assert 5 in responses
 
             # Larger context should have higher latency
-            assert responses["5"].latency_ms > responses["3"].latency_ms
+            assert responses[5].latency_ms > responses[3].latency_ms
 
     def test_evaluate_responses(self):
         """Test response evaluation."""
@@ -161,8 +163,8 @@ class TestContextSizeExperiment:
             mock_llm = MockOllamaInterface()
             exp = ContextSizeExperiment(
                 config,
-                num_documents_list=[5],
-                expected_answer="42",
+                document_counts=[5],
+                expected_answer="December 15th, 2025",
                 llm_interface=mock_llm,
             )
 
@@ -171,7 +173,7 @@ class TestContextSizeExperiment:
             evaluations = exp._evaluate_responses(responses)
 
             assert len(evaluations) == 1  # One document size
-            assert evaluations[0]["num_documents"] == 5
+            assert evaluations[0]["document_count"] == 5
             assert evaluations[0]["accuracy"] == 1.0  # Mock returns "42"
             assert evaluations[0]["latency_ms"] > 0
 
@@ -187,18 +189,18 @@ class TestContextSizeExperiment:
             mock_llm = MockOllamaInterface()
             exp = ContextSizeExperiment(
                 config,
-                num_documents_list=[3, 5],
+                document_counts=[3, 5],
                 llm_interface=mock_llm,
             )
 
             results = exp.run()
 
             # Should have results for both sizes × 1 iteration
-            assert len(results) == 2
+            assert len(results.raw_results) == 2
 
             # Results should contain expected fields
-            for result in results:
-                assert "num_documents" in result
+            for result in results.raw_results:
+                assert "document_count" in result
                 assert "accuracy" in result
                 assert "latency_ms" in result
                 assert "tokens_used" in result
@@ -215,7 +217,7 @@ class TestContextSizeExperiment:
             mock_llm = MockOllamaInterface()
             exp = ContextSizeExperiment(
                 config,
-                num_documents_list=[5, 10],
+                document_counts=[5, 10],
                 llm_interface=mock_llm,
             )
 
@@ -249,7 +251,7 @@ class TestContextSizeExperiment:
             mock_llm = MockOllamaInterface()
             exp = ContextSizeExperiment(
                 config,
-                num_documents_list=[5, 10],
+                document_counts=[5, 10],
                 llm_interface=mock_llm,
             )
 
@@ -275,12 +277,12 @@ class TestContextSizeExperiment:
             mock_llm = MockOllamaInterface()
             exp = ContextSizeExperiment(
                 config,
-                num_documents_list=[5],
+                document_counts=[5],
                 llm_interface=mock_llm,
             )
 
             exp.run()
-            exp.save_results()
+            # exp.save_results() # Called automatically by run()
 
             # Check JSON file exists
             json_path = Path(tmpdir) / "results.json"
@@ -292,8 +294,8 @@ class TestContextSizeExperiment:
             with open(json_path) as f:
                 data = json.load(f)
 
-            assert "results" in data
-            assert "analysis" in data
+            assert "raw_results" in data
+            assert "statistics" in data
             assert "config" in data
 
     def test_multiple_iterations(self):
@@ -308,17 +310,17 @@ class TestContextSizeExperiment:
             mock_llm = MockOllamaInterface()
             exp = ContextSizeExperiment(
                 config,
-                num_documents_list=[5],
+                document_counts=[5],
                 llm_interface=mock_llm,
             )
 
             results = exp.run()
 
             # Should have 1 size × 3 iterations = 3 results
-            assert len(results) == 3
+            assert len(results.raw_results) == 3
 
             # All results should be for 5 documents
-            assert all(r["num_documents"] == 5 for r in results)
+            assert all(r["document_count"] == 5 for r in results.raw_results)
 
     def test_latency_increases_with_context_size(self):
         """Test that latency increases with larger context."""
@@ -332,7 +334,7 @@ class TestContextSizeExperiment:
             mock_llm = MockOllamaInterface()
             exp = ContextSizeExperiment(
                 config,
-                num_documents_list=[5, 10, 20],
+                document_counts=[5, 10, 20],
                 llm_interface=mock_llm,
             )
 
@@ -357,7 +359,7 @@ class TestContextSizeExperiment:
 
             exp = ContextSizeExperiment(
                 config,
-                num_documents_list=[5, 10],
+                document_counts=[5, 10],
             )
 
             repr_str = repr(exp)
@@ -379,7 +381,7 @@ class TestContextSizeExperiment:
             mock_llm = MockOllamaInterface()
             exp = ContextSizeExperiment(
                 config,
-                num_documents_list=[5],
+                document_counts=[5],
                 fact=custom_fact,
                 question=custom_question,
                 expected_answer="ALPHA",
@@ -388,10 +390,10 @@ class TestContextSizeExperiment:
 
             results = exp.run()
 
-            assert len(results) == 1
+            assert len(results.raw_results) == 1
             # Fact should be in generated documents
             data = exp._generate_data()
-            all_content = " ".join([doc.content for doc in data["5"]])
+            all_content = " ".join([doc.content for doc in data[5]])
             assert custom_fact in all_content
 
     def test_different_fact_positions(self):
@@ -407,13 +409,13 @@ class TestContextSizeExperiment:
                 mock_llm = MockOllamaInterface()
                 exp = ContextSizeExperiment(
                     config,
-                    num_documents_list=[5],
+                    document_counts=[5],
                     fact_position=position,
                     llm_interface=mock_llm,
                 )
 
                 results = exp.run()
-                assert len(results) == 1
+                assert len(results.raw_results) == 1
 
     def test_edge_case_single_document(self):
         """Test with single document size."""
@@ -427,13 +429,13 @@ class TestContextSizeExperiment:
             mock_llm = MockOllamaInterface()
             exp = ContextSizeExperiment(
                 config,
-                num_documents_list=[1],
+                document_counts=[1],
                 llm_interface=mock_llm,
             )
 
             results = exp.run()
-            assert len(results) == 1
-            assert results[0]["num_documents"] == 1
+            assert len(results.raw_results) == 1
+            assert results.raw_results[0]["document_count"] == 1
 
     def test_edge_case_large_document_count(self):
         """Test with large document count."""
@@ -447,11 +449,11 @@ class TestContextSizeExperiment:
             mock_llm = MockOllamaInterface()
             exp = ContextSizeExperiment(
                 config,
-                num_documents_list=[50],
+                document_counts=[50],
                 words_per_document=100,
                 llm_interface=mock_llm,
             )
 
             results = exp.run()
-            assert len(results) == 1
-            assert results[0]["num_documents"] == 50
+            assert len(results.raw_results) == 1
+            assert results.raw_results[0]["document_count"] == 50

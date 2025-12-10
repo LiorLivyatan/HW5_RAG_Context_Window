@@ -59,10 +59,12 @@ class MockOllamaInterface:
 
         return LLMResponse(
             text="יעילות",  # Hebrew: "efficiency"
-            success=True,
-            error=None,
             latency_ms=latency,
             tokens_used=tokens,
+            model="llama2",
+            timestamp=datetime.now(),
+            success=True,
+            error=None,
         )
 
     def check_connection(self) -> bool:
@@ -232,15 +234,18 @@ class TestRAGImpactExperiment:
                 iterations=1,
             )
 
-            # Create simple test documents
+            # Create simple test documents, make them long enough
+            # We use top_k=1 to ensure RAG context < Full context (3 docs)
+            top_k = 1
+            long_text = "word " * 200 # Make it significant length
             test_docs = [
-                Document(content="Document 1 about technology", metadata={"id": 1}),
-                Document(content="Document 2 about innovation", metadata={"id": 2}),
-                Document(content="Document 3 about efficiency", metadata={"id": 3}),
+                Document(content=f"Document 1 {long_text}", metadata={"id": 1}),
+                Document(content=f"Document 2 {long_text}", metadata={"id": 2}),
+                Document(content=f"Document 3 {long_text}", metadata={"id": 3}),
             ]
 
             mock_llm = MockOllamaInterface()
-            exp = RAGImpactExperiment(config, llm_interface=mock_llm)
+            exp = RAGImpactExperiment(config, llm_interface=mock_llm, top_k=top_k)
 
             responses = exp._execute_queries(test_docs)
 
@@ -299,17 +304,21 @@ class TestRAGImpactExperiment:
             responses = {
                 "full_context": LLMResponse(
                     text="יעילות",  # Correct
-                    success=True,
-                    error=None,
                     latency_ms=5000,
                     tokens_used=50,
+                    model="llama2",
+                    timestamp=datetime.now(),
+                    success=True,
+                    error=None,
                 ),
                 "rag": LLMResponse(
                     text="יעילות",  # Correct
-                    success=True,
-                    error=None,
                     latency_ms=2000,
                     tokens_used=20,
+                    model="llama2",
+                    timestamp=datetime.now(),
+                    success=True,
+                    error=None,
                 ),
             }
 
@@ -394,10 +403,10 @@ class TestRAGImpactExperiment:
             results = exp.run()
 
             # Should have 2 modes × 1 iteration = 2 results
-            assert len(results) == 2
+            assert len(results.raw_results) == 2
 
             # Check result structure
-            for result in results:
+            for result in results.raw_results:
                 assert "mode" in result
                 assert "accuracy" in result
                 assert "latency_ms" in result

@@ -138,6 +138,7 @@ class ContextSizeExperiment(BaseExperiment):
             List of result dictionaries
         """
         logger.info("Evaluating responses...")
+        results = []
 
         for count, response in responses.items():
             if response.success:
@@ -168,9 +169,11 @@ class ContextSizeExperiment(BaseExperiment):
 
                 logger.warning(f"Query failed for count={count}: {response.error}")
 
-            self.results.append(result)
+                logger.warning(f"Query failed for count={count}: {response.error}")
 
-        return self.results
+            results.append(result)
+
+        return results
 
     def analyze(self) -> Dict[str, Any]:
         """
@@ -287,3 +290,7 @@ class ContextSizeExperiment(BaseExperiment):
         logger.info(f"Saved comparison visualization to {comparison_path}")
 
         return visualization_paths
+
+    def __repr__(self) -> str:
+        """String representation of experiment."""
+        return f"{self.__class__.__name__}(name='{self.config.name}', document_counts={self.document_counts})"

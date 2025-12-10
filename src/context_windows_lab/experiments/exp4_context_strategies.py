@@ -87,7 +87,7 @@ class ContextStrategiesExperiment(BaseExperiment):
                 "The market share increased to 23% this quarter.",
                 "The code coverage is maintained at 85%.",
                 "The next major feature release is Q2 2025.",
-            ]
+            ][:self.num_steps]
         else:
             self.facts = facts
 
@@ -103,7 +103,7 @@ class ContextStrategiesExperiment(BaseExperiment):
                 "What is the current market share?",
                 "What is the code coverage percentage?",
                 "When is the next major feature release?",
-            ]
+            ][:self.num_steps]
         else:
             self.questions = questions
 
@@ -119,7 +119,7 @@ class ContextStrategiesExperiment(BaseExperiment):
                 "23%",
                 "85%",
                 "Q2 2025",
-            ]
+            ][:self.num_steps]
         else:
             self.expected_answers = expected_answers
 

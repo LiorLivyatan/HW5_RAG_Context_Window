@@ -210,12 +210,16 @@ class RAGImpactExperiment(BaseExperiment):
         except ImportError as e:
             logger.error(f"ChromaDB not available: {e}")
             # Create a dummy failed response
+            from datetime import datetime
+
             responses["rag"] = LLMResponse(
                 text="",
                 success=False,
                 error="ChromaDB not installed",
                 latency_ms=0,
                 tokens_used=0,
+                model="n/a",
+                timestamp=datetime.now(),
             )
 
         return responses

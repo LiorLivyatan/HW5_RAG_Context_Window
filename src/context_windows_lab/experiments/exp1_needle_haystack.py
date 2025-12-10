@@ -215,29 +215,47 @@ class NeedleInHaystackExperiment(BaseExperiment):
             latencies = [r["latency_ms"] for r in position_results]
 
             # Calculate statistics
-            acc_stats = calculate_statistics(accuracies)
-            lat_stats = calculate_statistics(latencies)
+            if accuracies:
+                acc_stats = calculate_statistics(accuracies)
+                lat_stats = calculate_statistics(latencies)
 
-            analysis[position] = {
-                "accuracy": {
-                    "mean": acc_stats.mean,
-                    "std": acc_stats.std,
-                    "min": acc_stats.min,
-                    "max": acc_stats.max,
-                    "count": acc_stats.count,
-                    "ci_95": acc_stats.confidence_interval_95,
-                },
-                "latency_ms": {
-                    "mean": lat_stats.mean,
-                    "std": lat_stats.std,
-                },
-            }
+                analysis[position] = {
+                    "accuracy": {
+                        "mean": acc_stats.mean,
+                        "std": acc_stats.std,
+                        "min": acc_stats.min,
+                        "max": acc_stats.max,
+                        "count": acc_stats.count,
+                        "ci_95": acc_stats.confidence_interval_95,
+                    },
+                    "latency_ms": {
+                        "mean": lat_stats.mean,
+                        "std": lat_stats.std,
+                    },
+                }
 
-            logger.info(
-                f"Position '{position}': "
-                f"Accuracy={acc_stats.mean:.2f}±{acc_stats.std:.2f}, "
-                f"Latency={lat_stats.mean:.0f}±{lat_stats.std:.0f}ms"
-            )
+                logger.info(
+                    f"Position '{position}': "
+                    f"Accuracy={acc_stats.mean:.2f}±{acc_stats.std:.2f}, "
+                    f"Latency={lat_stats.mean:.0f}±{lat_stats.std:.0f}ms"
+                )
+            else:
+                # Handle case where position wasn't tested
+                analysis[position] = {
+                    "accuracy": {
+                        "mean": 0.0,
+                        "std": 0.0,
+                        "min": 0.0,
+                        "max": 0.0,
+                        "count": 0,
+                        "ci_95": 0.0,
+                    },
+                    "latency_ms": {
+                        "mean": 0.0,
+                        "std": 0.0,
+                    },
+                }
+                logger.warning(f"Position '{position}' has no results")
 
         return analysis
 
