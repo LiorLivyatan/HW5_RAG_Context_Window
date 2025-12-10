@@ -413,10 +413,10 @@ class TestContextStrategiesExperiment:
             results = exp.run()
 
             # Should have 3 strategies × 3 steps × 1 iteration = 9 results
-            assert len(results) == 9
+            assert len(results.raw_results) == 9
 
             # Check that all strategies are present
-            strategies = {r["strategy"] for r in results}
+            strategies = {r["strategy"] for r in results.raw_results}
             assert strategies == {"SELECT", "COMPRESS", "WRITE"}
 
     def test_analysis(self):
@@ -622,7 +622,7 @@ class TestContextStrategiesExperiment:
             results = exp.run()
 
             # Should have 3 strategies × 2 steps × 2 iterations = 12 results
-            assert len(results) == 12
+            assert len(results.raw_results) == 12
 
     def test_repr(self):
         """Test string representation."""

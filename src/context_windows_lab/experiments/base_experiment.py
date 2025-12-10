@@ -95,20 +95,26 @@ class BaseExperiment(ABC):
             return self._run_parallel_iterations()
 
         try:
-            # Step 1: Generate test data
-            logger.info("Step 1: Generating data...")
-            data = self._generate_data()
+            # Loop for iterations
+            for i in range(self.config.iterations):
+                logger.info(f"Starting iteration {i + 1}/{self.config.iterations}")
+                self.current_iteration = i + 1  # Optional: track iteration
 
-            # Step 2: Execute queries
-            logger.info("Step 2: Executing queries...")
-            responses = self._execute_queries(data)
+                # Step 1: Generate test data
+                logger.info("Step 1: Generating data...")
+                data = self._generate_data()
 
-            # Step 3: Evaluate responses
-            logger.info("Step 3: Evaluating responses...")
-            evaluations = self._evaluate_responses(responses)
+                # Step 2: Execute queries
+                logger.info("Step 2: Executing queries...")
+                responses = self._execute_queries(data)
 
-            # Store results
-            self.results = evaluations
+                # Step 3: Evaluate responses
+                logger.info("Step 3: Evaluating responses...")
+                evaluations = self._evaluate_responses(responses)
+
+                # Store results
+                self.results.extend(evaluations)
+                logger.info(f"Iteration {i + 1} completed")
 
             # Step 4: Analyze results (calculate statistics)
             logger.info("Step 4: Analyzing results...")

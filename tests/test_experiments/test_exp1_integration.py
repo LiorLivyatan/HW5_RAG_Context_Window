@@ -5,6 +5,7 @@ These tests verify the end-to-end execution of the experiment.
 """
 
 import tempfile
+import unittest
 from pathlib import Path
 
 import pytest
@@ -85,6 +86,7 @@ class TestNeedleInHaystackIntegration:
             iterations=1,
             save_results=False,
             generate_visualizations=False,
+            output_dir=self.output_dir,
         )
 
         exp = NeedleInHaystackExperiment(
@@ -107,6 +109,7 @@ class TestNeedleInHaystackIntegration:
             iterations=1,
             save_results=False,
             generate_visualizations=False,
+            output_dir=self.output_dir,
         )
 
         exp = NeedleInHaystackExperiment(
@@ -156,6 +159,7 @@ class TestNeedleInHaystackIntegration:
             iterations=1,
             save_results=False,
             generate_visualizations=False,
+            output_dir=self.output_dir,
         )
 
         exp = NeedleInHaystackExperiment(
@@ -165,14 +169,13 @@ class TestNeedleInHaystackIntegration:
         )
 
         # Access private method for testing
-        data = exp._generate_data()
+        documents = exp._generate_data()
 
-        assert "start" in data
-        assert "middle" in data
-        assert "end" in data
-        assert len(data["start"]) == 5
-        assert len(data["middle"]) == 5
-        assert len(data["end"]) == 5
+        # Check that we have documents with valid positions
+        positions = set(doc.fact_position for doc in documents)
+        assert len(positions) > 0
+        assert all(p in ["start", "middle", "end"] for p in positions)
+        assert len(documents) == 5
 
     def test_experiment_custom_fact(self):
         """Test experiment with custom fact and question."""
@@ -181,6 +184,7 @@ class TestNeedleInHaystackIntegration:
             iterations=1,
             save_results=False,
             generate_visualizations=False,
+            output_dir=self.output_dir,
         )
 
         custom_fact = "The capital of France is Paris."
@@ -208,6 +212,7 @@ class TestNeedleInHaystackIntegration:
             iterations=1,
             save_results=False,
             generate_visualizations=False,
+            output_dir=self.output_dir,
         )
 
         exp = NeedleInHaystackExperiment(
@@ -233,6 +238,7 @@ class TestNeedleInHaystackIntegration:
             iterations=1,
             save_results=False,
             generate_visualizations=False,
+            output_dir=self.output_dir,
         )
 
         exp = NeedleInHaystackExperiment(
@@ -253,6 +259,7 @@ class TestNeedleInHaystackIntegration:
             iterations=1,
             save_results=False,
             generate_visualizations=False,
+            output_dir=self.output_dir,
         )
 
         exp = NeedleInHaystackExperiment(
@@ -262,7 +269,9 @@ class TestNeedleInHaystackIntegration:
             llm_interface=MockOllamaInterface(),
         )
 
-        exp.run()
+        # Mock random.choice to ensure all positions are covered
+        with unittest.mock.patch("random.choice", side_effect=["start", "middle", "end"]):
+            exp.run()
 
         # Check that results include all positions
         positions_tested = set(r["position"] for r in exp.results)
