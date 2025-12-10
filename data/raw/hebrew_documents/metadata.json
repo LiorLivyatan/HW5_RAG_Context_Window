@@ -1,0 +1,328 @@
+{
+  "collection_name": "Hebrew Documents for Context Windows Lab - Experiment 3",
+  "language": "hebrew",
+  "total_documents": 20,
+  "created_date": "2025-12-10",
+  "encoding": "UTF-8",
+  "purpose": "RAG Impact experiment - comparing full context vs retrieval-based methods",
+  "documents": [
+    {
+      "id": "tech_001",
+      "filename": "ai_machine_learning.txt",
+      "domain": "technology",
+      "topic": "Artificial Intelligence and Machine Learning",
+      "topic_hebrew": "בינה מלאכותית ולמידת מכונה",
+      "language": "hebrew",
+      "word_count": 601,
+      "created": "2025-12-10",
+      "key_terms": [
+        "בינה מלאכותית",
+        "למידת מכונה",
+        "אלגוריתמים",
+        "רכב אוטונומי",
+        "עיבוד שפה טבעית"
+      ],
+      "summary": "Overview of AI/ML concepts, applications, challenges, and future trends"
+    },
+    {
+      "id": "tech_002",
+      "filename": "cybersecurity.txt",
+      "domain": "technology",
+      "topic": "Cybersecurity and Data Protection",
+      "topic_hebrew": "אבטחת סייבר והגנת מידע",
+      "language": "hebrew",
+      "word_count": 459,
+      "created": "2025-12-10",
+      "key_terms": ["אבטחת סייבר", "הצפנה", "פישינג", "חומות אש", "הגנת מידע"],
+      "summary": "Exploration of cybersecurity threats, defense layers, and modern protection strategies"
+    },
+    {
+      "id": "tech_003",
+      "filename": "cloud_computing.txt",
+      "domain": "technology",
+      "topic": "Cloud Computing and Infrastructure",
+      "topic_hebrew": "מחשוב ענן ותשתיות",
+      "language": "hebrew",
+      "word_count": 442,
+      "created": "2025-12-10",
+      "key_terms": ["מחשוב ענן", "IaaS", "PaaS", "SaaS", "AWS"],
+      "summary": "Introduction to cloud service models, deployment types, benefits and challenges"
+    },
+    {
+      "id": "tech_004",
+      "filename": "iot.txt",
+      "domain": "technology",
+      "topic": "Internet of Things (IoT)",
+      "topic_hebrew": "אינטרנט של הדברים (IoT)",
+      "language": "hebrew",
+      "word_count": 468,
+      "created": "2025-12-10",
+      "key_terms": ["IoT", "חיישנים", "בית חכם", "ערים חכמות", "5G"],
+      "summary": "Overview of IoT components, applications in daily life and industry, and security challenges"
+    },
+    {
+      "id": "tech_005",
+      "filename": "blockchain.txt",
+      "domain": "technology",
+      "topic": "Blockchain and Cryptocurrencies",
+      "topic_hebrew": "בלוקצ'יין ומטבעות קריפטוגרפיים",
+      "language": "hebrew",
+      "word_count": 444,
+      "created": "2025-12-10",
+      "key_terms": [
+        "בלוקצ'יין",
+        "ביטקוין",
+        "חוזים חכמים",
+        "ביזור",
+        "קריפטוגרפיה"
+      ],
+      "summary": "Explanation of blockchain technology, cryptocurrencies, and applications beyond finance"
+    },
+    {
+      "id": "tech_006",
+      "filename": "software_dev.txt",
+      "domain": "technology",
+      "topic": "Software Development Methodologies",
+      "topic_hebrew": "מתודולוגיות פיתוח תוכנה",
+      "language": "hebrew",
+      "word_count": 417,
+      "created": "2025-12-10",
+      "key_terms": ["Agile", "Scrum", "DevOps", "Waterfall", "פיתוח תוכנה"],
+      "summary": "Comparison of software development methodologies from Waterfall to Agile and DevOps"
+    },
+    {
+      "id": "tech_007",
+      "filename": "mobile_apps.txt",
+      "domain": "technology",
+      "topic": "Mobile Applications and Development",
+      "topic_hebrew": "אפליקציות ופיתוח מובייל",
+      "language": "hebrew",
+      "word_count": 432,
+      "created": "2025-12-10",
+      "key_terms": [
+        "iOS",
+        "Android",
+        "Mobile Apps",
+        "UX/UI",
+        "Native Development"
+      ],
+      "summary": "Overview of mobile development platforms, approaches, and future trends"
+    },
+    {
+      "id": "law_001",
+      "filename": "contract_law.txt",
+      "domain": "law",
+      "topic": "Contract Law Fundamentals",
+      "topic_hebrew": "יסודות דיני חוזים",
+      "language": "hebrew",
+      "word_count": 438,
+      "created": "2025-12-10",
+      "key_terms": ["חוזה", "הצעה וקיבול", "הפרת חוזה", "תום לב", "אכיפה"],
+      "summary": "Fundamentals of contract law in Israel, including formation, validity, and remedies for breach"
+    },
+    {
+      "id": "law_002",
+      "filename": "intellectual_property.txt",
+      "domain": "law",
+      "topic": "Intellectual Property Rights",
+      "topic_hebrew": "קניין רוחני וזכויות יוצרים",
+      "language": "hebrew",
+      "word_count": 445,
+      "created": "2025-12-10",
+      "key_terms": [
+        "קניין רוחני",
+        "זכויות יוצרים",
+        "פטנטים",
+        "סימני מסחר",
+        "שימוש הוגן"
+      ],
+      "summary": "Overview of IP rights including copyright, patents, and trademarks in the digital age"
+    },
+    {
+      "id": "law_003",
+      "filename": "privacy_law.txt",
+      "domain": "law",
+      "topic": "Privacy and Data Protection Law",
+      "topic_hebrew": "דיני פרטיות והגנת מידע",
+      "language": "hebrew",
+      "word_count": 396,
+      "created": "2025-12-10",
+      "key_terms": [
+        "פרטיות",
+        "GDPR",
+        "הגנת מידע",
+        "מאגרי מידע",
+        "הזכות להישכח"
+      ],
+      "summary": "Legal framework for privacy protection, data collection regulations, and digital challenges"
+    },
+    {
+      "id": "law_004",
+      "filename": "employment_law.txt",
+      "domain": "law",
+      "topic": "Employment Law",
+      "topic_hebrew": "דיני עבודה",
+      "language": "hebrew",
+      "word_count": 418,
+      "created": "2025-12-10",
+      "key_terms": [
+        "דיני עבודה",
+        "זכויות עובדים",
+        "פיטורים",
+        "שכר מינימום",
+        "יחסי עובד-מעביד"
+      ],
+      "summary": "Basics of Israeli employment law, worker rights, termination procedures, and equality"
+    },
+    {
+      "id": "law_005",
+      "filename": "corporate_law.txt",
+      "domain": "law",
+      "topic": "Corporate Law and Governance",
+      "topic_hebrew": "דיני חברות וממשל תאגידי",
+      "language": "hebrew",
+      "word_count": 377,
+      "created": "2025-12-10",
+      "key_terms": [
+        "חברה בע\"מ",
+        "דירקטוריון",
+        "בעלי מניות",
+        "ממשל תאגידי",
+        "הרמת מסך"
+      ],
+      "summary": "Structure of corporations, governance principles, and shareholder rights"
+    },
+    {
+      "id": "law_006",
+      "filename": "consumer_protection.txt",
+      "domain": "law",
+      "topic": "Consumer Protection",
+      "topic_hebrew": "הגנת הצרכן",
+      "language": "hebrew",
+      "word_count": 367,
+      "created": "2025-12-10",
+      "key_terms": [
+        "הגנת הצרכן",
+        "ביטול עסקה",
+        "אחריות",
+        "הטעיה",
+        "תביעות קטנות"
+      ],
+      "summary": "Consumer rights in Israel, dealer obligations, and protections for online purchases"
+    },
+    {
+      "id": "law_007",
+      "filename": "digital_rights.txt",
+      "domain": "law",
+      "topic": "Digital Rights and Cyber Law",
+      "topic_hebrew": "זכויות דיגיטליות ודיני סייבר",
+      "language": "hebrew",
+      "word_count": 342,
+      "created": "2025-12-10",
+      "key_terms": [
+        "דיני סייבר",
+        "חופש הביטוי",
+        "לשון הרע",
+        "פשעי סייבר",
+        "חוזים דיגיטליים"
+      ],
+      "summary": "Legal issues in the digital space including free speech, cybercrime, and online liability"
+    },
+    {
+      "id": "med_001",
+      "filename": "cardiology.txt",
+      "domain": "medicine",
+      "topic": "Cardiology and Heart Disease",
+      "topic_hebrew": "קרדיולוגיה ומחלות לב",
+      "language": "hebrew",
+      "word_count": 387,
+      "created": "2025-12-10",
+      "key_terms": ["לב", "קרדיולוגיה", "התקף לב", "לחץ דם", "צנתור"],
+      "summary": "Overview of cardiovascular system, common heart diseases, risk factors, and treatments"
+    },
+    {
+      "id": "med_002",
+      "filename": "neurology.txt",
+      "domain": "medicine",
+      "topic": "Neurology and Brain Health",
+      "topic_hebrew": "נוירולוגיה ובריאות המוח",
+      "language": "hebrew",
+      "word_count": 356,
+      "created": "2025-12-10",
+      "key_terms": [
+        "נוירולוגיה",
+        "מוח",
+        "שבץ מוחי",
+        "אלצהיימר",
+        "מערכת העצבים"
+      ],
+      "summary": "Introduction to neurology, brain structure, common neurological disorders, and brain health"
+    },
+    {
+      "id": "med_003",
+      "filename": "pharmacology.txt",
+      "domain": "medicine",
+      "topic": "Pharmacology and Drug Development",
+      "topic_hebrew": "פרמקולוגיה ופיתוח תרופות",
+      "language": "hebrew",
+      "word_count": 328,
+      "created": "2025-12-10",
+      "key_terms": [
+        "פרמקולוגיה",
+        "פיתוח תרופות",
+        "ניסויים קליניים",
+        "תרופות",
+        "תופעות לוואי"
+      ],
+      "summary": "Explanation of pharmacology principles and the drug development process"
+    },
+    {
+      "id": "med_004",
+      "filename": "diabetes.txt",
+      "domain": "medicine",
+      "topic": "Diabetes and Metabolic Disorders",
+      "topic_hebrew": "סוכרת והפרעות מטבוליות",
+      "language": "hebrew",
+      "word_count": 413,
+      "created": "2025-12-10",
+      "key_terms": ["סוכרת", "אינסולין", "גלוקוז", "מטבוליזם", "תזונה"],
+      "summary": "Comprehensive guide to diabetes types, symptoms, complications, and management"
+    },
+    {
+      "id": "med_005",
+      "filename": "mental_health.txt",
+      "domain": "medicine",
+      "topic": "Mental Health and Psychiatry",
+      "topic_hebrew": "בריאות הנפש ופסיכיאטריה",
+      "language": "hebrew",
+      "word_count": 348,
+      "created": "2025-12-10",
+      "key_terms": [
+        "בריאות הנפש",
+        "דיכאון",
+        "חרדה",
+        "פסיכיאטריה",
+        "טיפול פסיכולוגי"
+      ],
+      "summary": "Overview of mental health disorders, causes, stigma reduction, and treatment options"
+    },
+    {
+      "id": "med_006",
+      "filename": "preventive_medicine.txt",
+      "domain": "medicine",
+      "topic": "Preventive Medicine and Public Health",
+      "topic_hebrew": "רפואה מניעתית ובריאות הציבור",
+      "language": "hebrew",
+      "word_count": 373,
+      "created": "2025-12-10",
+      "key_terms": [
+        "רפואה מניעתית",
+        "חיסונים",
+        "בריאות הציבור",
+        "גילוי מוקדם",
+        "אורח חיים בריא"
+      ],
+      "summary": "Importance of preventive medicine, vaccination, screening, and public health initiatives"
+    }
+  ]
+}

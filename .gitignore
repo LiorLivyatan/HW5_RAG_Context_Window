@@ -146,10 +146,11 @@ results/
 
 # Generated data
 data/synthetic/
-data/raw/
-!data/.gitkeep
-!data/raw/.gitkeep
-!data/synthetic/.gitkeep
+data/raw/*
+!data/raw/hebrew_documents/
+!data/raw/hebrew_documents/**/*.txt
+!data/raw/hebrew_documents/**/
+!data/raw/hebrew_documents/metadata.json
 
 # Cache directories
 .cache/
