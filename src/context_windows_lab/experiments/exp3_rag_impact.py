@@ -1,19 +1,20 @@
 """
 Experiment 3: RAG Impact
 
-This experiment compares Full Context vs RAG-based retrieval to demonstrate
-how RAG affects accuracy, latency, and token usage.
+This experiment compares Full Context vs RAG-based retrieval using REAL Hebrew documents
+to demonstrate how RAG affects accuracy, latency, and token usage.
 
 Research Question:
 - How does RAG-based retrieval compare to using full context?
 - What are the tradeoffs in accuracy, speed, and cost?
+- Does RAG work well with non-English (Hebrew) documents?
 """
 
 import logging
 from pathlib import Path
-from typing import Any, Dict, List
+from typing import Any, Dict, List, Optional
 
-from context_windows_lab.data_generation import DocumentGenerator, Document
+from context_windows_lab.data_generation import Document
 from context_windows_lab.llm import OllamaInterface, LLMResponse
 from context_windows_lab.rag import VectorStore, RetrievedDocument
 from context_windows_lab.evaluation import AccuracyEvaluator, calculate_statistics
@@ -28,48 +29,52 @@ logger = logging.getLogger(__name__)
 
 class RAGImpactExperiment(BaseExperiment):
     """
-    Experiment 3: RAG Impact.
+    Experiment 3: RAG Impact using REAL Hebrew documents.
 
     Compares two modes:
     1. Full Context: All documents sent to LLM
     2. RAG Mode: Only top-k retrieved documents sent to LLM
+
+    Uses 20 Hebrew documents from data/raw/hebrew_documents/
     """
 
     def __init__(
         self,
         config: ExperimentConfig,
-        num_documents: int = 20,
-        words_per_document: int = 200,
-        fact: str = "The quarterly revenue increased by 47% compared to last year.",
-        question: str = "What was the quarterly revenue growth?",
-        expected_answer: str = "47%",
+        documents_path: Optional[str] = None,
+        domain: Optional[str] = None,
+        question: str = "מהם היתרונות העיקריים של הטכנולוגיה?",
+        expected_answer: str = "יעילות",
         top_k: int = 3,
         llm_interface: OllamaInterface = None,
     ):
         """
-        Initialize RAG Impact experiment.
+        Initialize RAG Impact experiment with Hebrew documents.
 
         Args:
             config: Experiment configuration
-            num_documents: Number of documents to generate
-            words_per_document: Words per document
-            fact: Critical fact to embed in middle document
-            question: Question to ask
-            expected_answer: Expected answer
+            documents_path: Path to Hebrew documents directory (default: data/raw/hebrew_documents)
+            domain: Optional domain filter ('technology', 'law', 'medicine', or None for all)
+            question: Question to ask (in Hebrew)
+            expected_answer: Expected answer (in Hebrew)
             top_k: Number of documents to retrieve in RAG mode
             llm_interface: Optional LLM interface
         """
         super().__init__(config)
 
-        self.num_documents = num_documents
-        self.words_per_document = words_per_document
-        self.fact = fact
+        # Set default documents path if not provided
+        if documents_path is None:
+            # Assume we're running from project root
+            self.documents_path = Path("data/raw/hebrew_documents")
+        else:
+            self.documents_path = Path(documents_path)
+
+        self.domain = domain
         self.question = question
         self.expected_answer = expected_answer
         self.top_k = top_k
 
         # Initialize building blocks
-        self.doc_generator = DocumentGenerator(seed=42)
         self.llm = llm_interface or OllamaInterface()
         self.evaluator = AccuracyEvaluator(method="contains", case_sensitive=False)
         self.plotter = Plotter()
@@ -80,24 +85,86 @@ class RAGImpactExperiment(BaseExperiment):
         # Modes to test
         self.modes = ["full_context", "rag"]
 
-    def _generate_data(self) -> List[Document]:
+    @staticmethod
+    def load_hebrew_documents(
+        documents_path: Path, domain: Optional[str] = None
+    ) -> List[Document]:
         """
-        Generate documents with fact embedded in middle.
+        Load Hebrew documents from data/raw/hebrew_documents/.
+
+        Args:
+            documents_path: Path to hebrew_documents directory
+            domain: Optional domain filter ('technology', 'law', 'medicine')
 
         Returns:
-            List of documents
+            List of Document objects with Hebrew content
         """
-        logger.info(
-            f"Generating {self.num_documents} documents with fact in middle..."
+        documents = []
+
+        # Determine which domains to load
+        if domain:
+            domains = [domain]
+        else:
+            domains = ["technology", "law", "medicine"]
+
+        logger.info(f"Loading Hebrew documents from {documents_path}")
+        logger.info(f"Domains: {domains}")
+
+        for domain_name in domains:
+            domain_path = documents_path / domain_name
+
+            if not domain_path.exists():
+                logger.warning(f"Domain directory not found: {domain_path}")
+                continue
+
+            # Load all .txt files in this domain
+            for txt_file in sorted(domain_path.glob("*.txt")):
+                try:
+                    content = txt_file.read_text(encoding="utf-8")
+
+                    # Create Document object
+                    doc = Document(
+                        content=content,
+                        metadata={
+                            "domain": domain_name,
+                            "filename": txt_file.name,
+                            "word_count": len(content.split()),
+                            "source": "hebrew_corpus",
+                        },
+                    )
+                    documents.append(doc)
+
+                    logger.debug(
+                        f"Loaded {txt_file.name}: {len(content)} chars, "
+                        f"{len(content.split())} words"
+                    )
+
+                except Exception as e:
+                    logger.error(f"Error loading {txt_file}: {e}")
+
+        logger.info(f"Successfully loaded {len(documents)} Hebrew documents")
+        return documents
+
+    def _generate_data(self) -> List[Document]:
+        """
+        Load Hebrew documents from data/raw/hebrew_documents/.
+
+        Returns:
+            List of Hebrew documents
+        """
+        logger.info("Loading Hebrew documents for RAG experiment...")
+
+        documents = self.load_hebrew_documents(
+            documents_path=self.documents_path, domain=self.domain
         )
 
-        documents = self.doc_generator.generate_documents(
-            num_docs=self.num_documents,
-            words_per_doc=self.words_per_document,
-            fact=self.fact,
-            fact_position="middle",  # Embed fact in middle document
-        )
+        if not documents:
+            raise RuntimeError(
+                f"No Hebrew documents found at {self.documents_path}. "
+                f"Please ensure the documents exist in data/raw/hebrew_documents/"
+            )
 
+        logger.info(f"Loaded {len(documents)} Hebrew documents")
         return documents
 
     def _execute_queries(self, data: List[Document]) -> Dict[str, LLMResponse]:
@@ -335,6 +402,7 @@ class RAGImpactExperiment(BaseExperiment):
         """String representation."""
         return (
             f"RAGImpactExperiment("
-            f"docs={self.num_documents}, "
+            f"path={self.documents_path}, "
+            f"domain={self.domain or 'all'}, "
             f"top_k={self.top_k})"
         )

@@ -1,0 +1,110 @@
+{
+  "description": "Domain-specific questions for Hebrew documents corpus",
+  "encoding": "UTF-8",
+  "questions": {
+    "technology": [
+      {
+        "question": "מהם היתרונות העיקריים של בינה מלאכותית?",
+        "expected_keywords": ["יעילות", "אוטומציה", "למידה", "ניתוח"],
+        "difficulty": "easy"
+      },
+      {
+        "question": "מהם האתגרים העיקריים באבטחת סייבר?",
+        "expected_keywords": ["הגנה", "נתונים", "פרטיות", "איומים"],
+        "difficulty": "medium"
+      },
+      {
+        "question": "מה היתרונות של מחשוב ענן?",
+        "expected_keywords": ["זמינות", "גמישות", "עלויות", "סקלביליות"],
+        "difficulty": "easy"
+      },
+      {
+        "question": "כיצד פועל אינטרנט הדברים (IoT)?",
+        "expected_keywords": ["חיישנים", "חכמים", "מחוברים", "רשת"],
+        "difficulty": "medium"
+      },
+      {
+        "question": "מהו בלוקצ'יין ומה היישומים שלו?",
+        "expected_keywords": ["מבוזר", "קריפטו", "שקיפות", "אבטחה"],
+        "difficulty": "hard"
+      }
+    ],
+    "law": [
+      {
+        "question": "מהם יסודות דיני החוזים?",
+        "expected_keywords": ["הצעה", "קבלה", "תמורה", "התחייבות"],
+        "difficulty": "easy"
+      },
+      {
+        "question": "מהי קניין רוחני ומדוע הוא חשוב?",
+        "expected_keywords": ["פטנט", "זכויות", "יוצרים", "הגנה"],
+        "difficulty": "medium"
+      },
+      {
+        "question": "מהם זכויות העובדים בחוק העבודה?",
+        "expected_keywords": ["שכר", "תנאים", "פיטורים", "הגנה"],
+        "difficulty": "medium"
+      },
+      {
+        "question": "מהם עקרונות הגנת הפרטיות?",
+        "expected_keywords": ["נתונים", "אישיים", "הסכמה", "אבטחה"],
+        "difficulty": "hard"
+      },
+      {
+        "question": "מהן זכויות הצרכן?",
+        "expected_keywords": ["הגנה", "מידע", "ביטול", "פיצוי"],
+        "difficulty": "easy"
+      }
+    ],
+    "medicine": [
+      {
+        "question": "מהם גורמי הסיכון למחלות לב?",
+        "expected_keywords": ["עישון", "כולסטרול", "לחץ דם", "סוכרת"],
+        "difficulty": "easy"
+      },
+      {
+        "question": "כיצד מטפלים במחלות נוירולוגיות?",
+        "expected_keywords": ["תרופות", "שיקום", "אבחון", "מוח"],
+        "difficulty": "hard"
+      },
+      {
+        "question": "מהי פרמקולוגיה וכיצד מפתחים תרופות?",
+        "expected_keywords": ["מחקר", "ניסויים", "תופעות לוואי", "רישוי"],
+        "difficulty": "hard"
+      },
+      {
+        "question": "מהם הסימפטומים של סוכרת?",
+        "expected_keywords": ["צמא", "עייפות", "שתן", "רמת סוכר"],
+        "difficulty": "medium"
+      },
+      {
+        "question": "מהי חשיבות הרפואה המונעת?",
+        "expected_keywords": ["בדיקות", "חיסונים", "אורח חיים", "בריאות"],
+        "difficulty": "easy"
+      },
+      {
+        "question": "כיצד מטפלים בבעיות בריאות נפש?",
+        "expected_keywords": ["פסיכותרפיה", "תרופות", "תמיכה", "אבחון"],
+        "difficulty": "medium"
+      }
+    ],
+    "general": [
+      {
+        "question": "מהו הנושא המרכזי של המסמך?",
+        "expected_keywords": ["עיקרי", "נושא", "תחום"],
+        "difficulty": "easy",
+        "note": "General question applicable to any document"
+      },
+      {
+        "question": "מהם היתרונות והאתגרים המוזכרים?",
+        "expected_keywords": ["יתרונות", "אתגרים", "בעיות", "פתרונות"],
+        "difficulty": "medium",
+        "note": "General question about trade-offs"
+      }
+    ]
+  },
+  "usage": {
+    "example": "Load questions by domain and use for RAG experimentation",
+    "note": "Expected keywords are for evaluation - use 'contains' method to check if answer includes relevant terms"
+  }
+}

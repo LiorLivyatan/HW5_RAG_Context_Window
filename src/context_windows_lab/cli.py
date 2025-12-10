@@ -249,11 +249,14 @@ def run_experiment_3(output_dir: Path, iterations: int = 1, use_multiprocessing:
         max_workers=max_workers,
     )
 
-    # Create experiment with 20 documents, top-3 retrieval
+    # Create experiment with Hebrew documents, top-3 retrieval
+    # Uses default path: data/raw/hebrew_documents/
+    # Question: "What are the main advantages of technology?"
     experiment = RAGImpactExperiment(
         config=config,
-        num_documents=20,
-        words_per_document=200,
+        domain=None,  # Load all domains (technology, law, medicine)
+        question="מהם היתרונות העיקריים של הטכנולוגיה?",  # Hebrew question
+        expected_answer="יעילות",  # Expected: efficiency/effectiveness
         top_k=3,
     )
 

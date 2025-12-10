@@ -12,12 +12,22 @@ from typing import List, Literal, Optional, Dict, Any
 
 @dataclass
 class Document:
-    """Represents a generated document with embedded fact."""
+    """
+    Represents a document (either synthetic with embedded fact or real document).
+
+    For synthetic documents: fact and fact_position are required.
+    For real documents (e.g., Hebrew corpus): fact and fact_position are None.
+    """
 
     content: str
-    fact: str
-    fact_position: Literal["start", "middle", "end"]
-    metadata: Dict[str, Any]
+    fact: Optional[str] = None
+    fact_position: Optional[Literal["start", "middle", "end"]] = None
+    metadata: Optional[Dict[str, Any]] = None
+
+    def __post_init__(self):
+        """Initialize metadata if not provided."""
+        if self.metadata is None:
+            self.metadata = {}
 
     def __len__(self) -> int:
         """Return word count of document."""
