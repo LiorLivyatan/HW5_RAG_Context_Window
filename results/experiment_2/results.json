@@ -1,13 +1,21 @@
 {
   "experiment": "Context Size Impact",
   "config": {
-    "iterations": 1
+    "iterations": 3
   },
   "raw_results": [
     {
+      "document_count": 2,
+      "accuracy": 1.0,
+      "latency_ms": 3101.2747287750244,
+      "tokens_used": 11,
+      "response_text": "The project deadline is December 15th, 2025.",
+      "success": true
+    },
+    {
       "document_count": 5,
       "accuracy": 1.0,
-      "latency_ms": 5697.835922241211,
+      "latency_ms": 5979.6388149261475,
       "tokens_used": 11,
       "response_text": "The project deadline is December 15th, 2025.",
       "success": true
@@ -15,7 +23,7 @@
     {
       "document_count": 10,
       "accuracy": 1.0,
-      "latency_ms": 6862.835168838501,
+      "latency_ms": 9458.647966384888,
       "tokens_used": 11,
       "response_text": "The project deadline is December 15th, 2025.",
       "success": true
@@ -23,13 +31,119 @@
     {
       "document_count": 20,
       "accuracy": 1.0,
-      "latency_ms": 10228.127241134644,
+      "latency_ms": 11295.71509361267,
+      "tokens_used": 11,
+      "response_text": "The project deadline is December 15th, 2025.",
+      "success": true
+    },
+    {
+      "document_count": 50,
+      "accuracy": 1.0,
+      "latency_ms": 31669.43907737732,
+      "tokens_used": 11,
+      "response_text": "The project deadline is December 15th, 2025.",
+      "success": true
+    },
+    {
+      "document_count": 2,
+      "accuracy": 1.0,
+      "latency_ms": 3472.1100330352783,
+      "tokens_used": 11,
+      "response_text": "The project deadline is December 15th, 2025.",
+      "success": true
+    },
+    {
+      "document_count": 5,
+      "accuracy": 1.0,
+      "latency_ms": 6051.022052764893,
+      "tokens_used": 11,
+      "response_text": "The project deadline is December 15th, 2025.",
+      "success": true
+    },
+    {
+      "document_count": 10,
+      "accuracy": 1.0,
+      "latency_ms": 9563.954830169678,
+      "tokens_used": 11,
+      "response_text": "The project deadline is December 15th, 2025.",
+      "success": true
+    },
+    {
+      "document_count": 20,
+      "accuracy": 1.0,
+      "latency_ms": 20896.395921707153,
+      "tokens_used": 11,
+      "response_text": "The project deadline is December 15th, 2025.",
+      "success": true
+    },
+    {
+      "document_count": 50,
+      "accuracy": 1.0,
+      "latency_ms": 108104.17628288269,
+      "tokens_used": 11,
+      "response_text": "The project deadline is December 15th, 2025.",
+      "success": true
+    },
+    {
+      "document_count": 2,
+      "accuracy": 1.0,
+      "latency_ms": 3833.0612182617188,
+      "tokens_used": 11,
+      "response_text": "The project deadline is December 15th, 2025.",
+      "success": true
+    },
+    {
+      "document_count": 5,
+      "accuracy": 1.0,
+      "latency_ms": 6128.961801528931,
+      "tokens_used": 11,
+      "response_text": "The project deadline is December 15th, 2025.",
+      "success": true
+    },
+    {
+      "document_count": 10,
+      "accuracy": 1.0,
+      "latency_ms": 9666.596174240112,
+      "tokens_used": 11,
+      "response_text": "The project deadline is December 15th, 2025.",
+      "success": true
+    },
+    {
+      "document_count": 20,
+      "accuracy": 1.0,
+      "latency_ms": 30877.596139907837,
+      "tokens_used": 11,
+      "response_text": "The project deadline is December 15th, 2025.",
+      "success": true
+    },
+    {
+      "document_count": 50,
+      "accuracy": 1.0,
+      "latency_ms": 121253.02982330322,
       "tokens_used": 11,
       "response_text": "The project deadline is December 15th, 2025.",
       "success": true
     }
   ],
   "statistics": {
+    "2": {
+      "accuracy": {
+        "mean": 1.0,
+        "std": 0.0,
+        "ci_95": [
+          1.0,
+          1.0
+        ]
+      },
+      "latency_ms": {
+        "mean": 3468.815326690674,
+        "std": 365.9043698375818
+      },
+      "tokens_used": {
+        "mean": 11.0,
+        "std": 0.0
+      }
+    },
     "5": {
       "accuracy": {
         "mean": 1.0,
@@ -40,8 +154,8 @@
         ]
       },
       "latency_ms": {
-        "mean": 5697.835922241211,
-        "std": 0.0
+        "mean": 6053.207556406657,
+        "std": 74.68547985800096
       },
       "tokens_used": {
         "mean": 11.0,
@@ -58,8 +172,8 @@
         ]
       },
       "latency_ms": {
-        "mean": 6862.835168838501,
-        "std": 0.0
+        "mean": 9563.066323598227,
+        "std": 103.97695115022155
       },
       "tokens_used": {
         "mean": 11.0,
@@ -76,8 +190,26 @@
         ]
       },
       "latency_ms": {
-        "mean": 10228.127241134644,
+        "mean": 21023.23571840922,
+        "std": 9791.55669841798
+      },
+      "tokens_used": {
+        "mean": 11.0,
         "std": 0.0
+      }
+    },
+    "50": {
+      "accuracy": {
+        "mean": 1.0,
+        "std": 0.0,
+        "ci_95": [
+          1.0,
+          1.0
+        ]
+      },
+      "latency_ms": {
+        "mean": 87008.88172785442,
+        "std": 48374.20306326441
       },
       "tokens_used": {
         "mean": 11.0,

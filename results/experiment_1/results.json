@@ -1,52 +1,142 @@
 {
   "experiment": "Needle in Haystack",
   "config": {
-    "iterations": 1
+    "iterations": 3
   },
   "raw_results": [
     {
       "position": "end",
       "doc_index": 0,
       "accuracy": 1.0,
-      "latency_ms": 3001.2879371643066,
-      "tokens_used": 10,
-      "response_text": "The answer to the question is: David Cohen.",
+      "latency_ms": 1676.4960289001465,
+      "tokens_used": 2,
+      "response_text": "David Cohen",
       "success": true
     },
     {
-      "position": "start",
+      "position": "middle",
       "doc_index": 1,
       "accuracy": 1.0,
-      "latency_ms": 1432.7800273895264,
-      "tokens_used": 38,
-      "response_text": "The answer to the question \"Who is the CEO of the company?\" can be found in the passage. According to the passage, the CEO of the company is David Cohen.",
+      "latency_ms": 2288.9201641082764,
+      "tokens_used": 2,
+      "response_text": "David Cohen",
       "success": true
     },
     {
       "position": "start",
       "doc_index": 2,
       "accuracy": 1.0,
-      "latency_ms": 1105.9858798980713,
-      "tokens_used": 19,
-      "response_text": "The answer to the question \"Who is the CEO of the company?\" is:\n\nDavid Cohen",
+      "latency_ms": 1478.3549308776855,
+      "tokens_used": 2,
+      "response_text": "David Cohen",
+      "success": true
+    },
+    {
+      "position": "start",
+      "doc_index": 3,
+      "accuracy": 1.0,
+      "latency_ms": 4126.115083694458,
+      "tokens_used": 2,
+      "response_text": "David Cohen",
       "success": true
     },
     {
       "position": "end",
-      "doc_index": 3,
+      "doc_index": 4,
       "accuracy": 1.0,
-      "latency_ms": 889.376163482666,
-      "tokens_used": 10,
-      "response_text": "The answer to the question is: David Cohen.",
+      "latency_ms": 6130.041837692261,
+      "tokens_used": 2,
+      "response_text": "David Cohen",
       "success": true
     },
     {
       "position": "middle",
+      "doc_index": 0,
+      "accuracy": 1.0,
+      "latency_ms": 3126.620054244995,
+      "tokens_used": 2,
+      "response_text": "David Cohen",
+      "success": true
+    },
+    {
+      "position": "end",
+      "doc_index": 1,
+      "accuracy": 1.0,
+      "latency_ms": 1504.3020248413086,
+      "tokens_used": 2,
+      "response_text": "David Cohen",
+      "success": true
+    },
+    {
+      "position": "middle",
+      "doc_index": 2,
+      "accuracy": 1.0,
+      "latency_ms": 1619.5409297943115,
+      "tokens_used": 2,
+      "response_text": "David Cohen",
+      "success": true
+    },
+    {
+      "position": "middle",
+      "doc_index": 3,
+      "accuracy": 1.0,
+      "latency_ms": 4136.322021484375,
+      "tokens_used": 2,
+      "response_text": "David Cohen",
+      "success": true
+    },
+    {
+      "position": "start",
       "doc_index": 4,
       "accuracy": 1.0,
-      "latency_ms": 1111.7348670959473,
-      "tokens_used": 19,
-      "response_text": "The answer to the question \"Who is the CEO of the company?\" is:\n\nDavid Cohen",
+      "latency_ms": 6116.689920425415,
+      "tokens_used": 2,
+      "response_text": "David Cohen",
+      "success": true
+    },
+    {
+      "position": "start",
+      "doc_index": 0,
+      "accuracy": 1.0,
+      "latency_ms": 2390.108823776245,
+      "tokens_used": 2,
+      "response_text": "David Cohen",
+      "success": true
+    },
+    {
+      "position": "middle",
+      "doc_index": 1,
+      "accuracy": 1.0,
+      "latency_ms": 1667.1428680419922,
+      "tokens_used": 2,
+      "response_text": "David Cohen",
+      "success": true
+    },
+    {
+      "position": "start",
+      "doc_index": 2,
+      "accuracy": 1.0,
+      "latency_ms": 1462.0301723480225,
+      "tokens_used": 2,
+      "response_text": "David Cohen",
+      "success": true
+    },
+    {
+      "position": "start",
+      "doc_index": 3,
+      "accuracy": 1.0,
+      "latency_ms": 4127.187967300415,
+      "tokens_used": 2,
+      "response_text": "David Cohen",
+      "success": true
+    },
+    {
+      "position": "end",
+      "doc_index": 4,
+      "accuracy": 1.0,
+      "latency_ms": 6127.571105957031,
+      "tokens_used": 2,
+      "response_text": "David Cohen",
       "success": true
     }
   ],
@@ -57,15 +147,15 @@
         "std": 0.0,
         "min": 1.0,
         "max": 1.0,
-        "count": 2,
+        "count": 6,
         "ci_95": [
           1.0,
           1.0
         ]
       },
       "latency_ms": {
-        "mean": 1269.3829536437988,
-        "std": 231.07835774328467
+        "mean": 3283.4144830703735,
+        "std": 1834.2967859174707
       }
     },
     "middle": {
@@ -74,15 +164,15 @@
         "std": 0.0,
         "min": 1.0,
         "max": 1.0,
-        "count": 1,
+        "count": 5,
         "ci_95": [
           1.0,
           1.0
         ]
       },
       "latency_ms": {
-        "mean": 1111.7348670959473,
-        "std": 0.0
+        "mean": 2567.70920753479,
+        "std": 1067.7890288035164
       }
     },
     "end": {
@@ -91,15 +181,15 @@
         "std": 0.0,
         "min": 1.0,
         "max": 1.0,
-        "count": 2,
+        "count": 4,
         "ci_95": [
           1.0,
           1.0
         ]
       },
       "latency_ms": {
-        "mean": 1945.3320503234863,
-        "std": 1493.3471364379973
+        "mean": 3859.6027493476868,
+        "std": 2621.193785039412
       }
     }
   }

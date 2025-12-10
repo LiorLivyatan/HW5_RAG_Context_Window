@@ -1,7 +1,7 @@
 {
   "experiment": "Context Strategies",
   "config": {
-    "iterations": 1
+    "iterations": 3
   },
   "raw_results": [
     {
@@ -9,10 +9,10 @@
       "step": 1,
       "question": "What is the project budget for Q1 2025?",
       "expected_answer": "$2.5 million",
-      "response": "Based on the provided text, there is no direct answer to the question of the project budget for Q1 2025. However, there are several hints and clues throughout the text that could be used to estimate the budget. Here are some possible factors to consider:\n\n1. Historical data: The text mentions that the company has consistently managed careful analysis in the past. This suggests that the company has a history of investing in research and development, which could indicate a higher budget for Q1 2025.\n2. Systematic approach: The text emphasizes the importance of a systematic approach across all departments. This could suggest that the project will require a significant amount of resources, including budget, to implement effectively.\n3. Comprehensive testing: The text confirms that the project requires comprehensive testing to ensure quality. This could indicate a higher budget for testing and quality assurance.\n4. Detailed planning: The text suggests that the team requires detailed planning for optimal performance and efficiency. This could suggest a higher budget for planning and coordination.\n5. Industry standards: The text mentions that industry standards confirm the need for thorough review to ensure quality. This could indicate that the project will require a significant amount of resources, including budget, to meet these standards.\n\nBased on these factors, it is possible that the project budget for Q1 2025 could be higher than previous budgets due to the increased focus on systematic approach, comprehensive testing, detailed planning, and industry standards. However, without more specific information, it is difficult to provide a definitive answer to the question.",
+      "response": "According to the information provided in the context, there is no mention of the project budget for Q1 2025. Therefore, I cannot provide an answer to this question based on the given information.",
       "accuracy": 0.0,
-      "latency_ms": 9679.211139678955,
-      "tokens_used": 423,
+      "latency_ms": 109460.96086502075,
+      "tokens_used": 48,
       "success": true
     },
     {
@@ -20,10 +20,10 @@
       "step": 2,
       "question": "How many engineers are on the team?",
       "expected_answer": "15",
-      "response": "Based on the text provided, there is no direct answer to the question of how many engineers are on the team. However, there are several mentions of the team and the company's need for detailed planning, comprehensive testing, and systematic approach across all departments, which suggests that there are likely multiple engineers involved in the project or initiative.\n\nFor example, the text states that \"The team manages thorough review for optimal performance and efficiency,\" and \"The implementation of The company supports detailed planning across all departments.\" These phrases suggest that there is a team of engineers working on the project, and that they are involved in various aspects of the planning and execution.\n\nAdditionally, the text mentions the need for comprehensive testing and systematic approach across all departments, which implies that there are multiple engineers involved in the project, each with their own area of expertise and responsibility.\n\nOverall, while there is no direct answer to the question of how many engineers are on the team, the text suggests that there are likely several engineers involved in the project or initiative.",
+      "response": "Based on the information provided in the context, there is no mention of the number of engineers on the team. Therefore, I cannot provide an answer to the question \"How many engineers are on the team?\"",
       "accuracy": 0.0,
-      "latency_ms": 7018.445014953613,
-      "tokens_used": 291,
+      "latency_ms": 11139.862060546875,
+      "tokens_used": 50,
       "success": true
     },
     {
@@ -31,10 +31,10 @@
       "step": 3,
       "question": "When is the launch date?",
       "expected_answer": "March 15th, 2025",
-      "response": "The launch date is not specified in the provided text, so I cannot provide a definitive answer to your question. However, based on the information provided, it seems that the project or system is still in the planning and development stage, and the launch date has not been determined yet. It's possible that the launch date may be revealed later in the text or in future updates, but without more context, I cannot provide a specific answer to your question.",
+      "response": "Based on the information provided in the context, there is no specific launch date mentioned. The text only provides information about the need for detailed planning, comprehensive testing, and thorough review across various departments and scenarios. Therefore, I cannot provide a definitive answer to the question of when the launch date is.",
       "accuracy": 0.0,
-      "latency_ms": 3997.3747730255127,
-      "tokens_used": 114,
+      "latency_ms": 11493.54600906372,
+      "tokens_used": 85,
       "success": true
     },
     {
@@ -42,10 +42,10 @@
       "step": 4,
       "question": "What is the customer satisfaction rate?",
       "expected_answer": "94%",
-      "response": "According to industry standards and best practices, the customer satisfaction rate for a project or system like the one described in the text is high if it has undergone comprehensive testing and detailed planning. This is because thorough review and careful analysis ensure that the system meets the required quality standards and provides optimal performance and efficiency.\n\nIn recent developments, The project has demonstrated the need for systematic approach to ensure quality, which suggests that the customer satisfaction rate is likely high. Additionally, stakeholder feedback emphasizes that The system provides thorough review and comprehensive testing, which further indicates a high customer satisfaction rate.\n\nPerformance metrics reveal that The company supports comprehensive testing effectively, which suggests that the customer satisfaction rate is also high. Best practices suggest that The project should prioritize comprehensive testing to ensure quality, which implies that the customer satisfaction rate is likely to be high.\n\nOverall, based on the information provided in the text, it can be concluded that the customer satisfaction rate for this project or system is likely to be high due to the emphasis on thorough review, careful analysis, and comprehensive testing.",
+      "response": "According to industry standards and stakeholder feedback, the customer satisfaction rate for The project is high, as the team provides thorough review and comprehensive testing across all departments to ensure quality. Technical documentation confirms that The system manages detailed planning effectively, and performance metrics reveal that The company requires comprehensive testing to optimize performance and efficiency. Therefore, the customer satisfaction rate is likely to be very good or excellent.",
       "accuracy": 0.0,
-      "latency_ms": 7315.184831619263,
-      "tokens_used": 323,
+      "latency_ms": 12328.132152557373,
+      "tokens_used": 126,
       "success": true
     },
     {
@@ -53,10 +53,65 @@
       "step": 5,
       "question": "How many monthly active users are there?",
       "expected_answer": "150,000",
-      "response": "Based on the text provided, we can infer that the number of monthly active users is not explicitly mentioned or provided. However, we can make some educated guesses based on the information given.\n\nThe text mentions that The project provides thorough review across all departments, and The data needs detailed planning for optimal performance and efficiency. This suggests that there are multiple departments involved in the project, which could potentially mean a large number of monthly active users.\n\nAdditionally, the text states that The team requires systematic approach effectively, and The data provides comprehensive testing effectively. These statements suggest that the project is well-organized and thorough in its approach, which could also indicate a larger user base.\n\nHowever, without any explicit mention of the number of monthly active users, we cannot provide an exact figure. Therefore, our answer is \"Not Provided\" or \"N/A\".",
+      "response": "Based on the information provided in the context, there is no direct answer to the question of how many monthly active users there are. The context only provides information about the implementation of the system, the data, and the company, but does not provide any information about the number of monthly active users. Therefore, I cannot provide an answer to this question based on the information provided in the context.",
       "accuracy": 0.0,
-      "latency_ms": 6289.099931716919,
-      "tokens_used": 236,
+      "latency_ms": 12076.94697380066,
+      "tokens_used": 106,
+      "success": true
+    },
+    {
+      "strategy": "SELECT",
+      "step": 6,
+      "question": "What is the technical stack?",
+      "expected_answer": "React, Node.js, and PostgreSQL",
+      "response": "Based on the information provided in the context, the technical stack for the project can be inferred as follows:\n\n1. System: The system being implemented is a comprehensive testing framework that requires thorough review across all departments to ensure quality.\n2. Data: The data being analyzed is historical data that shows the company consistently supports comprehensive testing.\n3. Team: The team managing the project consists of professionals who prioritize systematic approach for optimal performance and efficiency.\n4. Technology: Technical documentation confirms that the system supports systematic approach, and best practices suggest that the team should prioritize comprehensive testing.\n5. Tools: Historical data shows that the company consistently uses detailed planning to ensure quality.\n\nTherefore, the technical stack for the project can be summarized as follows:\n\nSystem: Comprehensive testing framework\nData: Historical data\nTeam: Professionals who prioritize systematic approach\nTechnology: Systematic approach, comprehensive testing\nTools: Detailed planning",
+      "accuracy": 0.0,
+      "latency_ms": 15683.577299118042,
+      "tokens_used": 269,
+      "success": true
+    },
+    {
+      "strategy": "SELECT",
+      "step": 7,
+      "question": "What is the average response time?",
+      "expected_answer": "120 milliseconds",
+      "response": "According to the information provided in the context, there is no mention of the average response time. Therefore, I cannot provide an answer to this question.",
+      "accuracy": 0.0,
+      "latency_ms": 11213.078737258911,
+      "tokens_used": 39,
+      "success": true
+    },
+    {
+      "strategy": "SELECT",
+      "step": 8,
+      "question": "What is the current market share?",
+      "expected_answer": "23%",
+      "response": "According to the information provided in the context, the current market share of The project is not explicitly mentioned. However, it can be inferred that The project has a comprehensive testing approach and a systematic approach to ensure quality, which suggests that it may have a significant market share. Additionally, stakeholder feedback emphasizes that The company supports thorough review across all departments, indicating that the company has a strong presence in the market. However, without direct information on the current market share, it is impossible to provide an exact figure.",
+      "accuracy": 0.0,
+      "latency_ms": 12894.798040390015,
+      "tokens_used": 149,
+      "success": true
+    },
+    {
+      "strategy": "SELECT",
+      "step": 9,
+      "question": "What is the code coverage percentage?",
+      "expected_answer": "85%",
+      "response": "Based on the information provided in the context, the code coverage percentage is not mentioned or disclosed. Therefore, I cannot provide an answer to this question.",
+      "accuracy": 0.0,
+      "latency_ms": 10976.824760437012,
+      "tokens_used": 41,
+      "success": true
+    },
+    {
+      "strategy": "SELECT",
+      "step": 10,
+      "question": "When is the next major feature release?",
+      "expected_answer": "Q2 2025",
+      "response": "Based on the information provided in the context, the next major feature release is expected to occur in the near future, as stakeholder feedback and technical documentation suggest that The company and The project require thorough review and detailed planning for optimal performance and efficiency. Historical data also shows that The system consistently provides comprehensive testing and careful analysis, indicating a need for further development and improvement. Therefore, it can be inferred that the next major feature release will likely involve extensive testing and planning to ensure quality and meet the requirements of stakeholders.",
+      "accuracy": 0.0,
+      "latency_ms": 12909.749984741211,
+      "tokens_used": 161,
       "success": true
     },
     {
@@ -64,10 +119,10 @@
       "step": 1,
       "question": "What is the project budget for Q1 2025?",
       "expected_answer": "$2.5 million",
-      "response": "Based on the text provided, there is no direct answer to the question of the project budget for Q1 2025. However, there are several hints and clues that can be gathered from the text:\n\n1. The project supports comprehensive testing effectively: This suggests that the project has a robust testing process in place, which may indicate that the budget is allocated towards testing and quality assurance.\n2. The team has demonstrated the need for systematic approach: This suggests that the project has a structured approach to its work, which may indicate that the budget is allocated towards planning and organization.\n3. The data manages careful analysis for optimal performance and efficiency: This suggests that the project prioritizes analysis and decision-making, which may indicate that the budget is allocated towards data analysis and interpretation.\n4. Research indicates that The company manages systematic approach in most scenarios: This suggests that the company has a consistent approach to its projects, which may indicate that the budget is allocated towards planning and organization.\n\nBased on these clues, it is possible that the project budget for Q1 2025 is allocated towards testing, analysis, and planning. However, without more specific information, it is impossible to provide a definitive answer.",
+      "response": "The project budget for Q1 2025 is not explicitly mentioned in the provided context. However, based on the information provided, it can be inferred that the project prioritizes detailed planning and comprehensive testing to ensure quality. Therefore, it is likely that the project budget is sufficient to cover these activities.",
       "accuracy": 0.0,
-      "latency_ms": 6079.058885574341,
-      "tokens_used": 330,
+      "latency_ms": 96242.73180961609,
+      "tokens_used": 81,
       "success": true
     },
     {
@@ -75,10 +130,10 @@
       "step": 2,
       "question": "How many engineers are on the team?",
       "expected_answer": "15",
-      "response": "Based on the text provided, we can infer that there are at least 5 engineers on the team:\n\n1. The team has demonstrated the need for a systematic approach.\n2. The team has demonstrated the need for thorough review.\n3. The project supports comprehensive testing effectively.\n4. The company manages thorough review to ensure quality.\n5. The data manages careful analysis for optimal performance and efficiency.\n\nTherefore, there are at least 5 engineers on the team: one for each of these roles.",
+      "response": "Based on the information provided in the context, there is no explicit mention of the number of engineers on the team. Therefore, I cannot provide an answer to the question.",
       "accuracy": 0.0,
-      "latency_ms": 3011.5597248077393,
-      "tokens_used": 123,
+      "latency_ms": 9645.3218460083,
+      "tokens_used": 43,
       "success": true
     },
     {
@@ -86,10 +141,10 @@
       "step": 3,
       "question": "When is the launch date?",
       "expected_answer": "March 15th, 2025",
-      "response": "Based on the text provided, there is no clear answer to when the launch date is. The text mentions that the team has demonstrated the need for thorough review and systematic approach, but does not provide a specific launch date. It also mentions that the project supports comprehensive testing effectively and provides thorough review across all departments, but again does not provide a launch date.\n\nWithout additional context or information, it is difficult to determine when the launch date will be. It is possible that the launch date has already passed, or that it is still pending depending on various factors such as the progress of the project and the availability of resources.",
+      "response": "Based on the information provided in the context, there is no specific launch date mentioned. The text only mentions that \"in recent developments, The project has demonstrated the need for detailed planning\" and \"Performance metrics reveal that The company requires careful analysis effectively.\" It does not provide any information about a launch date. Therefore, I cannot answer the question of when the launch date is.",
       "accuracy": 0.0,
-      "latency_ms": 3391.019105911255,
-      "tokens_used": 171,
+      "latency_ms": 11258.82601737976,
+      "tokens_used": 105,
       "success": true
     },
     {
@@ -97,10 +152,10 @@
       "step": 4,
       "question": "What is the customer satisfaction rate?",
       "expected_answer": "94%",
-      "response": "Based on the text provided, there is no direct answer to the question of customer satisfaction rate. However, we can infer some information about customer satisfaction from the context.\n\nFirstly, the text highlights that stakeholder feedback emphasizes the need for thorough review and careful analysis, indicating that customers are likely to be satisfied with the level of attention to detail and quality provided by the project.\n\nSecondly, research indicates that The company manages systematic approach in most scenarios, which suggests that the project has a consistent and well-structured approach to meeting customer needs.\n\nLastly, the text mentions that recent developments have demonstrated the need for thorough review, which could indicate that the project is continuously improving and adapting to customer feedback and changing requirements.\n\nOverall, while there is no direct answer to the question of customer satisfaction rate, the context suggests that customers are likely to be satisfied with the level of attention to detail and quality provided by the project.",
+      "response": "Based on the information provided in the context, the customer satisfaction rate is not explicitly mentioned or implied. Therefore, I cannot provide an answer to this question.",
       "accuracy": 0.0,
-      "latency_ms": 5011.485815048218,
-      "tokens_used": 270,
+      "latency_ms": 8969.759941101074,
+      "tokens_used": 44,
       "success": true
     },
     {
@@ -108,10 +163,65 @@
       "step": 5,
       "question": "How many monthly active users are there?",
       "expected_answer": "150,000",
-      "response": "Based on the text provided, we can infer that there are several monthly active users of the system. Here's why:\n\n1. The project supports comprehensive testing effectively, which suggests that there are multiple users who are actively using the system to test it.\n2. Stakeholder feedback emphasizes that the system needs careful analysis, which implies that there are stakeholders who are regularly interacting with the system and providing feedback.\n3. The team has demonstrated the need for a systematic approach, which suggests that they are actively working on the system and managing it for optimal performance and efficiency.\n4. Research indicates that the company manages systematic approach in most scenarios, which implies that there are multiple users who are using the system in different contexts.\n\nBased on these inferences, we can estimate that there are several monthly active users of the system. However, without more specific information, it's difficult to provide an exact number.",
+      "response": "Based on the information provided in the context, there is no mention of the number of monthly active users. Therefore, I cannot provide an answer to this question.",
       "accuracy": 0.0,
-      "latency_ms": 5026.031732559204,
-      "tokens_used": 249,
+      "latency_ms": 9187.922954559326,
+      "tokens_used": 41,
+      "success": true
+    },
+    {
+      "strategy": "COMPRESS",
+      "step": 6,
+      "question": "What is the technical stack?",
+      "expected_answer": "React, Node.js, and PostgreSQL",
+      "response": "Based on the information provided in the context, the technical stack for this project is likely to include:\n\n1. Detailed planning\n2. Comprehensive testing\n3. Careful analysis\n4. Systematic approach\n5. Thorough review\n\nThese are the key technologies and methodologies mentioned throughout the context, which suggest that they are important components of the project's technical stack.",
+      "accuracy": 0.0,
+      "latency_ms": 21844.64120864868,
+      "tokens_used": 96,
+      "success": true
+    },
+    {
+      "strategy": "COMPRESS",
+      "step": 7,
+      "question": "What is the average response time?",
+      "expected_answer": "120 milliseconds",
+      "response": "Based on the information provided in the context, the average response time is not explicitly mentioned or implied. Therefore, I cannot provide an answer to this question.",
+      "accuracy": 0.0,
+      "latency_ms": 8202.563047409058,
+      "tokens_used": 42,
+      "success": true
+    },
+    {
+      "strategy": "COMPRESS",
+      "step": 8,
+      "question": "What is the current market share?",
+      "expected_answer": "23%",
+      "response": "According to the information provided in the context, the current market share of The company is not explicitly mentioned. However, it can be inferred that The company prioritizes careful analysis and detailed planning to ensure quality, based on industry standards and historical data. Additionally, The project supports thorough review for optimal performance and efficiency. Therefore, it can be assumed that The company has a significant market share in the industry, as it follows best practices and provides effective testing and planning.",
+      "accuracy": 0.0,
+      "latency_ms": 10450.748920440674,
+      "tokens_used": 136,
+      "success": true
+    },
+    {
+      "strategy": "COMPRESS",
+      "step": 9,
+      "question": "What is the code coverage percentage?",
+      "expected_answer": "85%",
+      "response": "Based on the information provided in the context, the code coverage percentage is not explicitly mentioned or implied. Therefore, I cannot provide an answer to this question.",
+      "accuracy": 0.0,
+      "latency_ms": 9008.790969848633,
+      "tokens_used": 43,
+      "success": true
+    },
+    {
+      "strategy": "COMPRESS",
+      "step": 10,
+      "question": "When is the next major feature release?",
+      "expected_answer": "Q2 2025",
+      "response": "Based on the information provided in the context, the next major feature release is likely to be soon, as recent developments have demonstrated the need for detailed planning and comprehensive testing. Best practices suggest that The system should prioritize careful analysis, and technical documentation confirms that The project supports thorough review. This indicates that The company is taking a systematic approach to ensure quality, which will result in a successful feature release.",
+      "accuracy": 0.0,
+      "latency_ms": 12630.74016571045,
+      "tokens_used": 122,
       "success": true
     },
     {
@@ -121,7 +231,7 @@
       "expected_answer": "$2.5 million",
       "response": "The project budget for Q1 2025 is $2.5 million.",
       "accuracy": 1.0,
-      "latency_ms": 2361.461877822876,
+      "latency_ms": 5944.793224334717,
       "tokens_used": 11,
       "success": true
     },
@@ -130,10 +240,10 @@
       "step": 2,
       "question": "How many engineers are on the team?",
       "expected_answer": "15",
-      "response": "Based on the information provided in the scratchpad memory, there are 15 engineers on the team.",
+      "response": "Based on the information provided in the context, there are 15 engineers on the team.",
       "accuracy": 1.0,
-      "latency_ms": 2581.521987915039,
-      "tokens_used": 23,
+      "latency_ms": 8290.236949920654,
+      "tokens_used": 21,
       "success": true
     },
     {
@@ -141,10 +251,10 @@
       "step": 3,
       "question": "When is the launch date?",
       "expected_answer": "March 15th, 2025",
-      "response": "The launch date is scheduled for March 15th, 2025.",
+      "response": "The launch date is March 15th, 2025.",
       "accuracy": 1.0,
-      "latency_ms": 2668.992042541504,
-      "tokens_used": 12,
+      "latency_ms": 7609.993934631348,
+      "tokens_used": 9,
       "success": true
     },
     {
@@ -152,10 +262,10 @@
       "step": 4,
       "question": "What is the customer satisfaction rate?",
       "expected_answer": "94%",
-      "response": "According to step 4, the customer satisfaction rate is currently 94%.",
+      "response": "According to the information provided in the context, the customer satisfaction rate is currently 94%.",
       "accuracy": 1.0,
-      "latency_ms": 2855.459213256836,
-      "tokens_used": 17,
+      "latency_ms": 6311.713933944702,
+      "tokens_used": 25,
       "success": true
     },
     {
@@ -163,10 +273,725 @@
       "step": 5,
       "question": "How many monthly active users are there?",
       "expected_answer": "150,000",
-      "response": "Based on the information provided in the scratchpad memory, there are 150,000 monthly active users.",
+      "response": "Based on the information provided in the context, there are 150,000 monthly active users.",
       "accuracy": 1.0,
-      "latency_ms": 2980.1220893859863,
+      "latency_ms": 6620.520830154419,
+      "tokens_used": 22,
+      "success": true
+    },
+    {
+      "strategy": "WRITE",
+      "step": 6,
+      "question": "What is the technical stack?",
+      "expected_answer": "React, Node.js, and PostgreSQL",
+      "response": "Based on the information provided in the context, the technical stack of the project is React, Node.js, and PostgreSQL.",
+      "accuracy": 1.0,
+      "latency_ms": 6643.75901222229,
+      "tokens_used": 29,
+      "success": true
+    },
+    {
+      "strategy": "WRITE",
+      "step": 7,
+      "question": "What is the average response time?",
+      "expected_answer": "120 milliseconds",
+      "response": "Based on the information provided in the context, the average response time is 120 milliseconds.",
+      "accuracy": 1.0,
+      "latency_ms": 6502.795934677124,
       "tokens_used": 24,
+      "success": true
+    },
+    {
+      "strategy": "WRITE",
+      "step": 8,
+      "question": "What is the current market share?",
+      "expected_answer": "23%",
+      "response": "According to the information provided in the context, the current market share of The project is 23%.",
+      "accuracy": 1.0,
+      "latency_ms": 8311.170101165771,
+      "tokens_used": 25,
+      "success": true
+    },
+    {
+      "strategy": "WRITE",
+      "step": 9,
+      "question": "What is the code coverage percentage?",
+      "expected_answer": "85%",
+      "response": "Based on the information provided in the context, the code coverage percentage is 85%.",
+      "accuracy": 1.0,
+      "latency_ms": 6599.2372035980225,
+      "tokens_used": 21,
+      "success": true
+    },
+    {
+      "strategy": "WRITE",
+      "step": 10,
+      "question": "When is the next major feature release?",
+      "expected_answer": "Q2 2025",
+      "response": "Based on the information provided in the context, the next major feature release for The project is scheduled for Q2 2025.",
+      "accuracy": 1.0,
+      "latency_ms": 7904.444932937622,
+      "tokens_used": 30,
+      "success": true
+    },
+    {
+      "strategy": "SELECT",
+      "step": 1,
+      "question": "What is the project budget for Q1 2025?",
+      "expected_answer": "$2.5 million",
+      "response": "Based on the information provided in the context, the project budget for Q1 2025 is not explicitly mentioned or implied. Therefore, I cannot provide an answer to this question.",
+      "accuracy": 0.0,
+      "latency_ms": 113649.95503425598,
+      "tokens_used": 44,
+      "success": true
+    },
+    {
+      "strategy": "SELECT",
+      "step": 2,
+      "question": "How many engineers are on the team?",
+      "expected_answer": "15",
+      "response": "Based on the information provided in the context, there is no explicit mention of the number of engineers on the team. Therefore, I cannot provide an answer to the question \"How many engineers are on the team?\"",
+      "accuracy": 0.0,
+      "latency_ms": 11732.528924942017,
+      "tokens_used": 52,
+      "success": true
+    },
+    {
+      "strategy": "SELECT",
+      "step": 3,
+      "question": "When is the launch date?",
+      "expected_answer": "March 15th, 2025",
+      "response": "Based on the information provided in the context, there is no specific launch date mentioned. The context only provides information about the company's need for detailed planning, comprehensive testing, and systematic approach to ensure quality. Therefore, I cannot provide a launch date as it is not mentioned in the context.",
+      "accuracy": 0.0,
+      "latency_ms": 12493.90196800232,
+      "tokens_used": 81,
+      "success": true
+    },
+    {
+      "strategy": "SELECT",
+      "step": 4,
+      "question": "What is the customer satisfaction rate?",
+      "expected_answer": "94%",
+      "response": "Based on the information provided in the context, the customer satisfaction rate is not explicitly mentioned or discussed. Therefore, I cannot provide an answer to this question.",
+      "accuracy": 0.0,
+      "latency_ms": 12359.446048736572,
+      "tokens_used": 44,
+      "success": true
+    },
+    {
+      "strategy": "SELECT",
+      "step": 5,
+      "question": "How many monthly active users are there?",
+      "expected_answer": "150,000",
+      "response": "Based on the information provided in the context, there is no mention of the number of monthly active users. Therefore, I cannot provide an answer to the question.",
+      "accuracy": 0.0,
+      "latency_ms": 12378.12876701355,
+      "tokens_used": 40,
+      "success": true
+    },
+    {
+      "strategy": "SELECT",
+      "step": 6,
+      "question": "What is the technical stack?",
+      "expected_answer": "React, Node.js, and PostgreSQL",
+      "response": "Based on the information provided in the context, the technical stack for the project can be inferred as follows:\n\n1. Programming languages: The team uses various programming languages such as Java, Python, and C++ to develop the system.\n2. Frameworks: The team utilizes various frameworks such as Spring, Django, and React to build the system's architecture.\n3. Databases: The project uses a combination of relational databases (e.g., MySQL) and NoSQL databases (e.g., MongoDB) for data storage.\n4. Operating System: The team primarily uses Linux as the operating system for the system's servers and workstations.\n5. Cloud Platform: The project utilizes a cloud platform such as AWS or Azure to host the system and provide scalability and reliability.\n6. Testing Tools: The team employs various testing tools such as JUnit, Pytest, and Selenium to ensure comprehensive testing of the system.\n7. Version Control System: The project utilizes a version control system such as Git to manage code changes and collaborate with team members.\n\nBased on the information provided in the context, this is the technical stack for the project.",
+      "accuracy": 0.0,
+      "latency_ms": 21136.248111724854,
+      "tokens_used": 282,
+      "success": true
+    },
+    {
+      "strategy": "SELECT",
+      "step": 7,
+      "question": "What is the average response time?",
+      "expected_answer": "120 milliseconds",
+      "response": "The average response time is not mentioned or provided in the given context.",
+      "accuracy": 0.0,
+      "latency_ms": 10874.083042144775,
+      "tokens_used": 19,
+      "success": true
+    },
+    {
+      "strategy": "SELECT",
+      "step": 8,
+      "question": "What is the current market share?",
+      "expected_answer": "23%",
+      "response": "Based on the information provided in the context, the current market share of The company is not explicitly mentioned or implied. Therefore, I cannot provide an answer to this question.",
+      "accuracy": 0.0,
+      "latency_ms": 13151.68285369873,
+      "tokens_used": 46,
+      "success": true
+    },
+    {
+      "strategy": "SELECT",
+      "step": 9,
+      "question": "What is the code coverage percentage?",
+      "expected_answer": "85%",
+      "response": "Based on the information provided in the context, the code coverage percentage is not mentioned or discussed. Therefore, I cannot provide an answer to this question.",
+      "accuracy": 0.0,
+      "latency_ms": 11173.239946365356,
+      "tokens_used": 41,
+      "success": true
+    },
+    {
+      "strategy": "SELECT",
+      "step": 10,
+      "question": "When is the next major feature release?",
+      "expected_answer": "Q2 2025",
+      "response": "Based on the information provided in the context, the next major feature release is expected to be sometime in the near future, as historical data shows that The team consistently supports comprehensive testing and detailed planning across all departments. Additionally, research indicates that The project provides thorough review in most scenarios, and the implementation of The system needs systematic approach across all departments. Therefore, it can be inferred that the next major feature release will likely involve a thorough review and detailed planning process to ensure quality and optimal performance.",
+      "accuracy": 0.0,
+      "latency_ms": 14907.719135284424,
+      "tokens_used": 153,
+      "success": true
+    },
+    {
+      "strategy": "COMPRESS",
+      "step": 1,
+      "question": "What is the project budget for Q1 2025?",
+      "expected_answer": "$2.5 million",
+      "response": "The project budget for Q1 2025 is not mentioned in the provided context. Therefore, I cannot provide an answer to this question.",
+      "accuracy": 0.0,
+      "latency_ms": 93281.09097480774,
+      "tokens_used": 32,
+      "success": true
+    },
+    {
+      "strategy": "COMPRESS",
+      "step": 2,
+      "question": "How many engineers are on the team?",
+      "expected_answer": "15",
+      "response": "Based on the information provided in the context, there is no explicit mention of the number of engineers on the team. Therefore, I cannot provide an answer to the question.",
+      "accuracy": 0.0,
+      "latency_ms": 6894.870042800903,
+      "tokens_used": 43,
+      "success": true
+    },
+    {
+      "strategy": "COMPRESS",
+      "step": 3,
+      "question": "When is the launch date?",
+      "expected_answer": "March 15th, 2025",
+      "response": "Based on the information provided in the context, there is no specific launch date mentioned. The text only emphasizes the need for detailed planning and comprehensive testing across all departments to ensure quality and optimal performance. Therefore, I cannot provide a launch date without additional information.",
+      "accuracy": 0.0,
+      "latency_ms": 8483.37197303772,
+      "tokens_used": 78,
+      "success": true
+    },
+    {
+      "strategy": "COMPRESS",
+      "step": 4,
+      "question": "What is the customer satisfaction rate?",
+      "expected_answer": "94%",
+      "response": "Based on the information provided in the context, the customer satisfaction rate is not explicitly mentioned or implied. Therefore, I cannot provide an answer to this question.",
+      "accuracy": 0.0,
+      "latency_ms": 6448.841094970703,
+      "tokens_used": 44,
+      "success": true
+    },
+    {
+      "strategy": "COMPRESS",
+      "step": 5,
+      "question": "How many monthly active users are there?",
+      "expected_answer": "150,000",
+      "response": "Based on the information provided in the context, there is no mention of the number of monthly active users. Therefore, I cannot provide an answer to this question.",
+      "accuracy": 0.0,
+      "latency_ms": 6623.945951461792,
+      "tokens_used": 41,
+      "success": true
+    },
+    {
+      "strategy": "COMPRESS",
+      "step": 6,
+      "question": "What is the technical stack?",
+      "expected_answer": "React, Node.js, and PostgreSQL",
+      "response": "Based on the information provided in the context, the technical stack for the project is likely to include careful analysis and thorough review across all departments to ensure quality and optimal performance and efficiency.",
+      "accuracy": 0.0,
+      "latency_ms": 14064.153909683228,
+      "tokens_used": 56,
+      "success": true
+    },
+    {
+      "strategy": "COMPRESS",
+      "step": 7,
+      "question": "What is the average response time?",
+      "expected_answer": "120 milliseconds",
+      "response": "Based on the information provided in the context, the average response time is not explicitly mentioned or implied. Therefore, I cannot provide an answer to this question.",
+      "accuracy": 0.0,
+      "latency_ms": 6111.268758773804,
+      "tokens_used": 42,
+      "success": true
+    },
+    {
+      "strategy": "COMPRESS",
+      "step": 8,
+      "question": "What is the current market share?",
+      "expected_answer": "23%",
+      "response": "Based on the information provided in the context, the current market share is not explicitly mentioned or discussed. Therefore, I cannot provide an answer to this question.",
+      "accuracy": 0.0,
+      "latency_ms": 7829.801797866821,
+      "tokens_used": 43,
+      "success": true
+    },
+    {
+      "strategy": "COMPRESS",
+      "step": 9,
+      "question": "What is the code coverage percentage?",
+      "expected_answer": "85%",
+      "response": "Based on the information provided in the context, the code coverage percentage is not explicitly mentioned or implied. Therefore, I cannot provide an answer to this question.",
+      "accuracy": 0.0,
+      "latency_ms": 6504.565954208374,
+      "tokens_used": 43,
+      "success": true
+    },
+    {
+      "strategy": "COMPRESS",
+      "step": 10,
+      "question": "When is the next major feature release?",
+      "expected_answer": "Q2 2025",
+      "response": "Based on the information provided in the context, the next major feature release is planned to occur after thorough review and careful analysis of the data to ensure quality and optimal performance and efficiency.",
+      "accuracy": 0.0,
+      "latency_ms": 8378.219842910767,
+      "tokens_used": 53,
+      "success": true
+    },
+    {
+      "strategy": "WRITE",
+      "step": 1,
+      "question": "What is the project budget for Q1 2025?",
+      "expected_answer": "$2.5 million",
+      "response": "The project budget for Q1 2025 is $2.5 million.",
+      "accuracy": 1.0,
+      "latency_ms": 8224.483013153076,
+      "tokens_used": 11,
+      "success": true
+    },
+    {
+      "strategy": "WRITE",
+      "step": 2,
+      "question": "How many engineers are on the team?",
+      "expected_answer": "15",
+      "response": "Based on the information provided in the context, there are 15 engineers on the team.",
+      "accuracy": 1.0,
+      "latency_ms": 10458.631992340088,
+      "tokens_used": 21,
+      "success": true
+    },
+    {
+      "strategy": "WRITE",
+      "step": 3,
+      "question": "When is the launch date?",
+      "expected_answer": "March 15th, 2025",
+      "response": "Based on the information provided in the context, the launch date for the project is March 15th, 2025.",
+      "accuracy": 1.0,
+      "latency_ms": 9642.385244369507,
+      "tokens_used": 25,
+      "success": true
+    },
+    {
+      "strategy": "WRITE",
+      "step": 4,
+      "question": "What is the customer satisfaction rate?",
+      "expected_answer": "94%",
+      "response": "According to the information provided in the context, the customer satisfaction rate is currently 94%.",
+      "accuracy": 1.0,
+      "latency_ms": 8610.440969467163,
+      "tokens_used": 25,
+      "success": true
+    },
+    {
+      "strategy": "WRITE",
+      "step": 5,
+      "question": "How many monthly active users are there?",
+      "expected_answer": "150,000",
+      "response": "Based on the information provided in the context, there are 150,000 monthly active users.",
+      "accuracy": 1.0,
+      "latency_ms": 8990.017652511597,
+      "tokens_used": 22,
+      "success": true
+    },
+    {
+      "strategy": "WRITE",
+      "step": 6,
+      "question": "What is the technical stack?",
+      "expected_answer": "React, Node.js, and PostgreSQL",
+      "response": "Based on the information provided in the context, the technical stack for the project is React, Node.js, and PostgreSQL.",
+      "accuracy": 1.0,
+      "latency_ms": 8987.494945526123,
+      "tokens_used": 30,
+      "success": true
+    },
+    {
+      "strategy": "WRITE",
+      "step": 7,
+      "question": "What is the average response time?",
+      "expected_answer": "120 milliseconds",
+      "response": "Based on the information provided in the context, the average response time is 120 milliseconds.",
+      "accuracy": 1.0,
+      "latency_ms": 8845.126152038574,
+      "tokens_used": 24,
+      "success": true
+    },
+    {
+      "strategy": "WRITE",
+      "step": 8,
+      "question": "What is the current market share?",
+      "expected_answer": "23%",
+      "response": "According to the information provided in the context, the current market share of The project is 23%.",
+      "accuracy": 1.0,
+      "latency_ms": 10661.105155944824,
+      "tokens_used": 25,
+      "success": true
+    },
+    {
+      "strategy": "WRITE",
+      "step": 9,
+      "question": "What is the code coverage percentage?",
+      "expected_answer": "85%",
+      "response": "Based on the information provided in the context, the code coverage percentage is 85%.",
+      "accuracy": 1.0,
+      "latency_ms": 8888.451099395752,
+      "tokens_used": 21,
+      "success": true
+    },
+    {
+      "strategy": "WRITE",
+      "step": 10,
+      "question": "When is the next major feature release?",
+      "expected_answer": "Q2 2025",
+      "response": "Based on the information provided in the context, the next major feature release for the project is scheduled for Q2 2025.",
+      "accuracy": 1.0,
+      "latency_ms": 10330.915927886963,
+      "tokens_used": 30,
+      "success": true
+    },
+    {
+      "strategy": "SELECT",
+      "step": 1,
+      "question": "What is the project budget for Q1 2025?",
+      "expected_answer": "$2.5 million",
+      "response": "Based on the information provided in the context, there is no mention of a project budget for Q1 2025. Therefore, I cannot provide an answer to the question.",
+      "accuracy": 0.0,
+      "latency_ms": 117866.52112007141,
+      "tokens_used": 39,
+      "success": true
+    },
+    {
+      "strategy": "SELECT",
+      "step": 2,
+      "question": "How many engineers are on the team?",
+      "expected_answer": "15",
+      "response": "Based on the information provided in the context, there is no explicit mention of the number of engineers on the team. Therefore, I cannot provide an answer to the question \"How many engineers are on the team?\"",
+      "accuracy": 0.0,
+      "latency_ms": 12302.962303161621,
+      "tokens_used": 52,
+      "success": true
+    },
+    {
+      "strategy": "SELECT",
+      "step": 3,
+      "question": "When is the launch date?",
+      "expected_answer": "March 15th, 2025",
+      "response": "Based on the information provided in the context, there is no specific launch date mentioned. The implementation of the system and the project, as well as the need for detailed planning and comprehensive testing, are ongoing processes. Therefore, there is no definitive launch date specified.",
+      "accuracy": 0.0,
+      "latency_ms": 13374.220132827759,
+      "tokens_used": 73,
+      "success": true
+    },
+    {
+      "strategy": "SELECT",
+      "step": 4,
+      "question": "What is the customer satisfaction rate?",
+      "expected_answer": "94%",
+      "response": "Based on the information provided in the context, the customer satisfaction rate is not explicitly mentioned or discussed. Therefore, I cannot provide an answer to this question.",
+      "accuracy": 0.0,
+      "latency_ms": 12635.591745376587,
+      "tokens_used": 44,
+      "success": true
+    },
+    {
+      "strategy": "SELECT",
+      "step": 5,
+      "question": "How many monthly active users are there?",
+      "expected_answer": "150,000",
+      "response": "Based on the information provided in the context, there is no mention of the number of monthly active users. Therefore, I cannot provide an answer to this question.",
+      "accuracy": 0.0,
+      "latency_ms": 12714.968919754028,
+      "tokens_used": 41,
+      "success": true
+    },
+    {
+      "strategy": "SELECT",
+      "step": 6,
+      "question": "What is the technical stack?",
+      "expected_answer": "React, Node.js, and PostgreSQL",
+      "response": "Based on the information provided in the context, the technical stack for the project or system being discussed is likely to include a combination of technologies and tools that support comprehensive testing, thorough review, and systematic approach. Some possible components of the technical stack could include:\n\n1. Testing frameworks and tools: To support comprehensive testing, the technical stack may include various testing frameworks and tools such as Selenium, JMeter, or Postman.\n2. Review and collaboration tools: To facilitate thorough review and systematic approach, the technical stack may include tools such as GitHub, GitLab, or Trello for version control and collaboration.\n3. Project management tools: To manage the project's overall progress and ensure quality, the technical stack may include project management tools such as Asana, Jira, or Microsoft Project.\n4. Development frameworks and libraries: To support systematic approach and comprehensive testing, the technical stack may include development frameworks and libraries such as React, Angular, or Vue.js.\n5. Data analysis and visualization tools: To provide detailed planning and systematic approach, the technical stack may include data analysis and visualization tools such as Tableau, Power BI, or Excel.\n\nOverall, the specific components of the technical stack will depend on the project's requirements and goals, but it is likely to include a combination of technologies and tools that support comprehensive testing, thorough review, and systematic approach.",
+      "accuracy": 0.0,
+      "latency_ms": 27662.83106803894,
+      "tokens_used": 385,
+      "success": true
+    },
+    {
+      "strategy": "SELECT",
+      "step": 7,
+      "question": "What is the average response time?",
+      "expected_answer": "120 milliseconds",
+      "response": "The average response time is not mentioned or provided in the given context.",
+      "accuracy": 0.0,
+      "latency_ms": 10532.049894332886,
+      "tokens_used": 19,
+      "success": true
+    },
+    {
+      "strategy": "SELECT",
+      "step": 8,
+      "question": "What is the current market share?",
+      "expected_answer": "23%",
+      "response": "Based on the information provided in the context, the current market share of The company is not explicitly mentioned or discussed. Therefore, I cannot provide an answer to this question.",
+      "accuracy": 0.0,
+      "latency_ms": 13394.041061401367,
+      "tokens_used": 46,
+      "success": true
+    },
+    {
+      "strategy": "SELECT",
+      "step": 9,
+      "question": "What is the code coverage percentage?",
+      "expected_answer": "85%",
+      "response": "Based on the information provided in the context, the code coverage percentage is not mentioned or discussed. Therefore, I cannot provide an answer to this question.",
+      "accuracy": 0.0,
+      "latency_ms": 11299.51786994934,
+      "tokens_used": 41,
+      "success": true
+    },
+    {
+      "strategy": "SELECT",
+      "step": 10,
+      "question": "When is the next major feature release?",
+      "expected_answer": "Q2 2025",
+      "response": "Based on the information provided in the context, the next major feature release is planned for sometime in the near future, as evidenced by the company's emphasis on thorough review and comprehensive testing across all departments. However, the exact timing of the release is not specified in the given text.",
+      "accuracy": 0.0,
+      "latency_ms": 15881.064176559448,
+      "tokens_used": 77,
+      "success": true
+    },
+    {
+      "strategy": "COMPRESS",
+      "step": 1,
+      "question": "What is the project budget for Q1 2025?",
+      "expected_answer": "$2.5 million",
+      "response": "Based on the information provided in the context, there is no mention of a specific project budget for Q1 2025. Therefore, I cannot provide an answer to this question.",
+      "accuracy": 0.0,
+      "latency_ms": 90590.03806114197,
+      "tokens_used": 41,
+      "success": true
+    },
+    {
+      "strategy": "COMPRESS",
+      "step": 2,
+      "question": "How many engineers are on the team?",
+      "expected_answer": "15",
+      "response": "Based on the information provided in the context, there is no explicit mention of the number of engineers on the team. However, we can infer that there are engineers on the team based on the language used, such as \"The team manages systematic approach across all departments\" and \"The implementation of The data manages comprehensive testing across all departments.\" These phrases suggest that there is a team working on the project, and that they are responsible for managing and implementing various aspects of the project. Therefore, we can conclude that there are engineers on the team, but their exact number is not specified in the context.",
+      "accuracy": 0.0,
+      "latency_ms": 6105.5638790130615,
+      "tokens_used": 161,
+      "success": true
+    },
+    {
+      "strategy": "COMPRESS",
+      "step": 3,
+      "question": "When is the launch date?",
+      "expected_answer": "March 15th, 2025",
+      "response": "Based on the information provided in the context, there is no specific launch date mentioned. The project appears to be ongoing, with a focus on thorough review and systematic approach across all departments. While stakeholder feedback highlights the importance of comprehensive testing, there is no indication of a specific launch date. Therefore, I cannot provide an answer to the question of when the launch date is.",
+      "accuracy": 0.0,
+      "latency_ms": 6434.700965881348,
+      "tokens_used": 104,
+      "success": true
+    },
+    {
+      "strategy": "COMPRESS",
+      "step": 4,
+      "question": "What is the customer satisfaction rate?",
+      "expected_answer": "94%",
+      "response": "Based on the information provided in the context, the customer satisfaction rate is not explicitly mentioned or implied. Therefore, I cannot provide an answer to this question.",
+      "accuracy": 0.0,
+      "latency_ms": 3997.9419708251953,
+      "tokens_used": 44,
+      "success": true
+    },
+    {
+      "strategy": "COMPRESS",
+      "step": 5,
+      "question": "How many monthly active users are there?",
+      "expected_answer": "150,000",
+      "response": "Based on the information provided in the context, there is no mention of the number of monthly active users. Therefore, I cannot provide an answer to this question.",
+      "accuracy": 0.0,
+      "latency_ms": 4081.2368392944336,
+      "tokens_used": 41,
+      "success": true
+    },
+    {
+      "strategy": "COMPRESS",
+      "step": 6,
+      "question": "What is the technical stack?",
+      "expected_answer": "React, Node.js, and PostgreSQL",
+      "response": "Based on the information provided in the context, the technical stack for the project is likely to include comprehensive testing and systematic approach across all departments.",
+      "accuracy": 0.0,
+      "latency_ms": 5127.665281295776,
+      "tokens_used": 44,
+      "success": true
+    },
+    {
+      "strategy": "COMPRESS",
+      "step": 7,
+      "question": "What is the average response time?",
+      "expected_answer": "120 milliseconds",
+      "response": "Based on the information provided in the context, there is no mention of an average response time. Therefore, I cannot provide an answer to this question.",
+      "accuracy": 0.0,
+      "latency_ms": 3960.095167160034,
+      "tokens_used": 38,
+      "success": true
+    },
+    {
+      "strategy": "COMPRESS",
+      "step": 8,
+      "question": "What is the current market share?",
+      "expected_answer": "23%",
+      "response": "Based on the information provided in the context, the current market share of The system is not explicitly mentioned or implied. However, it can be inferred that The system has been successful in maintaining a consistent level of performance and efficiency, as stakeholder feedback highlights the importance of thorough review and comprehensive testing. Additionally, the implementation of The team across all departments suggests a systematic approach that prioritizes quality and effectiveness. Therefore, while the exact market share may not be specified, it can be inferred that The system has a competitive position in the industry.",
+      "accuracy": 0.0,
+      "latency_ms": 6990.286111831665,
+      "tokens_used": 159,
+      "success": true
+    },
+    {
+      "strategy": "COMPRESS",
+      "step": 9,
+      "question": "What is the code coverage percentage?",
+      "expected_answer": "85%",
+      "response": "Based on the information provided in the context, the code coverage percentage is not explicitly mentioned or implied. Therefore, I cannot provide an answer to this question.",
+      "accuracy": 0.0,
+      "latency_ms": 4054.5971393585205,
+      "tokens_used": 43,
+      "success": true
+    },
+    {
+      "strategy": "COMPRESS",
+      "step": 10,
+      "question": "When is the next major feature release?",
+      "expected_answer": "Q2 2025",
+      "response": "Based on the information provided in the context, there is no clear indication of when the next major feature release will be. The data and stakeholder feedback suggest that the project prioritizes thorough review and systematic approach, but do not provide any specific timeline for a feature release. Therefore, I cannot provide a definitive answer to the question of when the next major feature release will occur.",
+      "accuracy": 0.0,
+      "latency_ms": 6136.480808258057,
+      "tokens_used": 104,
+      "success": true
+    },
+    {
+      "strategy": "WRITE",
+      "step": 1,
+      "question": "What is the project budget for Q1 2025?",
+      "expected_answer": "$2.5 million",
+      "response": "The project budget for Q1 2025 is $2.5 million.",
+      "accuracy": 1.0,
+      "latency_ms": 10302.19578742981,
+      "tokens_used": 11,
+      "success": true
+    },
+    {
+      "strategy": "WRITE",
+      "step": 2,
+      "question": "How many engineers are on the team?",
+      "expected_answer": "15",
+      "response": "Based on the information provided in the context, there are 15 engineers on the team.",
+      "accuracy": 1.0,
+      "latency_ms": 10689.92805480957,
+      "tokens_used": 21,
+      "success": true
+    },
+    {
+      "strategy": "WRITE",
+      "step": 3,
+      "question": "When is the launch date?",
+      "expected_answer": "March 15th, 2025",
+      "response": "The launch date is March 15th, 2025.",
+      "accuracy": 1.0,
+      "latency_ms": 10786.257982254028,
+      "tokens_used": 9,
+      "success": true
+    },
+    {
+      "strategy": "WRITE",
+      "step": 4,
+      "question": "What is the customer satisfaction rate?",
+      "expected_answer": "94%",
+      "response": "According to the information provided in the context, the customer satisfaction rate is currently 94%.",
+      "accuracy": 1.0,
+      "latency_ms": 10842.079401016235,
+      "tokens_used": 25,
+      "success": true
+    },
+    {
+      "strategy": "WRITE",
+      "step": 5,
+      "question": "How many monthly active users are there?",
+      "expected_answer": "150,000",
+      "response": "Based on the information provided in the context, there are 150,000 monthly active users.",
+      "accuracy": 1.0,
+      "latency_ms": 11382.189989089966,
+      "tokens_used": 22,
+      "success": true
+    },
+    {
+      "strategy": "WRITE",
+      "step": 6,
+      "question": "What is the technical stack?",
+      "expected_answer": "React, Node.js, and PostgreSQL",
+      "response": "Based on the information provided in the context, the technical stack for the project is React, Node.js, and PostgreSQL.",
+      "accuracy": 1.0,
+      "latency_ms": 11442.904949188232,
+      "tokens_used": 30,
+      "success": true
+    },
+    {
+      "strategy": "WRITE",
+      "step": 7,
+      "question": "What is the average response time?",
+      "expected_answer": "120 milliseconds",
+      "response": "Based on the information provided in the context, the average response time is 120 milliseconds.",
+      "accuracy": 1.0,
+      "latency_ms": 11244.14587020874,
+      "tokens_used": 24,
+      "success": true
+    },
+    {
+      "strategy": "WRITE",
+      "step": 8,
+      "question": "What is the current market share?",
+      "expected_answer": "23%",
+      "response": "According to the information provided in the context, the current market share of The company is 23%.",
+      "accuracy": 1.0,
+      "latency_ms": 11265.714168548584,
+      "tokens_used": 25,
+      "success": true
+    },
+    {
+      "strategy": "WRITE",
+      "step": 9,
+      "question": "What is the code coverage percentage?",
+      "expected_answer": "85%",
+      "response": "According to the information provided in the context, the code coverage percentage is 85%.",
+      "accuracy": 1.0,
+      "latency_ms": 11165.002822875977,
+      "tokens_used": 22,
+      "success": true
+    },
+    {
+      "strategy": "WRITE",
+      "step": 10,
+      "question": "When is the next major feature release?",
+      "expected_answer": "Q2 2025",
+      "response": "Based on the information provided in the context, the next major feature release for the project is scheduled for Q2 2025.",
+      "accuracy": 1.0,
+      "latency_ms": 11730.998992919922,
+      "tokens_used": 30,
       "success": true
     }
   ],
@@ -177,10 +1002,10 @@
           "mean": 0.0
         },
         "latency_ms": {
-          "mean": 6859.8631381988525
+          "mean": 23389.93930021922
         },
         "tokens_used": {
-          "mean": 277.4
+          "mean": 89.76666666666667
         }
       },
       "by_step": {
@@ -189,7 +1014,7 @@
             "mean": 0.0
           },
           "latency_ms": {
-            "mean": 9679.211139678955
+            "mean": 113659.14567311604
           }
         },
         "step_2": {
@@ -197,7 +1022,7 @@
             "mean": 0.0
           },
           "latency_ms": {
-            "mean": 7018.445014953613
+            "mean": 11725.117762883505
           }
         },
         "step_3": {
@@ -205,7 +1030,7 @@
             "mean": 0.0
           },
           "latency_ms": {
-            "mean": 3997.3747730255127
+            "mean": 12453.8893699646
           }
         },
         "step_4": {
@@ -213,7 +1038,7 @@
             "mean": 0.0
           },
           "latency_ms": {
-            "mean": 7315.184831619263
+            "mean": 12441.056648890177
           }
         },
         "step_5": {
@@ -221,7 +1046,47 @@
             "mean": 0.0
           },
           "latency_ms": {
-            "mean": 6289.099931716919
+            "mean": 12390.01488685608
+          }
+        },
+        "step_6": {
+          "accuracy": {
+            "mean": 0.0
+          },
+          "latency_ms": {
+            "mean": 21494.218826293945
+          }
+        },
+        "step_7": {
+          "accuracy": {
+            "mean": 0.0
+          },
+          "latency_ms": {
+            "mean": 10873.070557912191
+          }
+        },
+        "step_8": {
+          "accuracy": {
+            "mean": 0.0
+          },
+          "latency_ms": {
+            "mean": 13146.840651830038
+          }
+        },
+        "step_9": {
+          "accuracy": {
+            "mean": 0.0
+          },
+          "latency_ms": {
+            "mean": 11149.860858917236
+          }
+        },
+        "step_10": {
+          "accuracy": {
+            "mean": 0.0
+          },
+          "latency_ms": {
+            "mean": 14566.17776552836
           }
         }
       }
@@ -232,10 +1097,10 @@
           "mean": 0.0
         },
         "latency_ms": {
-          "mean": 4503.831052780151
+          "mean": 16651.359446843464
         },
         "tokens_used": {
-          "mean": 228.6
+          "mean": 66.9
         }
       },
       "by_step": {
@@ -244,7 +1109,7 @@
             "mean": 0.0
           },
           "latency_ms": {
-            "mean": 6079.058885574341
+            "mean": 93371.28694852193
           }
         },
         "step_2": {
@@ -252,7 +1117,7 @@
             "mean": 0.0
           },
           "latency_ms": {
-            "mean": 3011.5597248077393
+            "mean": 7548.585255940755
           }
         },
         "step_3": {
@@ -260,7 +1125,7 @@
             "mean": 0.0
           },
           "latency_ms": {
-            "mean": 3391.019105911255
+            "mean": 8725.632985432943
           }
         },
         "step_4": {
@@ -268,7 +1133,7 @@
             "mean": 0.0
           },
           "latency_ms": {
-            "mean": 5011.485815048218
+            "mean": 6472.181002298991
           }
         },
         "step_5": {
@@ -276,7 +1141,47 @@
             "mean": 0.0
           },
           "latency_ms": {
-            "mean": 5026.031732559204
+            "mean": 6631.035248438518
+          }
+        },
+        "step_6": {
+          "accuracy": {
+            "mean": 0.0
+          },
+          "latency_ms": {
+            "mean": 13678.820133209229
+          }
+        },
+        "step_7": {
+          "accuracy": {
+            "mean": 0.0
+          },
+          "latency_ms": {
+            "mean": 6091.308991114299
+          }
+        },
+        "step_8": {
+          "accuracy": {
+            "mean": 0.0
+          },
+          "latency_ms": {
+            "mean": 8423.612276713053
+          }
+        },
+        "step_9": {
+          "accuracy": {
+            "mean": 0.0
+          },
+          "latency_ms": {
+            "mean": 6522.651354471843
+          }
+        },
+        "step_10": {
+          "accuracy": {
+            "mean": 0.0
+          },
+          "latency_ms": {
+            "mean": 9048.48027229309
           }
         }
       }
@@ -287,10 +1192,10 @@
           "mean": 1.0
         },
         "latency_ms": {
-          "mean": 2689.5114421844482
+          "mean": 9174.304540952047
         },
         "tokens_used": {
-          "mean": 17.4
+          "mean": 22.333333333333332
         }
       },
       "by_step": {
@@ -299,7 +1204,7 @@
             "mean": 1.0
           },
           "latency_ms": {
-            "mean": 2361.461877822876
+            "mean": 8157.157341639201
           }
         },
         "step_2": {
@@ -307,7 +1212,7 @@
             "mean": 1.0
           },
           "latency_ms": {
-            "mean": 2581.521987915039
+            "mean": 9812.932332356771
           }
         },
         "step_3": {
@@ -315,7 +1220,7 @@
             "mean": 1.0
           },
           "latency_ms": {
-            "mean": 2668.992042541504
+            "mean": 9346.212387084961
           }
         },
         "step_4": {
@@ -323,7 +1228,7 @@
             "mean": 1.0
           },
           "latency_ms": {
-            "mean": 2855.459213256836
+            "mean": 8588.078101476034
           }
         },
         "step_5": {
@@ -331,7 +1236,47 @@
             "mean": 1.0
           },
           "latency_ms": {
-            "mean": 2980.1220893859863
+            "mean": 8997.576157251993
+          }
+        },
+        "step_6": {
+          "accuracy": {
+            "mean": 1.0
+          },
+          "latency_ms": {
+            "mean": 9024.719635645548
+          }
+        },
+        "step_7": {
+          "accuracy": {
+            "mean": 1.0
+          },
+          "latency_ms": {
+            "mean": 8864.022652308146
+          }
+        },
+        "step_8": {
+          "accuracy": {
+            "mean": 1.0
+          },
+          "latency_ms": {
+            "mean": 10079.32980855306
+          }
+        },
+        "step_9": {
+          "accuracy": {
+            "mean": 1.0
+          },
+          "latency_ms": {
+            "mean": 8884.230375289917
+          }
+        },
+        "step_10": {
+          "accuracy": {
+            "mean": 1.0
+          },
+          "latency_ms": {
+            "mean": 9988.786617914835
           }
         }
       }
