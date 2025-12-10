@@ -204,10 +204,27 @@ class OllamaInterface:
         Returns:
             Formatted prompt
         """
-        return f"""Context:
+        # Detect if question is in Hebrew
+        is_hebrew = any('\u0590' <= char <= '\u05FF' for char in question)
+
+        if is_hebrew:
+            # Hebrew-specific prompt with explicit instructions
+            return f"""להלן הטקסט:
+{context}
+
+שאלה: {question}
+
+הוראות: ענה על השאלה בעברית בהתבסס בדיוק על המידע המופיע בטקסט. תן תשובה קצרה וישירה.
+
+תשובה: """
+        else:
+            # English prompt
+            return f"""Context:
 {context}
 
 Question: {question}
+
+Instructions: Answer the question based strictly on the information in the context above. Provide a concise, direct answer.
 
 Answer: """
 
