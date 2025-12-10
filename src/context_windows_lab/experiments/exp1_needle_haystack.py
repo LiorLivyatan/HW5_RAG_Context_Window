@@ -8,6 +8,7 @@ have reduced accuracy for information embedded in the middle of contexts.
 from pathlib import Path
 from typing import Dict, List, Any
 import logging
+import random
 
 from context_windows_lab.experiments.base_experiment import (
     BaseExperiment,
@@ -76,99 +77,128 @@ class NeedleInHaystackExperiment(BaseExperiment):
         # Test positions
         self.positions = ["start", "middle", "end"]
 
-    def _generate_data(self) -> Dict[str, List[Document]]:
+    def _generate_data(self) -> List[Document]:
         """
-        Generate documents with facts at different positions.
+        Generate documents with facts at randomly chosen positions.
+
+        Matches assignment pseudocode:
+        - Generate num_docs documents (default 5)
+        - Each document randomly gets fact at start/middle/end
 
         Returns:
-            Dictionary mapping positions to document lists
+            List of documents with random fact positions
         """
-        data = {}
+        logger.info(
+            f"Generating {self.num_documents} documents with randomly positioned facts"
+        )
 
-        for position in self.positions:
-            logger.info(
-                f"Generating {self.num_documents} documents with fact at {position}"
-            )
+        documents = []
 
-            documents = self.doc_generator.generate_documents(
-                num_docs=self.num_documents,
+        for i in range(self.num_documents):
+            # Randomly choose position for THIS document (matches pseudocode)
+            fact_position = random.choice(['start', 'middle', 'end'])
+
+            # Generate single document with fact at chosen position
+            doc = self.doc_generator.generate_documents(
+                num_docs=1,
                 words_per_doc=self.words_per_document,
                 fact=self.fact,
-                fact_position=position,
-            )
+                fact_position=fact_position,
+            )[0]  # Take the single generated document
 
-            data[position] = documents
+            documents.append(doc)
 
-        return data
+            logger.debug(f"Document {i+1}/{self.num_documents}: fact at '{fact_position}'")
+
+        # Log distribution of positions
+        position_counts = {}
+        for doc in documents:
+            pos = doc.fact_position
+            position_counts[pos] = position_counts.get(pos, 0) + 1
+
+        logger.info(f"Position distribution: {position_counts}")
+
+        # Store for later access in _evaluate_responses
+        self.documents = documents
+
+        return documents
 
     def _execute_queries(
-        self, data: Dict[str, List[Document]]
-    ) -> Dict[str, List[LLMResponse]]:
+        self, data: List[Document]
+    ) -> List[LLMResponse]:
         """
         Query LLM for each document.
 
+        Matches assignment pseudocode:
+        - Iterate through all documents
+        - Query each document with same question
+        - Return list of responses (will be grouped by position later)
+
         Args:
-            data: Documents by position
+            data: List of documents with random fact positions
 
         Returns:
-            LLM responses by position
+            List of LLM responses (same order as documents)
         """
-        responses = {}
+        logger.info(f"Querying LLM for {len(data)} documents")
+        responses = []
 
-        for position, documents in data.items():
-            logger.info(f"Querying LLM for {position} position documents")
-            position_responses = []
+        for i, doc in enumerate(data):
+            logger.debug(
+                f"Query {i+1}/{len(data)}: fact at '{doc.fact_position}'"
+            )
 
-            for i, doc in enumerate(documents):
-                logger.debug(f"Query {i+1}/{len(documents)} for {position}")
+            # Query LLM with document content
+            response = self.llm.query(context=doc.content, question=self.question)
 
-                # Query LLM
-                response = self.llm.query(context=doc.content, question=self.question)
+            responses.append(response)
 
-                position_responses.append(response)
-
-            responses[position] = position_responses
-
+        logger.info(f"Completed {len(responses)} queries")
         return responses
 
     def _evaluate_responses(
-        self, responses: Dict[str, List[LLMResponse]]
+        self, responses: List[LLMResponse]
     ) -> List[Dict[str, Any]]:
         """
-        Evaluate accuracy of responses by position.
+        Evaluate accuracy of responses and group by fact position.
+
+        Matches assignment pseudocode:
+        - Pair each document with its response
+        - Evaluate accuracy
+        - Include fact_position from document for later grouping
 
         Args:
-            responses: LLM responses by position
+            responses: List of LLM responses (same order as documents)
 
         Returns:
             List of evaluation results with metadata
         """
         evaluations = []
 
-        for position, position_responses in responses.items():
-            for i, response in enumerate(position_responses):
-                # Evaluate accuracy
-                accuracy = self.evaluator.evaluate(
-                    response.text, self.expected_answer
-                )
+        # Pair documents with responses and evaluate
+        for i, (doc, response) in enumerate(zip(self.documents, responses)):
+            # Evaluate accuracy
+            accuracy = self.evaluator.evaluate(
+                response.text, self.expected_answer
+            )
 
-                evaluation = {
-                    "position": position,
-                    "doc_index": i,
-                    "accuracy": accuracy,
-                    "latency_ms": response.latency_ms,
-                    "tokens_used": response.tokens_used,
-                    "response_text": response.text,
-                    "success": response.success,
-                }
+            evaluation = {
+                "position": doc.fact_position,  # Get from document
+                "doc_index": i,
+                "accuracy": accuracy,
+                "latency_ms": response.latency_ms,
+                "tokens_used": response.tokens_used,
+                "response_text": response.text,
+                "success": response.success,
+            }
 
-                evaluations.append(evaluation)
+            evaluations.append(evaluation)
 
-                logger.debug(
-                    f"Position={position}, Doc={i}, "
-                    f"Accuracy={accuracy:.2f}, "
-                    f"Latency={response.latency_ms:.0f}ms"
-                )
+            logger.debug(
+                f"Doc {i+1}/{len(self.documents)}: position='{doc.fact_position}', "
+                f"accuracy={accuracy:.2f}, "
+                f"latency={response.latency_ms:.0f}ms"
+            )
 
         return evaluations
 

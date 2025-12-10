@@ -251,12 +251,12 @@ def run_experiment_3(output_dir: Path, iterations: int = 1, use_multiprocessing:
 
     # Create experiment with Hebrew documents, top-3 retrieval
     # Uses default path: data/raw/hebrew_documents/
-    # Question: "What are the main advantages of technology?"
+    # Question: "What are the side effects of medicine X?" (matches assignment PDF)
     experiment = RAGImpactExperiment(
         config=config,
-        domain=None,  # Load all domains (technology, law, medicine)
-        question="מהם היתרונות העיקריים של הטכנולוגיה?",  # Hebrew question
-        expected_answer="יעילות",  # Expected: efficiency/effectiveness
+        domain="medicine",  # Focus on medicine domain for medicine-related question
+        question="מה הם התופעות הלוואי של תרופה X?",  # Hebrew: "What are the side effects of medicine X?"
+        expected_answer="תופעות לוואי",  # Expected: "side effects" in Hebrew
         top_k=3,
     )
 
@@ -306,12 +306,13 @@ def run_experiment_4(output_dir: Path, iterations: int = 1, use_multiprocessing:
 
     # Create experiment with 20 documents, 10 steps
     # Tests SELECT (RAG), COMPRESS (summarization), WRITE (scratchpad)
+    # Uses k=5 for SELECT strategy (matches assignment pseudocode)
     experiment = ContextStrategiesExperiment(
         config=config,
         num_documents=20,
         words_per_document=200,
         num_steps=10,  # Multi-step agent simulation
-        top_k=3,
+        top_k=5,  # Assignment requires k=5 for SELECT strategy
         max_summary_words=200,
     )
 

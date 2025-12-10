@@ -47,7 +47,7 @@ class ContextStrategiesExperiment(BaseExperiment):
         facts: Optional[List[str]] = None,
         questions: Optional[List[str]] = None,
         expected_answers: Optional[List[str]] = None,
-        top_k: int = 3,
+        top_k: int = 5,  # Assignment pseudocode specifies k=5 for SELECT strategy
         max_summary_words: int = 200,
         llm_interface: OllamaInterface = None,
     ):
