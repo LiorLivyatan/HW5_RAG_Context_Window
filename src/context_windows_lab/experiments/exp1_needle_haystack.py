@@ -47,6 +47,7 @@ class NeedleInHaystackExperiment(BaseExperiment):
         question: str = "Who is the CEO of the company?",
         expected_answer: str = "David Cohen",
         llm_interface: OllamaInterface = None,
+        add_distractors: bool = False,
     ):
         """
         Initialize Needle in Haystack experiment.
@@ -59,6 +60,7 @@ class NeedleInHaystackExperiment(BaseExperiment):
             question: Question to ask LLM
             expected_answer: Expected answer for evaluation
             llm_interface: Optional LLM interface (will create if None)
+            add_distractors: Whether to add confusing similar facts (default: False)
         """
         super().__init__(config)
 
@@ -67,9 +69,10 @@ class NeedleInHaystackExperiment(BaseExperiment):
         self.fact = fact
         self.question = question
         self.expected_answer = expected_answer
+        self.add_distractors = add_distractors
 
         # Initialize building blocks
-        self.doc_generator = DocumentGenerator(seed=42)
+        self.doc_generator = DocumentGenerator(seed=42, add_distractors=add_distractors)
         self.llm = llm_interface or OllamaInterface()
         self.evaluator = AccuracyEvaluator(method="contains", case_sensitive=False)
         self.plotter = Plotter()

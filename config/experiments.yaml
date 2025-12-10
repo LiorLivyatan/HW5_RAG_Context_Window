@@ -28,6 +28,9 @@ global:
 # ============================================================================
 experiment_1:
   name: "Needle in Haystack"
+
+  # Add distractors (confusing similar facts) to make task harder
+  add_distractors: false  # Set to true to add CEO/role distractors
   description: "Demonstrate Lost in the Middle phenomenon"
 
   # Document generation settings

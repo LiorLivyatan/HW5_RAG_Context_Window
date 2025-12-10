@@ -1,0 +1,106 @@
+{
+  "experiment": "Needle in Haystack (With Distractors)",
+  "config": {
+    "iterations": 1
+  },
+  "raw_results": [
+    {
+      "position": "end",
+      "doc_index": 0,
+      "accuracy": 1.0,
+      "latency_ms": 907.2189331054688,
+      "tokens_used": 2,
+      "response_text": "David Cohen",
+      "success": true
+    },
+    {
+      "position": "start",
+      "doc_index": 1,
+      "accuracy": 1.0,
+      "latency_ms": 814.3789768218994,
+      "tokens_used": 2,
+      "response_text": "David Cohen",
+      "success": true
+    },
+    {
+      "position": "start",
+      "doc_index": 2,
+      "accuracy": 1.0,
+      "latency_ms": 754.0590763092041,
+      "tokens_used": 2,
+      "response_text": "David Cohen",
+      "success": true
+    },
+    {
+      "position": "end",
+      "doc_index": 3,
+      "accuracy": 1.0,
+      "latency_ms": 878.0410289764404,
+      "tokens_used": 2,
+      "response_text": "David Cohen",
+      "success": true
+    },
+    {
+      "position": "middle",
+      "doc_index": 4,
+      "accuracy": 1.0,
+      "latency_ms": 881.3121318817139,
+      "tokens_used": 2,
+      "response_text": "David Cohen",
+      "success": true
+    }
+  ],
+  "statistics": {
+    "start": {
+      "accuracy": {
+        "mean": 1.0,
+        "std": 0.0,
+        "min": 1.0,
+        "max": 1.0,
+        "count": 2,
+        "ci_95": [
+          1.0,
+          1.0
+        ]
+      },
+      "latency_ms": {
+        "mean": 784.2190265655518,
+        "std": 42.65261069302476
+      }
+    },
+    "middle": {
+      "accuracy": {
+        "mean": 1.0,
+        "std": 0.0,
+        "min": 1.0,
+        "max": 1.0,
+        "count": 1,
+        "ci_95": [
+          1.0,
+          1.0
+        ]
+      },
+      "latency_ms": {
+        "mean": 881.3121318817139,
+        "std": 0.0
+      }
+    },
+    "end": {
+      "accuracy": {
+        "mean": 1.0,
+        "std": 0.0,
+        "min": 1.0,
+        "max": 1.0,
+        "count": 2,
+        "ci_95": [
+          1.0,
+          1.0
+        ]
+      },
+      "latency_ms": {
+        "mean": 892.6299810409546,
+        "std": 20.63189387044689
+      }
+    }
+  }
+}

@@ -61,6 +61,7 @@ class DocumentGenerator:
         templates: Optional[List[str]] = None,
         fact_library: Optional[List[str]] = None,
         seed: Optional[int] = None,
+        add_distractors: bool = False,
     ):
         """
         Initialize DocumentGenerator.
@@ -69,9 +70,11 @@ class DocumentGenerator:
             templates: Text templates for filler content (optional)
             fact_library: Library of pre-defined facts (optional)
             seed: Random seed for reproducibility (optional)
+            add_distractors: Whether to add confusing similar facts (default: False)
         """
         self.templates = templates or self._default_templates()
         self.fact_library = fact_library or self._default_fact_library()
+        self.add_distractors = add_distractors
 
         if seed is not None:
             random.seed(seed)
@@ -152,6 +155,12 @@ class DocumentGenerator:
             if current_words + words_in_filled <= target_words + 10:
                 text_parts.append(filled)
                 current_words += words_in_filled
+
+                # Add distractors occasionally (every 3-4 sentences)
+                if self.add_distractors and self._rng.random() < 0.3:
+                    distractor = self._generate_distractor()
+                    text_parts.append(distractor)
+                    current_words += len(distractor.split())
             else:
                 # Generate smaller chunk to reach target
                 remaining = target_words - current_words
@@ -223,6 +232,44 @@ class DocumentGenerator:
         result = result.replace("{object}", self._rng.choice(objects))
 
         return result
+
+    def _generate_distractor(self) -> str:
+        """
+        Generate distractor facts that look similar to real facts but are incorrect.
+
+        These confuse the model by adding plausible but wrong information.
+
+        Returns:
+            A distractor sentence
+        """
+        distractor_types = [
+            # Wrong CEO names
+            "According to the Q2 report, Michael Anderson served as interim CEO.",
+            "The board appointed Sarah Williams as Chief Operating Officer.",
+            "Robert Martinez was previously the company's Chief Financial Officer.",
+            "Jennifer Taylor joined as VP of Engineering last quarter.",
+            "The executive team includes Thomas Brown as Chief Technology Officer.",
+
+            # Wrong but similar roles
+            "The Managing Director, James Wilson, oversees European operations.",
+            "Emily Chen leads the company's Asia-Pacific division.",
+            "The Chairman of the Board is Richard Garcia.",
+            "Patricia Lopez serves as the company's General Counsel.",
+
+            # Dates and numbers to confuse
+            "The company was founded in December 2018.",
+            "Q3 earnings were reported on November 12th.",
+            "The annual shareholder meeting is scheduled for January 20th.",
+            "The fiscal year ends on March 31st.",
+
+            # Other confusing details
+            "The company headquarters recently relocated from Boston.",
+            "The organization employs over 500 people worldwide.",
+            "Regional offices operate in 12 different countries.",
+            "The company name was changed in 2020 from TechCorp Solutions.",
+        ]
+
+        return self._rng.choice(distractor_types)
 
     def _validate_inputs(
         self,
