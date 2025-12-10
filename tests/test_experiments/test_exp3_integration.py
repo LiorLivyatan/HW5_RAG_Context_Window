@@ -59,10 +59,12 @@ class MockOllamaInterface:
 
         return LLMResponse(
             text="יעילות",  # Hebrew: "efficiency"
-            success=True,
-            error=None,
             latency_ms=latency,
             tokens_used=tokens,
+            model="llama2",
+            timestamp=datetime.now(),
+            success=True,
+            error=None,
         )
 
     def check_connection(self) -> bool:
@@ -299,17 +301,21 @@ class TestRAGImpactExperiment:
             responses = {
                 "full_context": LLMResponse(
                     text="יעילות",  # Correct
-                    success=True,
-                    error=None,
                     latency_ms=5000,
                     tokens_used=50,
+                    model="llama2",
+                    timestamp=datetime.now(),
+                    success=True,
+                    error=None,
                 ),
                 "rag": LLMResponse(
                     text="יעילות",  # Correct
-                    success=True,
-                    error=None,
                     latency_ms=2000,
                     tokens_used=20,
+                    model="llama2",
+                    timestamp=datetime.now(),
+                    success=True,
+                    error=None,
                 ),
             }
 

@@ -62,6 +62,7 @@ class TestNeedleInHaystackIntegration:
         """Test experiment can be initialized."""
         config = ExperimentConfig(
             name="Test Experiment",
+            output_dir=self.output_dir,
             iterations=1,
             save_results=False,
             generate_visualizations=False,

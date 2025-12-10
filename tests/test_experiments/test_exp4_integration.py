@@ -34,10 +34,6 @@ class MockOllamaInterface:
         self.max_retries = 3
         self.call_count = 0
         self.queries = []
-
-    def check_availability(self) -> bool:
-        """Mock check_availability."""
-        return True
         self.response_map = {
             0: "$2.5 million",  # Step 1: budget
             1: "15",  # Step 2: engineers
@@ -45,6 +41,10 @@ class MockOllamaInterface:
             3: "94%",  # Step 4: satisfaction
             4: "150,000",  # Step 5: users
         }
+
+    def check_availability(self) -> bool:
+        """Mock check_availability."""
+        return True
 
     def query(self, context: str, question: str, **kwargs) -> LLMResponse:
         """Mock query that returns context-appropriate answers."""
@@ -56,10 +56,12 @@ class MockOllamaInterface:
 
         return LLMResponse(
             text=response_text,
-            success=True,
-            error=None,
             latency_ms=1000,
             tokens_used=10,
+            model="llama2",
+            timestamp=datetime.now(),
+            success=True,
+            error=None,
         )
 
     def check_connection(self) -> bool:
@@ -156,6 +158,9 @@ class TestContextStrategiesExperiment:
                 config,
                 num_documents=5,
                 num_steps=3,
+                facts=["Fact 1", "Fact 2", "Fact 3"],
+                questions=["Q1?", "Q2?", "Q3?"],
+                expected_answers=["A1", "A2", "A3"],
                 llm_interface=mock_llm,
             )
 
@@ -181,6 +186,9 @@ class TestContextStrategiesExperiment:
                 config,
                 num_documents=5,
                 num_steps=3,
+                facts=["Fact 1", "Fact 2", "Fact 3"],
+                questions=["Q1?", "Q2?", "Q3?"],
+                expected_answers=["A1", "A2", "A3"],
                 llm_interface=mock_llm,
             )
 
@@ -212,6 +220,9 @@ class TestContextStrategiesExperiment:
                 config,
                 num_documents=10,
                 num_steps=2,
+                facts=["Fact 1", "Fact 2"],
+                questions=["Q1?", "Q2?"],
+                expected_answers=["A1", "A2"],
                 top_k=3,
                 llm_interface=mock_llm,
             )
@@ -239,6 +250,9 @@ class TestContextStrategiesExperiment:
                 config,
                 num_documents=10,
                 num_steps=2,
+                facts=["Fact 1", "Fact 2"],
+                questions=["Q1?", "Q2?"],
+                expected_answers=["A1", "A2"],
                 max_summary_words=100,
                 llm_interface=mock_llm,
             )
@@ -267,6 +281,9 @@ class TestContextStrategiesExperiment:
                 config,
                 num_documents=10,
                 num_steps=3,
+                facts=["Fact 1", "Fact 2", "Fact 3"],
+                questions=["Q1?", "Q2?", "Q3?"],
+                expected_answers=["A1", "A2", "A3"],
                 llm_interface=mock_llm,
             )
 
@@ -295,6 +312,9 @@ class TestContextStrategiesExperiment:
             exp = ContextStrategiesExperiment(
                 config,
                 num_steps=2,
+                facts=["Fact 1", "Fact 2"],
+                questions=["Q1?", "Q2?"],
+                expected_answers=["$2.5 million", "15"],
                 llm_interface=mock_llm,
             )
 
@@ -384,6 +404,9 @@ class TestContextStrategiesExperiment:
                 config,
                 num_documents=5,
                 num_steps=3,
+                facts=["Fact 1", "Fact 2", "Fact 3"],
+                questions=["Q1?", "Q2?", "Q3?"],
+                expected_answers=["A1", "A2", "A3"],
                 llm_interface=mock_llm,
             )
 
@@ -405,7 +428,13 @@ class TestContextStrategiesExperiment:
                 iterations=1,
             )
 
-            exp = ContextStrategiesExperiment(config, num_steps=3)
+            exp = ContextStrategiesExperiment(
+                config,
+                num_steps=3,
+                facts=["Fact 1", "Fact 2", "Fact 3"],
+                questions=["Q1?", "Q2?", "Q3?"],
+                expected_answers=["A1", "A2", "A3"],
+            )
 
             # Set mock results
             exp.results = []
@@ -449,7 +478,13 @@ class TestContextStrategiesExperiment:
                 iterations=1,
             )
 
-            exp = ContextStrategiesExperiment(config, num_steps=3)
+            exp = ContextStrategiesExperiment(
+                config,
+                num_steps=3,
+                facts=["Fact 1", "Fact 2", "Fact 3"],
+                questions=["Q1?", "Q2?", "Q3?"],
+                expected_answers=["A1", "A2", "A3"],
+            )
 
             # Set mock results
             exp.results = []
@@ -578,6 +613,9 @@ class TestContextStrategiesExperiment:
                 config,
                 num_documents=5,
                 num_steps=2,
+                facts=["Fact 1", "Fact 2"],
+                questions=["Q1?", "Q2?"],
+                expected_answers=["A1", "A2"],
                 llm_interface=mock_llm,
             )
 

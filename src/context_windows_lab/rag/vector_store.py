@@ -80,8 +80,9 @@ class VectorStore:
             logger.warning("No documents to add")
             return
 
-        # Generate IDs
-        ids = [f"doc_{i}" for i in range(len(documents))]
+        # Generate unique IDs based on current collection size
+        current_count = self.collection.count()
+        ids = [f"doc_{current_count + i}" for i in range(len(documents))]
 
         # Add to collection
         if metadatas:

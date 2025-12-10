@@ -174,9 +174,8 @@ class TestOllamaInterface:
 
     def test_check_availability_mock(self):
         """Test connection check with mocked response."""
-        with patch("requests.get") as mock_get:
-            mock_get.return_value.status_code = 200
-            mock_get.return_value.json.return_value = {"version": "0.1.0"}
+        with patch("ollama.list") as mock_list:
+            mock_list.return_value = {"models": []}
 
             interface = OllamaInterface()
             result = interface.check_availability()
@@ -185,8 +184,8 @@ class TestOllamaInterface:
 
     def test_check_availability_failure_mock(self):
         """Test connection check when server is unavailable."""
-        with patch("requests.get") as mock_get:
-            mock_get.side_effect = Exception("Connection refused")
+        with patch("ollama.list") as mock_list:
+            mock_list.side_effect = Exception("Connection refused")
 
             interface = OllamaInterface()
             result = interface.check_availability()
