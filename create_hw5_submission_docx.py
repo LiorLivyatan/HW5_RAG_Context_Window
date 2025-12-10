@@ -164,7 +164,7 @@ def create_title_page(doc):
     doc.add_paragraph()
 
     # Subtitle
-    subtitle = doc.add_paragraph('Context Windows Lab')
+    subtitle = doc.add_paragraph('Option 1: Context Windows Lab')
     subtitle.alignment = WD_PARAGRAPH_ALIGNMENT.CENTER
     subtitle.runs[0].font.size = Pt(20)
     subtitle.runs[0].font.color.rgb = RGBColor(0, 102, 204)
@@ -173,16 +173,12 @@ def create_title_page(doc):
     doc.add_paragraph()
     doc.add_paragraph()
 
-    # Course and student info
+    # Course and group info
     info = [
         'MSc Computer Science - LLM Course',
         '',
-        'Student: Lior Livyatan',
-        'Student ID: 209328608',
-        '',
         f'Submission Date: {datetime.now().strftime("%B %d, %Y")}',
-        '',
-        'Repository: https://github.com/LiorLivyatan/HW5_RAG_Context_Window'
+        ''
     ]
 
     for line in info:
@@ -190,6 +186,53 @@ def create_title_page(doc):
         p.alignment = WD_PARAGRAPH_ALIGNMENT.CENTER
         if p.runs:  # Only set font size if there are runs
             p.runs[0].font.size = Pt(12)
+
+    # Group Information section
+    group_heading = doc.add_paragraph('Group Information')
+    group_heading.alignment = WD_PARAGRAPH_ALIGNMENT.CENTER
+    group_heading.runs[0].font.size = Pt(14)
+    group_heading.runs[0].font.bold = True
+
+    doc.add_paragraph()
+
+    # Group code name
+    group_code = doc.add_paragraph('Group Code Name: asiroli2025')
+    group_code.alignment = WD_PARAGRAPH_ALIGNMENT.CENTER
+    group_code.runs[0].font.size = Pt(12)
+    group_code.runs[0].font.bold = True
+
+    doc.add_paragraph()
+
+    # Group members label
+    members_label = doc.add_paragraph('Group Members:')
+    members_label.alignment = WD_PARAGRAPH_ALIGNMENT.CENTER
+    members_label.runs[0].font.size = Pt(12)
+    members_label.runs[0].font.bold = True
+
+    # Group members
+    members = [
+        'Lior Livyatan - ID: 209328608',
+        'Asif Amar - ID: 209209691',
+        'Roei Rahamim - ID: 316583525'
+    ]
+
+    for member in members:
+        p = doc.add_paragraph(member)
+        p.alignment = WD_PARAGRAPH_ALIGNMENT.CENTER
+        p.runs[0].font.size = Pt(12)
+
+    doc.add_paragraph()
+    doc.add_paragraph()
+
+    # Repository
+    repo_label = doc.add_paragraph('Repository')
+    repo_label.alignment = WD_PARAGRAPH_ALIGNMENT.CENTER
+    repo_label.runs[0].font.size = Pt(12)
+    repo_label.runs[0].font.bold = True
+
+    repo_url = doc.add_paragraph('https://github.com/LiorLivyatan/HW5_RAG_Context_Window')
+    repo_url.alignment = WD_PARAGRAPH_ALIGNMENT.CENTER
+    repo_url.runs[0].font.size = Pt(11)
 
     add_page_break(doc)
 
@@ -2112,7 +2155,7 @@ def main():
     print()
 
     # Save document
-    output_path = os.path.join(base_dir, 'HW5_Submission_Lior_Livyatan_209328608.docx')
+    output_path = os.path.join(base_dir, 'HW5_Option_1_asiroli2025_Context_Windows_Lab.docx')
     print(f"Saving document to: {output_path}")
     doc.save(output_path)
 
