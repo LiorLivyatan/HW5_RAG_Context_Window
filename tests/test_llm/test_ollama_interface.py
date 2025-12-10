@@ -5,10 +5,12 @@ Note: Tests use a mock interface to avoid requiring a running Ollama server.
 Some integration tests will be skipped if Ollama is not available.
 """
 
-import pytest
 from datetime import datetime
 from unittest.mock import Mock, patch
-from context_windows_lab.llm.ollama_interface import OllamaInterface, LLMResponse
+
+import pytest
+
+from context_windows_lab.llm.ollama_interface import LLMResponse, OllamaInterface
 
 
 class MockOllamaInterface(OllamaInterface):
@@ -326,7 +328,7 @@ class TestOllamaInterfaceEdgeCases:
         mock_interface.set_mock_response("Handled", tokens=5)
 
         response = mock_interface.query(
-            context='Special chars: <>&"\'',
+            context="Special chars: <>&\"'",
             question="What about @#$%?",
         )
 

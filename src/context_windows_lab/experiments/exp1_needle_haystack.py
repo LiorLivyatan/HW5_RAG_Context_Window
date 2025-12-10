@@ -5,22 +5,22 @@ This experiment demonstrates the "Lost in the Middle" phenomenon where LLMs
 have reduced accuracy for information embedded in the middle of contexts.
 """
 
-from pathlib import Path
-from typing import Dict, List, Any
 import logging
 import random
+from pathlib import Path
+from typing import Any, Dict, List
 
+from context_windows_lab.data_generation.document_generator import (
+    Document,
+    DocumentGenerator,
+)
+from context_windows_lab.evaluation.accuracy_evaluator import AccuracyEvaluator
+from context_windows_lab.evaluation.metrics import calculate_statistics
 from context_windows_lab.experiments.base_experiment import (
     BaseExperiment,
     ExperimentConfig,
 )
-from context_windows_lab.data_generation.document_generator import (
-    DocumentGenerator,
-    Document,
-)
-from context_windows_lab.llm.ollama_interface import OllamaInterface, LLMResponse
-from context_windows_lab.evaluation.accuracy_evaluator import AccuracyEvaluator
-from context_windows_lab.evaluation.metrics import calculate_statistics
+from context_windows_lab.llm.ollama_interface import LLMResponse, OllamaInterface
 from context_windows_lab.visualization.plotter import Plotter
 
 logger = logging.getLogger(__name__)
@@ -91,15 +91,13 @@ class NeedleInHaystackExperiment(BaseExperiment):
         Returns:
             List of documents with random fact positions
         """
-        logger.info(
-            f"Generating {self.num_documents} documents with randomly positioned facts"
-        )
+        logger.info(f"Generating {self.num_documents} documents with randomly positioned facts")
 
         documents = []
 
         for i in range(self.num_documents):
             # Randomly choose position for THIS document (matches pseudocode)
-            fact_position = random.choice(['start', 'middle', 'end'])
+            fact_position = random.choice(["start", "middle", "end"])
 
             # Generate single document with fact at chosen position
             doc = self.doc_generator.generate_documents(
@@ -107,7 +105,9 @@ class NeedleInHaystackExperiment(BaseExperiment):
                 words_per_doc=self.words_per_document,
                 fact=self.fact,
                 fact_position=fact_position,
-            )[0]  # Take the single generated document
+            )[
+                0
+            ]  # Take the single generated document
 
             documents.append(doc)
 
@@ -126,9 +126,7 @@ class NeedleInHaystackExperiment(BaseExperiment):
 
         return documents
 
-    def _execute_queries(
-        self, data: List[Document]
-    ) -> List[LLMResponse]:
+    def _execute_queries(self, data: List[Document]) -> List[LLMResponse]:
         """
         Query LLM for each document.
 
@@ -147,9 +145,7 @@ class NeedleInHaystackExperiment(BaseExperiment):
         responses = []
 
         for i, doc in enumerate(data):
-            logger.debug(
-                f"Query {i+1}/{len(data)}: fact at '{doc.fact_position}'"
-            )
+            logger.debug(f"Query {i+1}/{len(data)}: fact at '{doc.fact_position}'")
 
             # Query LLM with document content
             response = self.llm.query(context=doc.content, question=self.question)
@@ -159,9 +155,7 @@ class NeedleInHaystackExperiment(BaseExperiment):
         logger.info(f"Completed {len(responses)} queries")
         return responses
 
-    def _evaluate_responses(
-        self, responses: List[LLMResponse]
-    ) -> List[Dict[str, Any]]:
+    def _evaluate_responses(self, responses: List[LLMResponse]) -> List[Dict[str, Any]]:
         """
         Evaluate accuracy of responses and group by fact position.
 
@@ -181,9 +175,7 @@ class NeedleInHaystackExperiment(BaseExperiment):
         # Pair documents with responses and evaluate
         for i, (doc, response) in enumerate(zip(self.documents, responses)):
             # Evaluate accuracy
-            accuracy = self.evaluator.evaluate(
-                response.text, self.expected_answer
-            )
+            accuracy = self.evaluator.evaluate(response.text, self.expected_answer)
 
             evaluation = {
                 "position": doc.fact_position,  # Get from document
@@ -260,8 +252,7 @@ class NeedleInHaystackExperiment(BaseExperiment):
         analysis = self.analyze()
 
         accuracy_data = {
-            position: analysis[position]["accuracy"]["mean"]
-            for position in self.positions
+            position: analysis[position]["accuracy"]["mean"] for position in self.positions
         }
 
         # Create output path

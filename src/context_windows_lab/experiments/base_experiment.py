@@ -5,14 +5,14 @@ This module provides the BaseExperiment class that all experiments inherit from,
 implementing the Template Method pattern.
 """
 
+import json
+import logging
+import multiprocessing
+import os
 from abc import ABC, abstractmethod
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, Dict, List, Optional
-import logging
-import json
-import multiprocessing
-import os
 
 logger = logging.getLogger(__name__)
 
@@ -250,10 +250,7 @@ class BaseExperiment(ABC):
         with multiprocessing.Pool(processes=max_workers) as pool:
             # Run iterations in parallel
             # Note: We pass iteration number to allow different seeds
-            iteration_results = pool.map(
-                self._run_single_iteration,
-                range(self.config.iterations)
-            )
+            iteration_results = pool.map(self._run_single_iteration, range(self.config.iterations))
 
         # Aggregate results from all iterations
         logger.info("Aggregating results from parallel iterations...")

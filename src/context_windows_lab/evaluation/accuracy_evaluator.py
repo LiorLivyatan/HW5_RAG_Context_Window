@@ -5,9 +5,9 @@ This module provides the AccuracyEvaluator class for measuring the accuracy
 of LLM responses against expected answers.
 """
 
+import re
 from dataclasses import dataclass
 from typing import List, Literal, Optional
-import re
 
 
 @dataclass
@@ -198,6 +198,5 @@ class AccuracyEvaluator:
     def __repr__(self) -> str:
         """String representation of AccuracyEvaluator."""
         return (
-            f"AccuracyEvaluator(method='{self.method}', "
-            f"case_sensitive={self.case_sensitive})"
+            f"AccuracyEvaluator(method='{self.method}', " f"case_sensitive={self.case_sensitive})"
         )

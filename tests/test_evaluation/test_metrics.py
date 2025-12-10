@@ -8,9 +8,11 @@ Tests cover:
 - Numerical accuracy
 """
 
-import pytest
 import math
-from context_windows_lab.evaluation.metrics import calculate_statistics, Statistics
+
+import pytest
+
+from context_windows_lab.evaluation.metrics import Statistics, calculate_statistics
 
 
 class TestMetrics:
@@ -172,12 +174,16 @@ class TestMetrics:
         # Small sample
         scores_small = [0.8, 0.9, 0.85]
         stats_small = calculate_statistics(scores_small)
-        ci_width_small = stats_small.confidence_interval_95[1] - stats_small.confidence_interval_95[0]
+        ci_width_small = (
+            stats_small.confidence_interval_95[1] - stats_small.confidence_interval_95[0]
+        )
 
         # Large sample with similar variance
         scores_large = [0.8, 0.9, 0.85, 0.82, 0.88, 0.87, 0.83, 0.91, 0.84, 0.86]
         stats_large = calculate_statistics(scores_large)
-        ci_width_large = stats_large.confidence_interval_95[1] - stats_large.confidence_interval_95[0]
+        ci_width_large = (
+            stats_large.confidence_interval_95[1] - stats_large.confidence_interval_95[0]
+        )
 
         # Larger sample should have narrower CI (with high probability)
         assert ci_width_large < ci_width_small

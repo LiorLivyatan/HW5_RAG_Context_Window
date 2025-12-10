@@ -11,9 +11,10 @@ Tests cover:
 """
 
 import pytest
+
 from context_windows_lab.data_generation.document_generator import (
-    DocumentGenerator,
     Document,
+    DocumentGenerator,
 )
 
 

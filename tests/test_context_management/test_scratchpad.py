@@ -3,6 +3,7 @@ Tests for Scratchpad external memory component.
 """
 
 import pytest
+
 from context_windows_lab.context_management.scratchpad import Scratchpad
 
 

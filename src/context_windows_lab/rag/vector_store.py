@@ -5,12 +5,13 @@ Provides simple vector storage and retrieval capabilities using ChromaDB.
 """
 
 import logging
-from typing import List, Optional
 from dataclasses import dataclass
+from typing import List, Optional
 
 try:
     import chromadb
     from chromadb.config import Settings
+
     CHROMADB_AVAILABLE = True
 except ImportError:
     CHROMADB_AVAILABLE = False
@@ -46,8 +47,7 @@ class VectorStore:
         """
         if not CHROMADB_AVAILABLE:
             raise ImportError(
-                "ChromaDB is required for RAG functionality. "
-                "Install with: pip install chromadb"
+                "ChromaDB is required for RAG functionality. " "Install with: pip install chromadb"
             )
 
         self.collection_name = collection_name
@@ -85,16 +85,9 @@ class VectorStore:
 
         # Add to collection
         if metadatas:
-            self.collection.add(
-                documents=documents,
-                metadatas=metadatas,
-                ids=ids
-            )
+            self.collection.add(documents=documents, metadatas=metadatas, ids=ids)
         else:
-            self.collection.add(
-                documents=documents,
-                ids=ids
-            )
+            self.collection.add(documents=documents, ids=ids)
 
         logger.info(f"Added {len(documents)} documents to collection '{self.collection_name}'")
 
@@ -109,29 +102,24 @@ class VectorStore:
         Returns:
             List of retrieved documents with scores
         """
-        results = self.collection.query(
-            query_texts=[query],
-            n_results=top_k
-        )
+        results = self.collection.query(query_texts=[query], n_results=top_k)
 
         # Parse results
         retrieved = []
 
-        if results['documents'] and results['documents'][0]:
-            documents = results['documents'][0]
-            distances = results['distances'][0]
-            metadatas = results['metadatas'][0] if results['metadatas'] else [{}] * len(documents)
+        if results["documents"] and results["documents"][0]:
+            documents = results["documents"][0]
+            distances = results["distances"][0]
+            metadatas = results["metadatas"][0] if results["metadatas"] else [{}] * len(documents)
 
             for doc, distance, metadata in zip(documents, distances, metadatas):
                 # Convert distance to similarity score (lower distance = higher similarity)
                 # ChromaDB returns L2 distance, so we invert it
                 similarity = 1.0 / (1.0 + distance)
 
-                retrieved.append(RetrievedDocument(
-                    content=doc,
-                    score=similarity,
-                    metadata=metadata or {}
-                ))
+                retrieved.append(
+                    RetrievedDocument(content=doc, score=similarity, metadata=metadata or {})
+                )
 
         logger.info(f"Retrieved {len(retrieved)} documents for query (top_k={top_k})")
         return retrieved

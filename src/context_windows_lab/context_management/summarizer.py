@@ -49,7 +49,7 @@ class Summarizer:
 
         if method == "truncate":
             # Simple truncation: take first max_words
-            summary_words = words[:self.max_words]
+            summary_words = words[: self.max_words]
             return " ".join(summary_words) + "..."
 
         elif method == "first_last":
@@ -68,7 +68,7 @@ class Summarizer:
 
         else:
             # Default to truncation
-            summary_words = words[:self.max_words]
+            summary_words = words[: self.max_words]
             return " ".join(summary_words) + "..."
 
     def __repr__(self) -> str:

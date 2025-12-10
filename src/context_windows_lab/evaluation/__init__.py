@@ -9,7 +9,7 @@ from context_windows_lab.evaluation.accuracy_evaluator import (
     AccuracyEvaluator,
     EvaluationResult,
 )
-from context_windows_lab.evaluation.metrics import calculate_statistics, Statistics
+from context_windows_lab.evaluation.metrics import Statistics, calculate_statistics
 
 __all__ = [
     "AccuracyEvaluator",

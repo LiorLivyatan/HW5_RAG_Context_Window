@@ -5,14 +5,14 @@ This module provides the Plotter class for creating publication-quality
 graphs and charts from experiment results.
 """
 
+import logging
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple
-import logging
 
 try:
     import matplotlib.pyplot as plt
-    import seaborn as sns
     import numpy as np
+    import seaborn as sns
 except ImportError as e:
     raise ImportError(
         f"Required visualization library not installed: {e}. "

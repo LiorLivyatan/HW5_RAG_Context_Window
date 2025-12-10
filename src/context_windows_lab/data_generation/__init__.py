@@ -6,8 +6,8 @@ for context window experiments.
 """
 
 from context_windows_lab.data_generation.document_generator import (
-    DocumentGenerator,
     Document,
+    DocumentGenerator,
 )
 
 __all__ = [

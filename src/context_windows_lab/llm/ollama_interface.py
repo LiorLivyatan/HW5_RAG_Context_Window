@@ -5,11 +5,11 @@ This module provides the OllamaInterface class for querying local Ollama LLM
 with context and questions, measuring performance metrics.
 """
 
+import logging
 import time
 from dataclasses import dataclass
 from datetime import datetime
 from typing import Optional
-import logging
 
 try:
     import ollama
@@ -75,9 +75,7 @@ class OllamaInterface:
             max_retries: Maximum retry attempts on failure
         """
         if ollama is None:
-            raise ImportError(
-                "ollama package not installed. Install with: pip install ollama"
-            )
+            raise ImportError("ollama package not installed. Install with: pip install ollama")
 
         self.base_url = base_url
         self.model = model
@@ -136,9 +134,7 @@ class OllamaInterface:
                 # Count tokens (approximation if not provided)
                 tokens_used = self._count_tokens(text)
 
-                logger.info(
-                    f"Query successful: {latency_ms:.2f}ms, {tokens_used} tokens"
-                )
+                logger.info(f"Query successful: {latency_ms:.2f}ms, {tokens_used} tokens")
 
                 return LLMResponse(
                     text=text,
@@ -205,7 +201,7 @@ class OllamaInterface:
             Formatted prompt
         """
         # Detect if question is in Hebrew
-        is_hebrew = any('\u0590' <= char <= '\u05FF' for char in question)
+        is_hebrew = any("\u0590" <= char <= "\u05ff" for char in question)
 
         if is_hebrew:
             # Hebrew-specific prompt with explicit instructions

@@ -4,9 +4,11 @@ Integration tests for Experiment 1 (Needle in Haystack).
 These tests verify the end-to-end execution of the experiment.
 """
 
-import pytest
-from pathlib import Path
 import tempfile
+from pathlib import Path
+
+import pytest
+
 from context_windows_lab.experiments import (
     ExperimentConfig,
     NeedleInHaystackExperiment,
@@ -25,8 +27,9 @@ class MockOllamaInterface:
 
     def query(self, context: str, question: str):
         """Return a mock response."""
-        from context_windows_lab.llm.ollama_interface import LLMResponse
         from datetime import datetime
+
+        from context_windows_lab.llm.ollama_interface import LLMResponse
 
         # Return the expected answer for testing
         return LLMResponse(
@@ -51,6 +54,7 @@ class TestNeedleInHaystackIntegration:
     def teardown_method(self):
         """Clean up temporary files."""
         import shutil
+
         if Path(self.temp_dir).exists():
             shutil.rmtree(self.temp_dir)
 

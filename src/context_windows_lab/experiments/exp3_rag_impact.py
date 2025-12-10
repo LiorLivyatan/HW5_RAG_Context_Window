@@ -15,14 +15,14 @@ from pathlib import Path
 from typing import Any, Dict, List, Optional
 
 from context_windows_lab.data_generation import Document
-from context_windows_lab.llm import OllamaInterface, LLMResponse
-from context_windows_lab.rag import VectorStore, RetrievedDocument
 from context_windows_lab.evaluation import AccuracyEvaluator, calculate_statistics
-from context_windows_lab.visualization import Plotter
 from context_windows_lab.experiments.base_experiment import (
     BaseExperiment,
     ExperimentConfig,
 )
+from context_windows_lab.llm import LLMResponse, OllamaInterface
+from context_windows_lab.rag import RetrievedDocument, VectorStore
+from context_windows_lab.visualization import Plotter
 
 logger = logging.getLogger(__name__)
 
@@ -86,9 +86,7 @@ class RAGImpactExperiment(BaseExperiment):
         self.modes = ["full_context", "rag"]
 
     @staticmethod
-    def load_hebrew_documents(
-        documents_path: Path, domain: Optional[str] = None
-    ) -> List[Document]:
+    def load_hebrew_documents(documents_path: Path, domain: Optional[str] = None) -> List[Document]:
         """
         Load Hebrew documents from data/raw/hebrew_documents/.
 
@@ -182,9 +180,7 @@ class RAGImpactExperiment(BaseExperiment):
         # Mode 1: Full Context - use all documents
         logger.info("Querying with FULL CONTEXT (all documents)...")
         full_context = "\n\n".join([doc.content for doc in data])
-        logger.debug(
-            f"Full context: {len(full_context)} chars, {len(full_context.split())} words"
-        )
+        logger.debug(f"Full context: {len(full_context)} chars, {len(full_context.split())} words")
 
         response_full = self.llm.query(context=full_context, question=self.question)
         responses["full_context"] = response_full
@@ -224,9 +220,7 @@ class RAGImpactExperiment(BaseExperiment):
 
         return responses
 
-    def _evaluate_responses(
-        self, responses: Dict[str, LLMResponse]
-    ) -> List[Dict[str, Any]]:
+    def _evaluate_responses(self, responses: Dict[str, LLMResponse]) -> List[Dict[str, Any]]:
         """
         Evaluate responses for both modes.
 

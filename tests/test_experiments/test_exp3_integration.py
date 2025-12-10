@@ -5,15 +5,15 @@ Note: Some tests require ChromaDB. They will be skipped if not available.
 """
 
 import tempfile
-from pathlib import Path
 from datetime import datetime
+from pathlib import Path
 from unittest.mock import Mock, patch
 
 import pytest
 
-from context_windows_lab.experiments import RAGImpactExperiment, ExperimentConfig
-from context_windows_lab.llm import LLMResponse
 from context_windows_lab.data_generation import Document
+from context_windows_lab.experiments import ExperimentConfig, RAGImpactExperiment
+from context_windows_lab.llm import LLMResponse
 
 # Check if ChromaDB is available
 try:
@@ -334,8 +334,23 @@ class TestRAGImpactExperiment:
             exp = RAGImpactExperiment(config)
 
             responses = {
-                "full_context": LLMResponse(text="Answer", latency_ms=1000, tokens_used=10, model="llama2", timestamp=datetime.now(), success=True),
-                "rag": LLMResponse(text="", latency_ms=0, tokens_used=0, model="llama2", timestamp=datetime.now(), success=False, error="ChromaDB error"),
+                "full_context": LLMResponse(
+                    text="Answer",
+                    latency_ms=1000,
+                    tokens_used=10,
+                    model="llama2",
+                    timestamp=datetime.now(),
+                    success=True,
+                ),
+                "rag": LLMResponse(
+                    text="",
+                    latency_ms=0,
+                    tokens_used=0,
+                    model="llama2",
+                    timestamp=datetime.now(),
+                    success=False,
+                    error="ChromaDB error",
+                ),
             }
 
             evaluations = exp._evaluate_responses(responses)

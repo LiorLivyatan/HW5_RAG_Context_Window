@@ -126,7 +126,9 @@ def check_ollama_availability() -> bool:
         return False
 
 
-def run_experiment_1(output_dir: Path, iterations: int, use_multiprocessing: bool = False, max_workers: int = None) -> bool:
+def run_experiment_1(
+    output_dir: Path, iterations: int, use_multiprocessing: bool = False, max_workers: int = None
+) -> bool:
     """
     Run Experiment 1: Needle in Haystack.
 
@@ -169,7 +171,12 @@ def run_experiment_1(output_dir: Path, iterations: int, use_multiprocessing: boo
         return False
 
 
-def run_experiment_2(output_dir: Path, iterations: int = 1, use_multiprocessing: bool = False, max_workers: int = None) -> bool:
+def run_experiment_2(
+    output_dir: Path,
+    iterations: int = 1,
+    use_multiprocessing: bool = False,
+    max_workers: int = None,
+) -> bool:
     """
     Run Experiment 2: Context Size Impact.
 
@@ -219,7 +226,12 @@ def run_experiment_2(output_dir: Path, iterations: int = 1, use_multiprocessing:
         return False
 
 
-def run_experiment_3(output_dir: Path, iterations: int = 1, use_multiprocessing: bool = False, max_workers: int = None) -> bool:
+def run_experiment_3(
+    output_dir: Path,
+    iterations: int = 1,
+    use_multiprocessing: bool = False,
+    max_workers: int = None,
+) -> bool:
     """
     Run Experiment 3: RAG Impact.
 
@@ -273,7 +285,12 @@ def run_experiment_3(output_dir: Path, iterations: int = 1, use_multiprocessing:
         return False
 
 
-def run_experiment_4(output_dir: Path, iterations: int = 1, use_multiprocessing: bool = False, max_workers: int = None) -> bool:
+def run_experiment_4(
+    output_dir: Path,
+    iterations: int = 1,
+    use_multiprocessing: bool = False,
+    max_workers: int = None,
+) -> bool:
     """
     Run Experiment 4: Context Engineering Strategies.
 
@@ -353,16 +370,28 @@ def main():
     success = True
 
     if args.experiment == 1 or args.run_all:
-        success = run_experiment_1(args.output_dir, args.iterations, args.multiprocessing, args.workers) and success
+        success = (
+            run_experiment_1(args.output_dir, args.iterations, args.multiprocessing, args.workers)
+            and success
+        )
 
     if args.experiment == 2 or args.run_all:
-        success = run_experiment_2(args.output_dir, args.iterations, args.multiprocessing, args.workers) and success
+        success = (
+            run_experiment_2(args.output_dir, args.iterations, args.multiprocessing, args.workers)
+            and success
+        )
 
     if args.experiment == 3 or args.run_all:
-        success = run_experiment_3(args.output_dir, args.iterations, args.multiprocessing, args.workers) and success
+        success = (
+            run_experiment_3(args.output_dir, args.iterations, args.multiprocessing, args.workers)
+            and success
+        )
 
     if args.experiment == 4 or args.run_all:
-        success = run_experiment_4(args.output_dir, args.iterations, args.multiprocessing, args.workers) and success
+        success = (
+            run_experiment_4(args.output_dir, args.iterations, args.multiprocessing, args.workers)
+            and success
+        )
 
     if not args.experiment and not args.run_all:
         parser.print_help()

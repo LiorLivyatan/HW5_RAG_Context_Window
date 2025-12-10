@@ -4,9 +4,9 @@ Metrics Module - Statistical Calculations for Evaluation
 Provides utility functions for calculating statistics from experiment results.
 """
 
+import math
 from dataclasses import dataclass
 from typing import List
-import math
 
 
 @dataclass

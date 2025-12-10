@@ -9,10 +9,12 @@ Tests cover:
 - Edge cases
 """
 
-import pytest
-from pathlib import Path
-import tempfile
 import os
+import tempfile
+from pathlib import Path
+
+import pytest
+
 from context_windows_lab.visualization.plotter import Plotter
 
 
@@ -27,6 +29,7 @@ class TestPlotter:
     def teardown_method(self):
         """Clean up temporary files."""
         import shutil
+
         if os.path.exists(self.temp_dir):
             shutil.rmtree(self.temp_dir)
 
@@ -373,6 +376,7 @@ class TestPlotter:
 
         # Wait a tiny bit
         import time
+
         time.sleep(0.01)
 
         # Overwrite

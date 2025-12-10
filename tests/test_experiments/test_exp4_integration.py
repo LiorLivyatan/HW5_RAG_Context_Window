@@ -5,8 +5,8 @@ Tests the three strategies: SELECT (RAG), COMPRESS (Summarization), WRITE (Scrat
 """
 
 import tempfile
-from pathlib import Path
 from datetime import datetime
+from pathlib import Path
 from unittest.mock import Mock
 
 import pytest
@@ -301,16 +301,58 @@ class TestContextStrategiesExperiment:
             # Create mock responses
             responses = {
                 "SELECT": [
-                    LLMResponse(text="$2.5 million", latency_ms=1000, tokens_used=10, model="llama2", timestamp=datetime.now(), success=True),
-                    LLMResponse(text="15", latency_ms=1000, tokens_used=10, model="llama2", timestamp=datetime.now(), success=True),
+                    LLMResponse(
+                        text="$2.5 million",
+                        latency_ms=1000,
+                        tokens_used=10,
+                        model="llama2",
+                        timestamp=datetime.now(),
+                        success=True,
+                    ),
+                    LLMResponse(
+                        text="15",
+                        latency_ms=1000,
+                        tokens_used=10,
+                        model="llama2",
+                        timestamp=datetime.now(),
+                        success=True,
+                    ),
                 ],
                 "COMPRESS": [
-                    LLMResponse(text="$2.5 million", latency_ms=1500, tokens_used=15, model="llama2", timestamp=datetime.now(), success=True),
-                    LLMResponse(text="15", latency_ms=1500, tokens_used=15, model="llama2", timestamp=datetime.now(), success=True),
+                    LLMResponse(
+                        text="$2.5 million",
+                        latency_ms=1500,
+                        tokens_used=15,
+                        model="llama2",
+                        timestamp=datetime.now(),
+                        success=True,
+                    ),
+                    LLMResponse(
+                        text="15",
+                        latency_ms=1500,
+                        tokens_used=15,
+                        model="llama2",
+                        timestamp=datetime.now(),
+                        success=True,
+                    ),
                 ],
                 "WRITE": [
-                    LLMResponse(text="$2.5 million", latency_ms=1200, tokens_used=12, model="llama2", timestamp=datetime.now(), success=True),
-                    LLMResponse(text="15", latency_ms=1200, tokens_used=12, model="llama2", timestamp=datetime.now(), success=True),
+                    LLMResponse(
+                        text="$2.5 million",
+                        latency_ms=1200,
+                        tokens_used=12,
+                        model="llama2",
+                        timestamp=datetime.now(),
+                        success=True,
+                    ),
+                    LLMResponse(
+                        text="15",
+                        latency_ms=1200,
+                        tokens_used=12,
+                        model="llama2",
+                        timestamp=datetime.now(),
+                        success=True,
+                    ),
                 ],
             }
 
@@ -369,17 +411,19 @@ class TestContextStrategiesExperiment:
             exp.results = []
             for strategy in ["SELECT", "COMPRESS", "WRITE"]:
                 for step in range(1, 4):
-                    exp.results.append({
-                        "strategy": strategy,
-                        "step": step,
-                        "question": "Q?",
-                        "expected_answer": "A",
-                        "response": "A",
-                        "accuracy": 1.0,
-                        "latency_ms": 1000,
-                        "tokens_used": 10,
-                        "success": True,
-                    })
+                    exp.results.append(
+                        {
+                            "strategy": strategy,
+                            "step": step,
+                            "question": "Q?",
+                            "expected_answer": "A",
+                            "response": "A",
+                            "accuracy": 1.0,
+                            "latency_ms": 1000,
+                            "tokens_used": 10,
+                            "success": True,
+                        }
+                    )
 
             analysis = exp.analyze()
 
@@ -411,17 +455,19 @@ class TestContextStrategiesExperiment:
             exp.results = []
             for strategy in ["SELECT", "COMPRESS", "WRITE"]:
                 for step in range(1, 4):
-                    exp.results.append({
-                        "strategy": strategy,
-                        "step": step,
-                        "question": "Q?",
-                        "expected_answer": "A",
-                        "response": "A",
-                        "accuracy": 0.9,
-                        "latency_ms": 1000,
-                        "tokens_used": 10,
-                        "success": True,
-                    })
+                    exp.results.append(
+                        {
+                            "strategy": strategy,
+                            "step": step,
+                            "question": "Q?",
+                            "expected_answer": "A",
+                            "response": "A",
+                            "accuracy": 0.9,
+                            "latency_ms": 1000,
+                            "tokens_used": 10,
+                            "success": True,
+                        }
+                    )
 
             viz_paths = exp.visualize()
 

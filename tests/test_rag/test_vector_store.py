@@ -8,14 +8,17 @@ If ChromaDB is not available, tests will be skipped.
 import pytest
 
 try:
-    from context_windows_lab.rag.vector_store import VectorStore, RetrievedDocument, CHROMADB_AVAILABLE
+    from context_windows_lab.rag.vector_store import (
+        CHROMADB_AVAILABLE,
+        RetrievedDocument,
+        VectorStore,
+    )
 except ImportError:
     CHROMADB_AVAILABLE = False
 
 # Skip all tests if ChromaDB is not available
 pytestmark = pytest.mark.skipif(
-    not CHROMADB_AVAILABLE,
-    reason="ChromaDB not installed. Install with: pip install chromadb"
+    not CHROMADB_AVAILABLE, reason="ChromaDB not installed. Install with: pip install chromadb"
 )
 
 
@@ -299,18 +302,17 @@ class TestVectorStore:
         relevant_docs = store.retrieve(query=question, top_k=2)
 
         # Most relevant should mention location
-        assert "San Francisco" in relevant_docs[0].content or "San Francisco" in relevant_docs[1].content
+        assert (
+            "San Francisco" in relevant_docs[0].content
+            or "San Francisco" in relevant_docs[1].content
+        )
 
     def test_retrieved_document_dataclass(self):
         """Test RetrievedDocument dataclass structure."""
         if not CHROMADB_AVAILABLE:
             pytest.skip("ChromaDB not available")
 
-        doc = RetrievedDocument(
-            content="Test content",
-            score=0.95,
-            metadata={"source": "test"}
-        )
+        doc = RetrievedDocument(content="Test content", score=0.95, metadata={"source": "test"})
 
         assert doc.content == "Test content"
         assert doc.score == 0.95
@@ -326,4 +328,5 @@ class TestVectorStoreErrorHandling:
         # We can't actually test this without uninstalling ChromaDB
         # So we just verify the constant exists
         from context_windows_lab.rag.vector_store import CHROMADB_AVAILABLE
+
         assert isinstance(CHROMADB_AVAILABLE, bool)

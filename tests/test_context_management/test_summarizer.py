@@ -3,6 +3,7 @@ Tests for Summarizer text compression component.
 """
 
 import pytest
+
 from context_windows_lab.context_management.summarizer import Summarizer
 
 
@@ -184,11 +185,14 @@ class TestSummarizer:
         summarizer = Summarizer(max_words=100)
 
         # Simulate long document context
-        long_context = """
+        long_context = (
+            """
         The company was founded in 1995 and has grown significantly over the years.
         Our mission is to provide excellent service to our customers worldwide.
         We have offices in New York, London, Tokyo, and Sydney.
-        """ * 20  # Repeat to make it long
+        """
+            * 20
+        )  # Repeat to make it long
 
         # Compress using truncate
         compressed = summarizer.summarize(long_context, method="truncate")

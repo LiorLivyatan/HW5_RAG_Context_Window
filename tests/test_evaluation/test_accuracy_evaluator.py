@@ -10,6 +10,7 @@ Tests cover:
 """
 
 import pytest
+
 from context_windows_lab.evaluation.accuracy_evaluator import (
     AccuracyEvaluator,
     EvaluationResult,
@@ -215,7 +216,9 @@ class TestAccuracyEvaluator:
         """Test contains match with multi-word expected answer."""
         evaluator = AccuracyEvaluator(method="contains")
 
-        response = "Based on the passage, the CEO of the company is David Cohen, who founded it in 2010."
+        response = (
+            "Based on the passage, the CEO of the company is David Cohen, who founded it in 2010."
+        )
         expected = "David Cohen"
 
         score = evaluator.evaluate(response, expected)
@@ -276,7 +279,7 @@ class TestAccuracyEvaluator:
         """Test handling of Unicode characters."""
         evaluator = AccuracyEvaluator(method="contains", case_sensitive=False)
 
-        response = "המנכ\"ל הוא David Cohen"
+        response = 'המנכ"ל הוא David Cohen'
         expected = "David Cohen"
 
         score = evaluator.evaluate(response, expected)

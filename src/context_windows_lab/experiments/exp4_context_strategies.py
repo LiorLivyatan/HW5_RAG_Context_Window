@@ -126,9 +126,7 @@ class ContextStrategiesExperiment(BaseExperiment):
         # Ensure consistency
         assert len(self.facts) == num_steps, "Must have one fact per step"
         assert len(self.questions) == num_steps, "Must have one question per step"
-        assert (
-            len(self.expected_answers) == num_steps
-        ), "Must have one expected answer per step"
+        assert len(self.expected_answers) == num_steps, "Must have one expected answer per step"
 
         # Initialize LLM interface
         self.llm = llm_interface or OllamaInterface()
@@ -138,6 +136,7 @@ class ContextStrategiesExperiment(BaseExperiment):
 
         # Initialize plotter
         from context_windows_lab.visualization.plotter import Plotter
+
         self.plotter = Plotter()
 
         # Strategies to test
@@ -194,14 +193,10 @@ class ContextStrategiesExperiment(BaseExperiment):
                     collection_name=f"exp4_{strategy}_{id(self)}"
                 )
                 # Add all documents to vector store
-                self.vector_stores[strategy].add_documents(
-                    [doc.content for doc in data]
-                )
+                self.vector_stores[strategy].add_documents([doc.content for doc in data])
 
             elif strategy == "COMPRESS":
-                self.summarizers[strategy] = Summarizer(
-                    max_words=self.max_summary_words
-                )
+                self.summarizers[strategy] = Summarizer(max_words=self.max_summary_words)
 
             elif strategy == "WRITE":
                 self.scratchpads[strategy] = Scratchpad()
@@ -257,9 +252,7 @@ class ContextStrategiesExperiment(BaseExperiment):
                         self.vector_stores[strategy] = VectorStore(
                             collection_name=f"exp4_{strategy}_{id(self)}"
                         )
-                        self.vector_stores[strategy].add_documents(
-                            [doc.content for doc in data]
-                        )
+                        self.vector_stores[strategy].add_documents([doc.content for doc in data])
 
                     retrieved = self.vector_stores[strategy].retrieve(
                         query=question, top_k=self.top_k
@@ -279,15 +272,12 @@ class ContextStrategiesExperiment(BaseExperiment):
                 responses[strategy].append(response)
 
                 logger.info(
-                    f"  {strategy}: {response.text[:100]}... "
-                    f"({response.latency_ms:.0f}ms)"
+                    f"  {strategy}: {response.text[:100]}... " f"({response.latency_ms:.0f}ms)"
                 )
 
         return responses
 
-    def _evaluate_responses(
-        self, responses: Dict[str, List[LLMResponse]]
-    ) -> List[Dict]:
+    def _evaluate_responses(self, responses: Dict[str, List[LLMResponse]]) -> List[Dict]:
         """
         Evaluate responses for each strategy across all steps.
 
@@ -306,9 +296,7 @@ class ContextStrategiesExperiment(BaseExperiment):
                 expected_answer = self.expected_answers[step_idx]
 
                 # Evaluate accuracy
-                is_correct = self.evaluator.evaluate(
-                    response.text, expected_answer
-                )
+                is_correct = self.evaluator.evaluate(response.text, expected_answer)
                 accuracy = 1.0 if is_correct else 0.0
 
                 result = {
@@ -353,12 +341,10 @@ class ContextStrategiesExperiment(BaseExperiment):
                 if step_results:
                     step_metrics[f"step_{step}"] = {
                         "accuracy": {
-                            "mean": sum(r["accuracy"] for r in step_results)
-                            / len(step_results),
+                            "mean": sum(r["accuracy"] for r in step_results) / len(step_results),
                         },
                         "latency_ms": {
-                            "mean": sum(r["latency_ms"] for r in step_results)
-                            / len(step_results),
+                            "mean": sum(r["latency_ms"] for r in step_results) / len(step_results),
                         },
                     }
 
@@ -405,8 +391,7 @@ class ContextStrategiesExperiment(BaseExperiment):
 
         # 1. Overall accuracy comparison
         overall_accuracy = {
-            strategy: statistics[strategy]["overall"]["accuracy"]["mean"]
-            for strategy in strategies
+            strategy: statistics[strategy]["overall"]["accuracy"]["mean"] for strategy in strategies
         }
 
         accuracy_path = self.config.output_dir / "overall_accuracy_by_strategy.png"

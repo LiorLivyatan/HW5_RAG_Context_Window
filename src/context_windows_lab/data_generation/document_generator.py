@@ -7,7 +7,7 @@ with embedded facts at specified positions (start, middle, end).
 
 import random
 from dataclasses import dataclass
-from typing import List, Literal, Optional, Dict, Any
+from typing import Any, Dict, List, Literal, Optional
 
 
 @dataclass
@@ -249,19 +249,16 @@ class DocumentGenerator:
             "Robert Martinez was previously the company's Chief Financial Officer.",
             "Jennifer Taylor joined as VP of Engineering last quarter.",
             "The executive team includes Thomas Brown as Chief Technology Officer.",
-
             # Wrong but similar roles
             "The Managing Director, James Wilson, oversees European operations.",
             "Emily Chen leads the company's Asia-Pacific division.",
             "The Chairman of the Board is Richard Garcia.",
             "Patricia Lopez serves as the company's General Counsel.",
-
             # Dates and numbers to confuse
             "The company was founded in December 2018.",
             "Q3 earnings were reported on November 12th.",
             "The annual shareholder meeting is scheduled for January 20th.",
             "The fiscal year ends on March 31st.",
-
             # Other confusing details
             "The company headquarters recently relocated from Boston.",
             "The organization employs over 500 people worldwide.",
@@ -303,9 +300,7 @@ class DocumentGenerator:
 
         valid_positions = ["start", "middle", "end"]
         if fact_position not in valid_positions:
-            raise ValueError(
-                f"fact_position must be one of {valid_positions}, got {fact_position}"
-            )
+            raise ValueError(f"fact_position must be one of {valid_positions}, got {fact_position}")
 
     @staticmethod
     def _default_templates() -> List[str]:

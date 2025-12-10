@@ -13,14 +13,14 @@ import logging
 from pathlib import Path
 from typing import Any, Dict, List
 
-from context_windows_lab.data_generation import DocumentGenerator, Document
-from context_windows_lab.llm import OllamaInterface, LLMResponse
+from context_windows_lab.data_generation import Document, DocumentGenerator
 from context_windows_lab.evaluation import AccuracyEvaluator, calculate_statistics
-from context_windows_lab.visualization import Plotter
 from context_windows_lab.experiments.base_experiment import (
     BaseExperiment,
     ExperimentConfig,
 )
+from context_windows_lab.llm import LLMResponse, OllamaInterface
+from context_windows_lab.visualization import Plotter
 
 logger = logging.getLogger(__name__)
 
@@ -87,9 +87,7 @@ class ContextSizeExperiment(BaseExperiment):
         data = {}
 
         for count in self.document_counts:
-            logger.info(
-                f"Generating {count} documents with fact at {self.fact_position}"
-            )
+            logger.info(f"Generating {count} documents with fact at {self.fact_position}")
 
             documents = self.doc_generator.generate_documents(
                 num_docs=count,
@@ -102,9 +100,7 @@ class ContextSizeExperiment(BaseExperiment):
 
         return data
 
-    def _execute_queries(
-        self, data: Dict[int, List[Document]]
-    ) -> Dict[int, List[LLMResponse]]:
+    def _execute_queries(self, data: Dict[int, List[Document]]) -> Dict[int, List[LLMResponse]]:
         """
         Execute LLM queries for each document count.
 
@@ -124,18 +120,14 @@ class ContextSizeExperiment(BaseExperiment):
             context = "\n\n".join([doc.content for doc in documents])
 
             # Query the LLM
-            logger.debug(
-                f"Context size: {len(context)} characters, {len(context.split())} words"
-            )
+            logger.debug(f"Context size: {len(context)} characters, {len(context.split())} words")
             response = self.llm.query(context=context, question=self.question)
 
             responses[count] = response
 
         return responses
 
-    def _evaluate_responses(
-        self, responses: Dict[int, LLMResponse]
-    ) -> List[Dict[str, Any]]:
+    def _evaluate_responses(self, responses: Dict[int, LLMResponse]) -> List[Dict[str, Any]]:
         """
         Evaluate responses and store results.
 
@@ -149,9 +141,7 @@ class ContextSizeExperiment(BaseExperiment):
 
         for count, response in responses.items():
             if response.success:
-                accuracy = self.evaluator.evaluate(
-                    response.text, self.expected_answer
-                )
+                accuracy = self.evaluator.evaluate(response.text, self.expected_answer)
 
                 result = {
                     "document_count": count,
