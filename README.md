@@ -6,6 +6,8 @@ A comprehensive system for investigating context window behavior in Large Langua
 
 [![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Tests](https://github.com/LiorLivyatan/HW5_RAG_Context_Window/actions/workflows/tests.yml/badge.svg)](https://github.com/LiorLivyatan/HW5_RAG_Context_Window/actions/workflows/tests.yml)
+[![Coverage](https://img.shields.io/badge/coverage-70%25-brightgreen.svg)](https://github.com/LiorLivyatan/HW5_RAG_Context_Window)
 
 ---
 
@@ -981,6 +983,28 @@ pytest tests/test_data_generation/test_document_generator.py
 
 # Current coverage: 70.23% (exceeds 70% requirement)
 ```
+
+### Continuous Integration
+
+The project uses GitHub Actions for automated testing on every push and pull request.
+
+**What's Tested:**
+- ✅ **Multi-Python Support**: Tests run on Python 3.9, 3.10, 3.11, and 3.12
+- ✅ **Test Suite**: All 86 unit and integration tests
+- ✅ **Coverage**: Enforces 70%+ code coverage requirement
+- ✅ **Code Quality**: Black formatting, isort imports, flake8 linting
+
+**Workflow Triggers:**
+- Push to `main` or `develop` branches
+- Pull requests targeting `main` or `develop`
+
+**Artifacts:**
+- Coverage reports uploaded to Codecov (optional, requires token)
+- HTML coverage reports available as workflow artifacts (30-day retention)
+
+**View Status:**
+- Check the [Actions tab](https://github.com/LiorLivyatan/HW5_RAG_Context_Window/actions) for workflow runs
+- Status badge at top of README shows latest test results
 
 ### Code Quality
 
