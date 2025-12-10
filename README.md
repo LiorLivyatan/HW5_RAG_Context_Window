@@ -61,6 +61,8 @@ This project provides a modular, extensible framework for conducting controlled 
   - 7 reusable building blocks
   - Clean separation of concerns
   - Dependency injection for flexibility
+  - [Deployment Architecture](docs/architecture/deployment.md) defined
+
 
 - **Local Execution**
   - No cloud dependencies
@@ -1108,6 +1110,34 @@ context-windows-lab --experiment [N] --iterations 3
 ```
 
 Results should match within statistical variance (due to system load affecting latency).
+
+---
+
+## Troubleshooting
+
+Common issues and solutions:
+
+### Ollama Not Responding
+**Error**: `✗ Ollama is not responding`
+**Solution**:
+1. Ensure Ollama is installed: `curl https://ollama.ai/install.sh | sh`
+2. Start the server: `ollama serve`
+3. Verify it's running: `curl http://localhost:11434`
+
+### Model Not Found
+**Error**: `model 'llama2' not found`
+**Solution**:
+Pull the required models before running experiments:
+```bash
+ollama pull llama2
+ollama pull tinyllama
+```
+
+### Memory Errors
+**Error**: System slows down or crashes during experiments
+**Solution**:
+1. Reduce worker count: `context-windows-lab --experiment 1 --workers 2`
+2. Check available RAM (16GB+ recommended for parallel processing)
 
 ---
 
