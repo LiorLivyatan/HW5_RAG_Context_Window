@@ -1,0 +1,62 @@
+{
+  "experiment": "RAG Impact",
+  "config": {
+    "iterations": 1
+  },
+  "raw_results": [
+    {
+      "mode": "full_context",
+      "accuracy": 0.0,
+      "latency_ms": 26393.774032592773,
+      "tokens_used": 590,
+      "response_text": "The field of telemedicine has several potential advantages that can improve patient care and health outcomes. Here are some of the key benefits of telemedicine:\n\n1. Accessibility: Telemedicine can increase access to medical care for patients who live in remote or underserved areas, those with mobility issues, or those who cannot leave their homes due to illness.\n2. Convenience: Telemedicine allows patients to receive medical care from the comfort of their own homes, without having to travel to a clinic or hospital. This can save time and money for patients, particularly those living in remote areas.\n3. Cost-effectiveness: Telemedicine can reduce healthcare costs by minimizing the need for unnecessary hospitalizations, reducing the length of hospital stays, and lowering the cost of transportation and accommodation expenses for patients and their families.\n4. Improved patient engagement: Telemedicine can improve patient engagement and adherence to treatment plans by providing real-time feedback and support from healthcare providers.\n5. Enhanced patient-provider communication: Telemedicine can facilitate better communication between patients and healthcare providers, particularly in cases where language barriers or cultural differences may exist.\n6. Increased efficiency: Telemedicine can streamline clinical workflows and reduce administrative tasks, freeing up healthcare providers' time for more complex and high-value tasks.\n7. Better management of chronic conditions: Telemedicine can help manage chronic conditions more effectively by providing ongoing monitoring and support to patients, improving patient outcomes and reducing hospitalizations.\n8. Expanded scope of services: Telemedicine can provide access to specialist consultations, remote monitoring, and other healthcare services that may not be available in a particular area or region.\n9. Improved patient safety: Telemedicine can reduce the risk of medical errors by providing real-time feedback and support from healthcare providers, particularly in emergency situations.\n10. Enhanced continuity of care: Telemedicine can ensure continuity of care by providing ongoing access to healthcare services for patients, even if they are transferred between hospitals or healthcare facilities.\n\nOverall, telemedicine has the potential to revolutionize healthcare delivery by improving",
+      "success": true
+    },
+    {
+      "mode": "rag",
+      "accuracy": 0.0,
+      "latency_ms": 24604.889154434204,
+      "tokens_used": 619,
+      "response_text": "The Agile methodology has several advantages that make it a popular choice for software development projects. Here are some of the key benefits:\n\n1. Faster Time-to-Market: Agile methodologies allow for faster delivery of working software, as the development process is focused on delivering functional software in short iterations. This means that the project can be brought to market faster, giving the organization a competitive advantage.\n2. Improved Quality: Agile emphasizes testing and quality assurance throughout the development process. This leads to higher-quality software that is less likely to have defects or bugs.\n3. Increased Customer Satisfaction: By delivering functional software in short iterations, Agile methodologies allow customers to provide feedback and see the progress of the project. This leads to increased customer satisfaction and a better understanding of customer needs.\n4. Greater Flexibility: Agile methodologies are flexible and adaptable, allowing for changes in requirements or priorities throughout the development process. This means that the project can be adjusted as needed to meet changing business needs.\n5. Enhanced Collaboration: Agile emphasizes collaboration between developers, customers, and stakeholders. This leads to better communication and a more cohesive team, which can help to identify and resolve issues more quickly.\n6. Reduced Risk: Agile methodologies reduce the risk of project failure by delivering software in short iterations. If a feature or functionality does not work as expected, it can be identified and fixed early in the development process, reducing the overall risk of the project.\n7. Improved Resource Allocation: Agile methodologies allow for better allocation of resources throughout the development process. This means that resources can be allocated more effectively, leading to improved productivity and efficiency.\n8. Increased Transparency: Agile methodologies provide greater transparency into the development process, allowing stakeholders to see the progress of the project and identify any issues early on.\n9. Better Adaptation to Change: Agile methodologies are designed to adapt to change quickly. This means that if changes occur during the development process, the team can quickly adjust to accommodate these changes.\n10. Improved Team Morale: Agile methodologies emphasize collaboration and communication, which can lead to improved team morale and a more positive work environment",
+      "success": true
+    }
+  ],
+  "statistics": {
+    "full_context": {
+      "accuracy": {
+        "mean": 0.0,
+        "std": 0.0,
+        "ci_95": [
+          0.0,
+          0.0
+        ]
+      },
+      "latency_ms": {
+        "mean": 26393.774032592773,
+        "std": 0.0
+      },
+      "tokens_used": {
+        "mean": 590.0,
+        "std": 0.0
+      }
+    },
+    "rag": {
+      "accuracy": {
+        "mean": 0.0,
+        "std": 0.0,
+        "ci_95": [
+          0.0,
+          0.0
+        ]
+      },
+      "latency_ms": {
+        "mean": 24604.889154434204,
+        "std": 0.0
+      },
+      "tokens_used": {
+        "mean": 619.0,
+        "std": 0.0
+      }
+    }
+  }
+}

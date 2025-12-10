@@ -1,0 +1,106 @@
+{
+  "experiment": "Needle in Haystack",
+  "config": {
+    "iterations": 1
+  },
+  "raw_results": [
+    {
+      "position": "end",
+      "doc_index": 0,
+      "accuracy": 1.0,
+      "latency_ms": 3001.2879371643066,
+      "tokens_used": 10,
+      "response_text": "The answer to the question is: David Cohen.",
+      "success": true
+    },
+    {
+      "position": "start",
+      "doc_index": 1,
+      "accuracy": 1.0,
+      "latency_ms": 1432.7800273895264,
+      "tokens_used": 38,
+      "response_text": "The answer to the question \"Who is the CEO of the company?\" can be found in the passage. According to the passage, the CEO of the company is David Cohen.",
+      "success": true
+    },
+    {
+      "position": "start",
+      "doc_index": 2,
+      "accuracy": 1.0,
+      "latency_ms": 1105.9858798980713,
+      "tokens_used": 19,
+      "response_text": "The answer to the question \"Who is the CEO of the company?\" is:\n\nDavid Cohen",
+      "success": true
+    },
+    {
+      "position": "end",
+      "doc_index": 3,
+      "accuracy": 1.0,
+      "latency_ms": 889.376163482666,
+      "tokens_used": 10,
+      "response_text": "The answer to the question is: David Cohen.",
+      "success": true
+    },
+    {
+      "position": "middle",
+      "doc_index": 4,
+      "accuracy": 1.0,
+      "latency_ms": 1111.7348670959473,
+      "tokens_used": 19,
+      "response_text": "The answer to the question \"Who is the CEO of the company?\" is:\n\nDavid Cohen",
+      "success": true
+    }
+  ],
+  "statistics": {
+    "start": {
+      "accuracy": {
+        "mean": 1.0,
+        "std": 0.0,
+        "min": 1.0,
+        "max": 1.0,
+        "count": 2,
+        "ci_95": [
+          1.0,
+          1.0
+        ]
+      },
+      "latency_ms": {
+        "mean": 1269.3829536437988,
+        "std": 231.07835774328467
+      }
+    },
+    "middle": {
+      "accuracy": {
+        "mean": 1.0,
+        "std": 0.0,
+        "min": 1.0,
+        "max": 1.0,
+        "count": 1,
+        "ci_95": [
+          1.0,
+          1.0
+        ]
+      },
+      "latency_ms": {
+        "mean": 1111.7348670959473,
+        "std": 0.0
+      }
+    },
+    "end": {
+      "accuracy": {
+        "mean": 1.0,
+        "std": 0.0,
+        "min": 1.0,
+        "max": 1.0,
+        "count": 2,
+        "ci_95": [
+          1.0,
+          1.0
+        ]
+      },
+      "latency_ms": {
+        "mean": 1945.3320503234863,
+        "std": 1493.3471364379973
+      }
+    }
+  }
+}

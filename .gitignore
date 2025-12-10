@@ -139,10 +139,13 @@ dmypy.json
 # ChromaDB vector store
 .chroma/
 *.chroma
+**/.chroma/
+**/chroma.sqlite3
 
-# Experiment results
-results/
-!results/.gitkeep
+# Experiment results - INCLUDE IN GIT FOR SUBMISSION
+# Only exclude ChromaDB and large temporary files
+results/**/.chroma/
+results/**/chroma.sqlite3
 
 # Generated data
 data/synthetic/
@@ -150,16 +153,14 @@ data/raw/*
 !data/raw/hebrew_documents/
 !data/raw/hebrew_documents/**/*.txt
 !data/raw/hebrew_documents/**/
-!data/raw/hebrew_documents/metadata.json
+!data/raw/hebrew_documents/*.json
 
 # Cache directories
 .cache/
 *.cache
 
-# Logs
-logs/
-*.log
-!logs/.gitkeep
+# Logs - INCLUDE IN GIT FOR SUBMISSION
+# Logs provide valuable debugging information
 
 # Temporary files
 tmp/

@@ -1,0 +1,340 @@
+{
+  "experiment": "Context Strategies",
+  "config": {
+    "iterations": 1
+  },
+  "raw_results": [
+    {
+      "strategy": "SELECT",
+      "step": 1,
+      "question": "What is the project budget for Q1 2025?",
+      "expected_answer": "$2.5 million",
+      "response": "Based on the provided text, there is no direct answer to the question of the project budget for Q1 2025. However, there are several hints and clues throughout the text that could be used to estimate the budget. Here are some possible factors to consider:\n\n1. Historical data: The text mentions that the company has consistently managed careful analysis in the past. This suggests that the company has a history of investing in research and development, which could indicate a higher budget for Q1 2025.\n2. Systematic approach: The text emphasizes the importance of a systematic approach across all departments. This could suggest that the project will require a significant amount of resources, including budget, to implement effectively.\n3. Comprehensive testing: The text confirms that the project requires comprehensive testing to ensure quality. This could indicate a higher budget for testing and quality assurance.\n4. Detailed planning: The text suggests that the team requires detailed planning for optimal performance and efficiency. This could suggest a higher budget for planning and coordination.\n5. Industry standards: The text mentions that industry standards confirm the need for thorough review to ensure quality. This could indicate that the project will require a significant amount of resources, including budget, to meet these standards.\n\nBased on these factors, it is possible that the project budget for Q1 2025 could be higher than previous budgets due to the increased focus on systematic approach, comprehensive testing, detailed planning, and industry standards. However, without more specific information, it is difficult to provide a definitive answer to the question.",
+      "accuracy": 0.0,
+      "latency_ms": 9679.211139678955,
+      "tokens_used": 423,
+      "success": true
+    },
+    {
+      "strategy": "SELECT",
+      "step": 2,
+      "question": "How many engineers are on the team?",
+      "expected_answer": "15",
+      "response": "Based on the text provided, there is no direct answer to the question of how many engineers are on the team. However, there are several mentions of the team and the company's need for detailed planning, comprehensive testing, and systematic approach across all departments, which suggests that there are likely multiple engineers involved in the project or initiative.\n\nFor example, the text states that \"The team manages thorough review for optimal performance and efficiency,\" and \"The implementation of The company supports detailed planning across all departments.\" These phrases suggest that there is a team of engineers working on the project, and that they are involved in various aspects of the planning and execution.\n\nAdditionally, the text mentions the need for comprehensive testing and systematic approach across all departments, which implies that there are multiple engineers involved in the project, each with their own area of expertise and responsibility.\n\nOverall, while there is no direct answer to the question of how many engineers are on the team, the text suggests that there are likely several engineers involved in the project or initiative.",
+      "accuracy": 0.0,
+      "latency_ms": 7018.445014953613,
+      "tokens_used": 291,
+      "success": true
+    },
+    {
+      "strategy": "SELECT",
+      "step": 3,
+      "question": "When is the launch date?",
+      "expected_answer": "March 15th, 2025",
+      "response": "The launch date is not specified in the provided text, so I cannot provide a definitive answer to your question. However, based on the information provided, it seems that the project or system is still in the planning and development stage, and the launch date has not been determined yet. It's possible that the launch date may be revealed later in the text or in future updates, but without more context, I cannot provide a specific answer to your question.",
+      "accuracy": 0.0,
+      "latency_ms": 3997.3747730255127,
+      "tokens_used": 114,
+      "success": true
+    },
+    {
+      "strategy": "SELECT",
+      "step": 4,
+      "question": "What is the customer satisfaction rate?",
+      "expected_answer": "94%",
+      "response": "According to industry standards and best practices, the customer satisfaction rate for a project or system like the one described in the text is high if it has undergone comprehensive testing and detailed planning. This is because thorough review and careful analysis ensure that the system meets the required quality standards and provides optimal performance and efficiency.\n\nIn recent developments, The project has demonstrated the need for systematic approach to ensure quality, which suggests that the customer satisfaction rate is likely high. Additionally, stakeholder feedback emphasizes that The system provides thorough review and comprehensive testing, which further indicates a high customer satisfaction rate.\n\nPerformance metrics reveal that The company supports comprehensive testing effectively, which suggests that the customer satisfaction rate is also high. Best practices suggest that The project should prioritize comprehensive testing to ensure quality, which implies that the customer satisfaction rate is likely to be high.\n\nOverall, based on the information provided in the text, it can be concluded that the customer satisfaction rate for this project or system is likely to be high due to the emphasis on thorough review, careful analysis, and comprehensive testing.",
+      "accuracy": 0.0,
+      "latency_ms": 7315.184831619263,
+      "tokens_used": 323,
+      "success": true
+    },
+    {
+      "strategy": "SELECT",
+      "step": 5,
+      "question": "How many monthly active users are there?",
+      "expected_answer": "150,000",
+      "response": "Based on the text provided, we can infer that the number of monthly active users is not explicitly mentioned or provided. However, we can make some educated guesses based on the information given.\n\nThe text mentions that The project provides thorough review across all departments, and The data needs detailed planning for optimal performance and efficiency. This suggests that there are multiple departments involved in the project, which could potentially mean a large number of monthly active users.\n\nAdditionally, the text states that The team requires systematic approach effectively, and The data provides comprehensive testing effectively. These statements suggest that the project is well-organized and thorough in its approach, which could also indicate a larger user base.\n\nHowever, without any explicit mention of the number of monthly active users, we cannot provide an exact figure. Therefore, our answer is \"Not Provided\" or \"N/A\".",
+      "accuracy": 0.0,
+      "latency_ms": 6289.099931716919,
+      "tokens_used": 236,
+      "success": true
+    },
+    {
+      "strategy": "COMPRESS",
+      "step": 1,
+      "question": "What is the project budget for Q1 2025?",
+      "expected_answer": "$2.5 million",
+      "response": "Based on the text provided, there is no direct answer to the question of the project budget for Q1 2025. However, there are several hints and clues that can be gathered from the text:\n\n1. The project supports comprehensive testing effectively: This suggests that the project has a robust testing process in place, which may indicate that the budget is allocated towards testing and quality assurance.\n2. The team has demonstrated the need for systematic approach: This suggests that the project has a structured approach to its work, which may indicate that the budget is allocated towards planning and organization.\n3. The data manages careful analysis for optimal performance and efficiency: This suggests that the project prioritizes analysis and decision-making, which may indicate that the budget is allocated towards data analysis and interpretation.\n4. Research indicates that The company manages systematic approach in most scenarios: This suggests that the company has a consistent approach to its projects, which may indicate that the budget is allocated towards planning and organization.\n\nBased on these clues, it is possible that the project budget for Q1 2025 is allocated towards testing, analysis, and planning. However, without more specific information, it is impossible to provide a definitive answer.",
+      "accuracy": 0.0,
+      "latency_ms": 6079.058885574341,
+      "tokens_used": 330,
+      "success": true
+    },
+    {
+      "strategy": "COMPRESS",
+      "step": 2,
+      "question": "How many engineers are on the team?",
+      "expected_answer": "15",
+      "response": "Based on the text provided, we can infer that there are at least 5 engineers on the team:\n\n1. The team has demonstrated the need for a systematic approach.\n2. The team has demonstrated the need for thorough review.\n3. The project supports comprehensive testing effectively.\n4. The company manages thorough review to ensure quality.\n5. The data manages careful analysis for optimal performance and efficiency.\n\nTherefore, there are at least 5 engineers on the team: one for each of these roles.",
+      "accuracy": 0.0,
+      "latency_ms": 3011.5597248077393,
+      "tokens_used": 123,
+      "success": true
+    },
+    {
+      "strategy": "COMPRESS",
+      "step": 3,
+      "question": "When is the launch date?",
+      "expected_answer": "March 15th, 2025",
+      "response": "Based on the text provided, there is no clear answer to when the launch date is. The text mentions that the team has demonstrated the need for thorough review and systematic approach, but does not provide a specific launch date. It also mentions that the project supports comprehensive testing effectively and provides thorough review across all departments, but again does not provide a launch date.\n\nWithout additional context or information, it is difficult to determine when the launch date will be. It is possible that the launch date has already passed, or that it is still pending depending on various factors such as the progress of the project and the availability of resources.",
+      "accuracy": 0.0,
+      "latency_ms": 3391.019105911255,
+      "tokens_used": 171,
+      "success": true
+    },
+    {
+      "strategy": "COMPRESS",
+      "step": 4,
+      "question": "What is the customer satisfaction rate?",
+      "expected_answer": "94%",
+      "response": "Based on the text provided, there is no direct answer to the question of customer satisfaction rate. However, we can infer some information about customer satisfaction from the context.\n\nFirstly, the text highlights that stakeholder feedback emphasizes the need for thorough review and careful analysis, indicating that customers are likely to be satisfied with the level of attention to detail and quality provided by the project.\n\nSecondly, research indicates that The company manages systematic approach in most scenarios, which suggests that the project has a consistent and well-structured approach to meeting customer needs.\n\nLastly, the text mentions that recent developments have demonstrated the need for thorough review, which could indicate that the project is continuously improving and adapting to customer feedback and changing requirements.\n\nOverall, while there is no direct answer to the question of customer satisfaction rate, the context suggests that customers are likely to be satisfied with the level of attention to detail and quality provided by the project.",
+      "accuracy": 0.0,
+      "latency_ms": 5011.485815048218,
+      "tokens_used": 270,
+      "success": true
+    },
+    {
+      "strategy": "COMPRESS",
+      "step": 5,
+      "question": "How many monthly active users are there?",
+      "expected_answer": "150,000",
+      "response": "Based on the text provided, we can infer that there are several monthly active users of the system. Here's why:\n\n1. The project supports comprehensive testing effectively, which suggests that there are multiple users who are actively using the system to test it.\n2. Stakeholder feedback emphasizes that the system needs careful analysis, which implies that there are stakeholders who are regularly interacting with the system and providing feedback.\n3. The team has demonstrated the need for a systematic approach, which suggests that they are actively working on the system and managing it for optimal performance and efficiency.\n4. Research indicates that the company manages systematic approach in most scenarios, which implies that there are multiple users who are using the system in different contexts.\n\nBased on these inferences, we can estimate that there are several monthly active users of the system. However, without more specific information, it's difficult to provide an exact number.",
+      "accuracy": 0.0,
+      "latency_ms": 5026.031732559204,
+      "tokens_used": 249,
+      "success": true
+    },
+    {
+      "strategy": "WRITE",
+      "step": 1,
+      "question": "What is the project budget for Q1 2025?",
+      "expected_answer": "$2.5 million",
+      "response": "The project budget for Q1 2025 is $2.5 million.",
+      "accuracy": 1.0,
+      "latency_ms": 2361.461877822876,
+      "tokens_used": 11,
+      "success": true
+    },
+    {
+      "strategy": "WRITE",
+      "step": 2,
+      "question": "How many engineers are on the team?",
+      "expected_answer": "15",
+      "response": "Based on the information provided in the scratchpad memory, there are 15 engineers on the team.",
+      "accuracy": 1.0,
+      "latency_ms": 2581.521987915039,
+      "tokens_used": 23,
+      "success": true
+    },
+    {
+      "strategy": "WRITE",
+      "step": 3,
+      "question": "When is the launch date?",
+      "expected_answer": "March 15th, 2025",
+      "response": "The launch date is scheduled for March 15th, 2025.",
+      "accuracy": 1.0,
+      "latency_ms": 2668.992042541504,
+      "tokens_used": 12,
+      "success": true
+    },
+    {
+      "strategy": "WRITE",
+      "step": 4,
+      "question": "What is the customer satisfaction rate?",
+      "expected_answer": "94%",
+      "response": "According to step 4, the customer satisfaction rate is currently 94%.",
+      "accuracy": 1.0,
+      "latency_ms": 2855.459213256836,
+      "tokens_used": 17,
+      "success": true
+    },
+    {
+      "strategy": "WRITE",
+      "step": 5,
+      "question": "How many monthly active users are there?",
+      "expected_answer": "150,000",
+      "response": "Based on the information provided in the scratchpad memory, there are 150,000 monthly active users.",
+      "accuracy": 1.0,
+      "latency_ms": 2980.1220893859863,
+      "tokens_used": 24,
+      "success": true
+    }
+  ],
+  "statistics": {
+    "SELECT": {
+      "overall": {
+        "accuracy": {
+          "mean": 0.0
+        },
+        "latency_ms": {
+          "mean": 6859.8631381988525
+        },
+        "tokens_used": {
+          "mean": 277.4
+        }
+      },
+      "by_step": {
+        "step_1": {
+          "accuracy": {
+            "mean": 0.0
+          },
+          "latency_ms": {
+            "mean": 9679.211139678955
+          }
+        },
+        "step_2": {
+          "accuracy": {
+            "mean": 0.0
+          },
+          "latency_ms": {
+            "mean": 7018.445014953613
+          }
+        },
+        "step_3": {
+          "accuracy": {
+            "mean": 0.0
+          },
+          "latency_ms": {
+            "mean": 3997.3747730255127
+          }
+        },
+        "step_4": {
+          "accuracy": {
+            "mean": 0.0
+          },
+          "latency_ms": {
+            "mean": 7315.184831619263
+          }
+        },
+        "step_5": {
+          "accuracy": {
+            "mean": 0.0
+          },
+          "latency_ms": {
+            "mean": 6289.099931716919
+          }
+        }
+      }
+    },
+    "COMPRESS": {
+      "overall": {
+        "accuracy": {
+          "mean": 0.0
+        },
+        "latency_ms": {
+          "mean": 4503.831052780151
+        },
+        "tokens_used": {
+          "mean": 228.6
+        }
+      },
+      "by_step": {
+        "step_1": {
+          "accuracy": {
+            "mean": 0.0
+          },
+          "latency_ms": {
+            "mean": 6079.058885574341
+          }
+        },
+        "step_2": {
+          "accuracy": {
+            "mean": 0.0
+          },
+          "latency_ms": {
+            "mean": 3011.5597248077393
+          }
+        },
+        "step_3": {
+          "accuracy": {
+            "mean": 0.0
+          },
+          "latency_ms": {
+            "mean": 3391.019105911255
+          }
+        },
+        "step_4": {
+          "accuracy": {
+            "mean": 0.0
+          },
+          "latency_ms": {
+            "mean": 5011.485815048218
+          }
+        },
+        "step_5": {
+          "accuracy": {
+            "mean": 0.0
+          },
+          "latency_ms": {
+            "mean": 5026.031732559204
+          }
+        }
+      }
+    },
+    "WRITE": {
+      "overall": {
+        "accuracy": {
+          "mean": 1.0
+        },
+        "latency_ms": {
+          "mean": 2689.5114421844482
+        },
+        "tokens_used": {
+          "mean": 17.4
+        }
+      },
+      "by_step": {
+        "step_1": {
+          "accuracy": {
+            "mean": 1.0
+          },
+          "latency_ms": {
+            "mean": 2361.461877822876
+          }
+        },
+        "step_2": {
+          "accuracy": {
+            "mean": 1.0
+          },
+          "latency_ms": {
+            "mean": 2581.521987915039
+          }
+        },
+        "step_3": {
+          "accuracy": {
+            "mean": 1.0
+          },
+          "latency_ms": {
+            "mean": 2668.992042541504
+          }
+        },
+        "step_4": {
+          "accuracy": {
+            "mean": 1.0
+          },
+          "latency_ms": {
+            "mean": 2855.459213256836
+          }
+        },
+        "step_5": {
+          "accuracy": {
+            "mean": 1.0
+          },
+          "latency_ms": {
+            "mean": 2980.1220893859863
+          }
+        }
+      }
+    }
+  }
+}

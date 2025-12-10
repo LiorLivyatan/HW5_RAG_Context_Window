@@ -1,0 +1,88 @@
+{
+  "experiment": "Context Size Impact",
+  "config": {
+    "iterations": 1
+  },
+  "raw_results": [
+    {
+      "document_count": 5,
+      "accuracy": 1.0,
+      "latency_ms": 5697.835922241211,
+      "tokens_used": 11,
+      "response_text": "The project deadline is December 15th, 2025.",
+      "success": true
+    },
+    {
+      "document_count": 10,
+      "accuracy": 1.0,
+      "latency_ms": 6862.835168838501,
+      "tokens_used": 11,
+      "response_text": "The project deadline is December 15th, 2025.",
+      "success": true
+    },
+    {
+      "document_count": 20,
+      "accuracy": 1.0,
+      "latency_ms": 10228.127241134644,
+      "tokens_used": 11,
+      "response_text": "The project deadline is December 15th, 2025.",
+      "success": true
+    }
+  ],
+  "statistics": {
+    "5": {
+      "accuracy": {
+        "mean": 1.0,
+        "std": 0.0,
+        "ci_95": [
+          1.0,
+          1.0
+        ]
+      },
+      "latency_ms": {
+        "mean": 5697.835922241211,
+        "std": 0.0
+      },
+      "tokens_used": {
+        "mean": 11.0,
+        "std": 0.0
+      }
+    },
+    "10": {
+      "accuracy": {
+        "mean": 1.0,
+        "std": 0.0,
+        "ci_95": [
+          1.0,
+          1.0
+        ]
+      },
+      "latency_ms": {
+        "mean": 6862.835168838501,
+        "std": 0.0
+      },
+      "tokens_used": {
+        "mean": 11.0,
+        "std": 0.0
+      }
+    },
+    "20": {
+      "accuracy": {
+        "mean": 1.0,
+        "std": 0.0,
+        "ci_95": [
+          1.0,
+          1.0
+        ]
+      },
+      "latency_ms": {
+        "mean": 10228.127241134644,
+        "std": 0.0
+      },
+      "tokens_used": {
+        "mean": 11.0,
+        "std": 0.0
+      }
+    }
+  }
+}
